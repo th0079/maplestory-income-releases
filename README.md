@@ -1,1 +1,1 @@
-# maplestory-income-release
+# maplestory-income-releases
