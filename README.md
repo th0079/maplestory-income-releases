@@ -1,4 +1,4 @@
-# 🍁 Maple Income Releases
+# <img src="./docs/screenshots/app-logo.png" width="32" height="32" align="top" alt="Maple Income" /> Maple Income Releases
 
 메이플스토리 수익 정산 & 캐릭터·숙제·강화 통합 관리 데스크톱 앱 **Maple Income** 배포 저장소입니다.
 
