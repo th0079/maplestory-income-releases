@@ -1,13 +1,10 @@
-# 🍁 Maple Income (메이플스토리 수익 계산기 & 캐릭터 통합 관리 앱)
+# 🍁 Maple Income Releases
 
-> **🌐 공식 기능 소개 및 12개 페이지 상세 사용 안내 웹사이트 (GitHub Pages)**  
-> 👉 **[https://th0079.github.io/maplestory-income-releases/](https://th0079.github.io/maplestory-income-releases/)**  
-> *(위 웹페이지에서 12개 사이드 페이지별 대표 화면과 클릭형 세부 사용 가이드 42장을 한눈에 확인하실 수 있습니다.)*
+메이플스토리 수익 계산기 **maple-income** 배포 전용 저장소입니다.
 
-**Maple Income**은 메이플스토리 유저를 위한 **주간·월간 보스 결정석 정산, 인게임 메이플 스케줄러(보스·숙제) 자동 동기화, 드롭 아이템·가계부·사냥 세션 관리, 캐릭터 장착 장비·스펙(8개 탭)·성장 히스토리·강화 기록(스타포스/잠재능력/큐브) 통합 분석** Windows 데스크톱 애플리케이션입니다.
-
-- 📥 **최신 설치 파일 다운로드**: [Releases 페이지 바로가기](https://github.com/th0079/maplestory-income-releases/releases/latest)
-- 🔑 **NEXON Open API 정식 연동**: 캐릭터·장비·스펙·유니온·스케줄러·강화 이력 자동 조회 (`Data based on NEXON Open API`)
+[![Latest Release](https://img.shields.io/github/v/release/th0079/maplestory-income-releases?label=latest&style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/th0079/maplestory-income-releases/total?style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases)
+[![GitHub Pages](https://img.shields.io/badge/guide-GitHub%20Pages-2563eb?style=for-the-badge&logo=github)](https://th0079.github.io/maplestory-income-releases/)
 
 ---
 
