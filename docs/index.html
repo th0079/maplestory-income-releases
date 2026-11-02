@@ -77,9 +77,10 @@
         <a href="#api-info" class="hover:text-white transition">NEXON Open API 연동</a>
       </nav>
       <div class="flex items-center gap-2.5">
-        <a href="https://github.com/th0079/maplestory-income-releases/releases/latest" target="_blank" rel="noopener noreferrer"
+        <a href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.63.0/Maple-Income-Setup-2.63.0.exe"
+           data-direct-exe-download
            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/25 transition">
-          <span>최신 버전 다운로드</span>
+          <span data-exe-label>최신 버전 다운로드 (.exe)</span>
         </a>
       </div>
     </div>
@@ -102,9 +103,10 @@
             <strong>Maple Income</strong>은 주간·월간 보스 결정석 정산(월드당 90개·캐릭터당 12개 한도 최적화), 인게임 <strong>메이플 스케줄러 API 자동 동기화</strong>, 드롭 아이템·가계부·사냥 기록, 장착 장비·스펙(HEXA/V매트릭스/유니온)·성장 히스토리·스타포스/잠재능력 강화 기록까지 한곳에서 관리하는 올인원 메이플스토리 매니저입니다.
           </p>
           <div class="flex flex-wrap gap-3 pt-1">
-            <a href="https://github.com/th0079/maplestory-income-releases/releases/latest" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.63.0/Maple-Income-Setup-2.63.0.exe"
+               data-direct-exe-download
                class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-xl shadow-blue-600/25 transition">
-              <span>Windows 설치 파일 다운로드 (.exe)</span>
+              <span data-exe-hero-label>최신 버전 설치 파일 다운로드 (.exe)</span>
             </a>
             <a href="#pages-guide"
                class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 transition">
@@ -894,6 +896,33 @@
     // 초기 렌더링 후 첫 번째 페이지(대시보드)는 예시로 펼쳐 둠
     renderPages('all');
     toggleDetail('page-01', true);
+
+    // GitHub Latest Release API를 조회해 항상 최신 버전의 .exe 직접 다운로드 URL로 자동 갱신
+    (async function resolveLatestExeDownloadUrl() {
+      try {
+        const res = await fetch('https://api.github.com/repos/th0079/maplestory-income-releases/releases/latest');
+        if (!res.ok) return;
+        const release = await res.json();
+        const exeAsset = Array.isArray(release.assets)
+          ? release.assets.find(a => typeof a.name === 'string' && a.name.endsWith('.exe'))
+          : null;
+        if (exeAsset && exeAsset.browser_download_url) {
+          document.querySelectorAll('[data-direct-exe-download]').forEach(el => {
+            el.setAttribute('href', exeAsset.browser_download_url);
+          });
+        }
+        if (release.tag_name) {
+          document.querySelectorAll('[data-exe-label]').forEach(el => {
+            el.textContent = `최신 버전 다운로드 (${release.tag_name})`;
+          });
+          document.querySelectorAll('[data-exe-hero-label]').forEach(el => {
+            el.textContent = `Windows 설치 파일 다운로드 (${release.tag_name} .exe)`;
+          });
+        }
+      } catch (_) {
+        // 네트워크 제한 시 기본 설정된 최신 .exe 직접 다운로드 링크 사용
+      }
+    })();
   </script>
 </body>
 </html>
