@@ -6,9 +6,6 @@
 [![Downloads](https://img.shields.io/github/downloads/th0079/maplestory-income-releases/total?style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases)
 [![GitHub Pages](https://img.shields.io/badge/guide-GitHub%20Pages-2563eb?style=for-the-badge&logo=github)](https://th0079.github.io/maplestory-income-releases/)
 
-> 👉 **12개 페이지 전체 화면 및 세부 사용법 안내**: **[https://th0079.github.io/maplestory-income-releases/](https://th0079.github.io/maplestory-income-releases/)**  
-> 👉 **최신 설치 파일(`.exe`) 다운로드**: **[Releases 최신 버전 바로가기](https://github.com/th0079/maplestory-income-releases/releases/latest)**
-
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 ---
