@@ -1082,7 +1082,16 @@
 
     // 초기 렌더링 후 첫 번째 페이지(대시보드)는 예시로 펼쳐 둠
     renderPages('all');
-    toggleDetail('page-01', true);
+    const initialHash = window.location.hash ? window.location.hash.slice(1) : '';
+    if (initialHash && PAGES_DATA.some(p => p.id === initialHash)) {
+      toggleDetail(initialHash, true);
+      setTimeout(() => {
+        const targetEl = document.getElementById(initialHash);
+        if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    } else {
+      toggleDetail('page-01', true);
+    }
 
     // GitHub Latest Release API를 조회해 항상 최신 버전의 .exe 직접 다운로드 URL로 자동 갱신
     (async function resolveLatestExeDownloadUrl() {
