@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maple Income — 메이플스토리 보스 수익 계산기 & 캐릭터 통합 관리 앱 소개·사용 안내</title>
+  <meta name="description" content="메이플스토리 보스 결정 수익, 드롭 아이템, 가계부, 사냥 기록 및 NEXON Open API 기반 메이플 스케줄러·장비·스펙·히스토리·강화 기록을 한곳에서 관리하는 데스크톱 애플리케이션 공식 소개 및 사용 안내 페이지입니다." />
+  <link rel="icon" type="image/png" href="./screenshots/icon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: #0b0f19;
+      color: #f1f5f9;
+    }
+    .glass-nav {
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+    }
+    .shot-card {
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+    .shot-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(59, 130, 246, 0.55);
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.85), 0 0 25px -5px rgba(59, 130, 246, 0.2);
+    }
+    .shot-img {
+      cursor: zoom-in;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+  <!-- 상단 고정 네비게이션 -->
+  <header class="glass-nav sticky top-0 z-40 border-b border-slate-800/80">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+      <a href="#" class="flex items-center gap-3">
+        <img src="./screenshots/icon.png" alt="Maple Income 로고" class="h-9 w-9 rounded-xl shadow-md" />
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-extrabold tracking-tight text-white">Maple Income</span>
+            <span class="rounded-full bg-blue-500/15 px-2.5 py-0.5 text-xs font-semibold text-blue-400 border border-blue-500/30">공식 안내</span>
+          </div>
+          <p class="text-[11px] text-slate-400">메이플스토리 보스 수익 · 캐릭터 스펙 · 스케줄러 통합 관리</p>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#overview" class="hover:text-white transition">핵심 특징</a>
+        <a href="#guide" class="hover:text-white transition">사용 안내 (시작하기)</a>
+        <a href="#features" class="hover:text-white transition">화면별 주요 기능</a>
+        <a href="#nexon-api" class="hover:text-white transition">NEXON Open API 안내</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <a
+          href="https://github.com/th0079/maplestory-income-releases/releases/latest"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-lg shadow-blue-600/25 hover:bg-blue-500 transition"
+        >
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+          </svg>
+          최신 설치 파일 다운로드
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 히어로 섹션 -->
+  <section class="relative overflow-hidden border-b border-slate-800/80 bg-gradient-to-b from-slate-900/70 via-[#0b0f19] to-[#0b0f19] pt-12 pb-16 sm:pt-16 sm:pb-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-semibold text-amber-300">
+          <span>🍁 Windows 데스크톱 애플리케이션</span>
+          <span class="text-slate-600">•</span>
+          <span>Data based on NEXON Open API</span>
+        </div>
+        <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
+          메이플스토리 수익·숙제·스펙을<br />
+          <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">한눈에 관리하는 올인원 대시보드</span>
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+          <strong>Maple Income</strong>은 다수의 캐릭터에 대한 <strong>주간·월간·일간 보스 결정 수익</strong>, <strong>보스 드롭 아이템 및 보관함</strong>, <strong>메소 가계부</strong>, <strong>사냥 타이머·기록</strong>은 물론, <strong>NEXON Open API</strong>와 연동된 <strong>인게임 스케줄러 자동 동기화·착용 장비·전투력/스펙·성장 히스토리·강화 기록</strong>을 한곳에서 제공하는 데스크톱 앱입니다.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="https://github.com/th0079/maplestory-income-releases/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-600/25 hover:bg-blue-500 transition"
+          >
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+            </svg>
+            최신 버전 다운로드 (.exe)
+          </a>
+          <a
+            href="#guide"
+            class="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-6 py-3.5 text-sm font-bold text-slate-200 hover:bg-slate-700/80 hover:text-white transition"
+          >
+            📖 처음 사용 안내 보기
+          </a>
+          <a
+            href="#features"
+            class="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/40 px-5 py-3.5 text-sm font-semibold text-slate-300 hover:bg-slate-800 hover:text-white transition"
+          >
+            🖼️ 전체 화면(19종) 둘러보기
+          </a>
+        </div>
+      </div>
+
+      <!-- 대표 대시보드 이미지 -->
+      <div class="mt-12">
+        <div class="overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-900 shadow-2xl">
+          <div class="flex items-center justify-between border-b border-slate-800 bg-slate-900/90 px-4 py-2.5 text-xs text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-rose-500/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-amber-500/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-500/80"></span>
+              <span class="ml-2 font-semibold text-slate-200">메인 대시보드 화면 — 예상/실현 수익 · 월드별 90개 결정 한도 · 목표 자산 · 메이플월드 펫 · 보스 체크리스트</span>
+            </div>
+            <span class="hidden sm:inline text-slate-500">이미지를 클릭하면 원본 크기로 확대됩니다</span>
+          </div>
+          <img
+            src="./screenshots/01-dashboard.png"
+            alt="Maple Income 메인 대시보드"
+            class="shot-img w-full object-cover"
+            onclick="openLightbox(this.src, this.alt)"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 핵심 특징 요약 -->
+  <section id="overview" class="border-b border-slate-800/80 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Core Values</span>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">주요 특징 한눈에 보기</h2>
+        <p class="mt-2 text-sm text-slate-400">복잡한 주간 보스 결정 계산부터 NEXON Open API 기반 스펙·숙제·강화 통계까지 하나의 앱에서 해결합니다.</p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/15 text-blue-400 text-xl font-bold">💎</div>
+          <h3 class="text-base font-bold text-white">정확한 보스 결정 최적화</h3>
+          <p class="mt-2 text-xs leading-relaxed text-slate-400">
+            캐릭터당 주간 12개 제한과 <strong>월드당 주간 90개 결정 판매 한도</strong>를 자동 반영하여 가장 비싼 결정 순으로 최적 수익을 계산합니다. 월간 보스(검은 마법사) 잠금 및 KST 목요일 00시 자동 결산을 지원합니다.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400 text-xl font-bold">⚡</div>
+          <h3 class="text-base font-bold text-white">인게임 스케줄러 자동 연동</h3>
+          <p class="mt-2 text-xs leading-relaxed text-slate-400">
+            NEXON Open API의 <strong>메이플 스케줄러 API</strong>와 연동하여 인게임에서 처치한 주간/월간 보스와 일일·주간 심볼 퀘스트, 에픽 던전, 몬스터파크, 길드 컨텐츠 현황을 클릭 한 번으로 동기화합니다.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-violet-500/15 text-violet-400 text-xl font-bold">⚔️</div>
+          <h3 class="text-base font-bold text-white">장비 · 스펙 · 성장 · 강화 조회</h3>
+          <p class="mt-2 text-xs leading-relaxed text-slate-400">
+            인게임 툴팁 형태의 <strong>착용 장비 상세 확인</strong>, 전투력·HEXA 코어·V매트릭스·유니온·심볼·어빌리티 통합 조회, 기간별 <strong>경험치/전투력 성장 차트</strong>, <strong>스타포스·잠재능력·큐브 강화 기록 및 확률 비교</strong>를 제공합니다.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500/15 text-amber-400 text-xl font-bold">🔒</div>
+          <h3 class="text-base font-bold text-white">로컬 DB 저장 & 다중 계정</h3>
+          <p class="mt-2 text-xs leading-relaxed text-slate-400">
+            모든 기록과 API Key는 외부 서버 전송 없이 <strong>사용자 PC 내부 SQLite DB</strong>에 안전하게 보관됩니다. 한 앱에서 <strong>최대 5개 계정</strong>을 분리 운영할 수 있으며 파일 백업·복원을 지원합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 사용 안내 (Step-by-Step 시작하기) -->
+  <section id="guide" class="border-b border-slate-800/80 bg-slate-900/30 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">User Guide</span>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">처음 사용 안내 (4단계로 시작하기)</h2>
+        <p class="mt-2 text-sm text-slate-400">설치부터 NEXON Open API Key 등록, 캐릭터 불러오기, 보스 프리셋 적용까지 누구나 1분 만에 설정할 수 있습니다.</p>
+      </div>
+
+      <div class="space-y-10">
+        <!-- Step 1 & Step 2 -->
+        <div class="grid gap-8 lg:grid-cols-2 items-center rounded-2xl border border-slate-800 bg-slate-900/70 p-6 sm:p-8">
+          <div class="space-y-5">
+            <div class="inline-flex items-center gap-2 rounded-lg bg-blue-500/15 px-3 py-1 text-xs font-bold text-blue-400">
+              STEP 1 & 2 · 설치 및 API Key 등록
+            </div>
+            <h3 class="text-xl font-extrabold text-white">1. 앱 설치 후 설정에서 NEXON Open API 키를 등록하세요</h3>
+            <ol class="space-y-3 text-sm text-slate-300 list-decimal list-inside leading-relaxed">
+              <li>
+                <a href="https://github.com/th0079/maplestory-income-releases/releases/latest" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline hover:text-blue-300">GitHub 최신 릴리스 페이지</a>에서 <code class="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-200">Maple-Income-Setup-x.y.z.exe</code>를 다운로드하여 설치합니다.
+              </li>
+              <li>
+                <a href="https://openapi.nexon.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline hover:text-blue-300">NEXON Open API 공식 사이트</a>에 로그인한 뒤 <strong>[내 애플리케이션]</strong>에서 메이플스토리 API Key를 발급받습니다.
+              </li>
+              <li>
+                앱 좌측 사이드바 하단의 <strong>⚙️ 설정(계정 탭)</strong>으로 이동하여 <strong>API 키</strong> 입력란에 발급받은 키를 붙여넣고 <strong>[저장]</strong>을 누릅니다.
+              </li>
+              <li>
+                부계정이나 챌린저스 월드 계정을 함께 관리하려면 좌측 상단 계정 스위치 또는 설정의 <strong>[+ 새 계정]</strong>으로 최대 5개 계정까지 각각 API 키를 등록할 수 있습니다.
+              </li>
+            </ol>
+            <div class="rounded-xl border border-slate-700/80 bg-slate-800/60 p-3.5 text-xs text-slate-300">
+              💡 <strong>안심 로컬 보관:</strong> 입력한 API Key는 사용자 PC에만 저장되며, 백업 파일을 내보낼 때도 외부 유출 방지를 위해 API Key는 자동 제외됩니다.
+            </div>
+          </div>
+          <div class="overflow-hidden rounded-xl border border-slate-700/80 shadow-lg">
+            <img
+              src="./screenshots/17-settings-account.png"
+              alt="설정 - 계정 및 NEXON Open API 키 등록 화면"
+              class="shot-img w-full"
+              onclick="openLightbox(this.src, this.alt)"
+            />
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="grid gap-8 lg:grid-cols-2 items-center rounded-2xl border border-slate-800 bg-slate-900/70 p-6 sm:p-8">
+          <div class="space-y-5">
+            <div class="inline-flex items-center gap-2 rounded-lg bg-emerald-500/15 px-3 py-1 text-xs font-bold text-emerald-400">
+              STEP 3 · 캐릭터 등록
+            </div>
+            <h3 class="text-xl font-extrabold text-white">2. 계정 내 260레벨 이상 캐릭터를 한 번에 불러오세요</h3>
+            <ol class="space-y-3 text-sm text-slate-300 list-decimal list-inside leading-relaxed">
+              <li>
+                대시보드 우측 상단의 <strong>[+ 캐릭터 추가]</strong> 버튼을 클릭합니다.
+              </li>
+              <li>
+                기본 탭인 <strong>[계정 내 캐릭터 빠른 등록]</strong>에서 NEXON Open API를 통해 내 계정의 <strong>260레벨 이상 캐릭터 목록</strong>이 높은 레벨 순으로 자동 표시됩니다.
+              </li>
+              <li>
+                상단의 <strong>[미등록 전체 등록]</strong> 버튼을 누르거나 원하는 캐릭터의 <strong>[+ 빠른 등록]</strong>을 클릭하면 아바타·월드·직업·레벨·길드 정보까지 즉시 연동됩니다.
+              </li>
+              <li>
+                <strong>[직접 검색]</strong> 탭을 이용하면 캐릭터 닉네임으로 개별 검색하여 등록할 수도 있습니다.
+              </li>
+            </ol>
+          </div>
+          <div class="overflow-hidden rounded-xl border border-slate-700/80 shadow-lg">
+            <img
+              src="./screenshots/02-add-character.png"
+              alt="계정 내 260레벨 이상 캐릭터 빠른 등록 모달"
+              class="shot-img w-full"
+              onclick="openLightbox(this.src, this.alt)"
+            />
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="grid gap-8 lg:grid-cols-2 items-center rounded-2xl border border-slate-800 bg-slate-900/70 p-6 sm:p-8">
+          <div class="space-y-5">
+            <div class="inline-flex items-center gap-2 rounded-lg bg-indigo-500/15 px-3 py-1 text-xs font-bold text-indigo-400">
+              STEP 4 · 보스 설정 & 스케줄러 자동 모드
+            </div>
+            <h3 class="text-xl font-extrabold text-white">3. 18종 고정 프리셋을 적용하거나 스케줄러 자동 모드를 켜세요</h3>
+            <ol class="space-y-3 text-sm text-slate-300 list-decimal list-inside leading-relaxed">
+              <li>
+                캐릭터 카드의 <strong>[보스 설정]</strong>을 열고 툴바의 <strong>[프리셋]</strong> 버튼을 누르면 <strong>검밑솔 ~ 익적솔 18단계 고정 프리셋</strong>(권장 환산 주스탯 구간 및 1인 수익 표시)을 클릭 한 번으로 적용할 수 있습니다.
+              </li>
+              <li>
+                <strong>⚡ 자동 모드 (스케줄러 연동)</strong>로 전환하면 인게임 메이플 스케줄러에 등록된 보스 구성과 처치 여부를 자동으로 불러옵니다.
+              </li>
+              <li>
+                <strong>수동 모드</strong>에서는 대시보드 캐릭터 카드의 보스 아이콘을 직접 클릭하여 처치 완료를 체크하고, 월간 보스(검은 마법사) 좌상단 자물쇠 버튼으로 이번 주 수익 제외(잠금)를 토글할 수 있습니다.
+              </li>
+            </ol>
+          </div>
+          <div class="grid gap-4">
+            <div class="overflow-hidden rounded-xl border border-slate-700/80 shadow-lg">
+              <img
+                src="./screenshots/04-boss-preset.png"
+                alt="보스 설정 모달 - 18종 간편 고정 프리셋"
+                class="shot-img w-full"
+                onclick="openLightbox(this.src, this.alt)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 화면별 주요 기능 전체 둘러보기 (19개 화면) -->
+  <section id="features" class="border-b border-slate-800/80 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Feature Tour</span>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">페이지별 주요 기능 상세 안내</h2>
+        <p class="mt-2 text-sm text-slate-400">
+          사이드바의 모든 메뉴와 핵심 모달 화면입니다. 카테고리 탭으로 원하는 기능을 필터링하거나 이미지를 클릭해 크게 확인할 수 있습니다.
+        </p>
+
+        <!-- 카테고리 필터 버튼 -->
+        <div class="mt-6 flex flex-wrap justify-center gap-2" id="feature-filters">
+          <button type="button" data-filter="all" class="filter-btn rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white transition">
+            전체 화면 (19)
+          </button>
+          <button type="button" data-filter="income" class="filter-btn rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white transition">
+            💰 수익 · 자산 · 기록 관리 (9)
+          </button>
+          <button type="button" data-filter="nexon" class="filter-btn rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white transition">
+            ⚡ NEXON Open API 조회 (7)
+          </button>
+          <button type="button" data-filter="system" class="filter-btn rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white transition">
+            🏆 계정 · 출석 · 펫 · 업적 (3)
+          </button>
+        </div>
+      </div>
+
+      <!-- 스크린샷 그리드 -->
+      <div class="grid gap-8 md:grid-cols-2" id="feature-grid">
+
+        <!-- 01 -->
+        <article data-category="income" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/01-dashboard.png" alt="01. 메인 대시보드 및 보스 체크리스트" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-blue-500/15 px-2.5 py-0.5 text-[11px] font-bold text-blue-400">대시보드</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">수익 · 자산 관리</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">01. 메인 대시보드 & 보스 체크리스트</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                이번 주 예상/실현 수익, 월드별 주간 결정 제한(x / 90개), 목표 자산 달성률 및 예상 완료 기간, 메이플포인트 시세 환산 카드(메이플월드 펫 서식지 포함)를 상단에 표시합니다. 하단 캐릭터 카드에서 수동/자동 모드 전환, 보스 클리어 체크, 주간 수익 공유 이미지 저장을 지원합니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article data-category="nexon" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/02-add-character.png" alt="02. 계정 내 260레벨 이상 캐릭터 빠른 등록" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400">NEXON Open API</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">캐릭터 추가</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">02. 계정 내 캐릭터 빠른 등록 & 직접 검색</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                NEXON Open API의 계정 캐릭터 목록 조회를 통해 계정 내 260레벨 이상 캐릭터를 레벨 순으로 불러와 아바타와 함께 카드로 보여줍니다. <strong>[미등록 전체 등록]</strong>으로 한 번에 추가하거나 닉네임으로 직접 검색할 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article data-category="income" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/03-boss-config.png" alt="03. 보스 설정 및 결정 가격 직접 수정" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-blue-500/15 px-2.5 py-0.5 text-[11px] font-bold text-blue-400">보스 설정</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">대시보드 모달</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">03. 캐릭터별 보스 · 난이도 · 파티원 설정</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                주간·일간·월간·시즌 보스 탭별로 난이도와 파티 인원(1~6인)을 설정하며, 선택한 보스의 1인 수익과 주간 12개 한도를 실시간으로 보여줍니다. 인게임 패치로 결정 가격이 변경된 경우 <strong>[가격 수정]</strong> 토글로 직접 가격을 입력할 수도 있습니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article data-category="income" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/04-boss-preset.png" alt="04. 18종 고정 보스 프리셋 및 내 프리셋" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-blue-500/15 px-2.5 py-0.5 text-[11px] font-bold text-blue-400">보스 프리셋</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">대시보드 모달</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">04. 18종 고정 프리셋 (검밑솔~익적솔) & 내 프리셋</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                스펙 구간별 대표 보스돌이 라인업 18종(검밑솔, 노세이칼, 하세이적자, 익스우, 카칼솔, 익적솔 등)을 권장 HEXA 환산 주스탯 구간 및 1인 수익 합계와 함께 제공하여 부캐릭터 보스 구성을 즉시 마칠 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 -->
+        <article data-category="income" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/05-income.png" alt="05. 수익 현황 및 주간/월간 결산 차트" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-blue-500/15 px-2.5 py-0.5 text-[11px] font-bold text-blue-400">수익 현황</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">사이드바 메뉴</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">05. 주간 · 월간 수익 현황 및 추이 분석</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                보스 결정석, 보스 드롭 아이템, 가계부 순수익을 합산한 주간·월간 수익 추이 그래프와 캐릭터별 기여도, 드롭 아이템 상위 내역을 분석합니다. <strong>[주간/월간 이미지 저장]</strong>(캐릭터명 가리기 옵션 지원)으로 깔끔한 결산 카드를 저장할 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 06 -->
+        <article data-category="income" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/06-drop-items.png" alt="06. 보스 드롭 아이템 기록 및 드롭 보관함" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-blue-500/15 px-2.5 py-0.5 text-[11px] font-bold text-blue-400">드롭 아이템</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">사이드바 메뉴</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">06. 보스 드롭 아이템 정산 & 드롭 보관함</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                칠흑/광휘의 보스 장신구, 리레/컨티 링, 에테르넬 장비 등 주요 보스 드롭 아이템의 판매 금액, 경매장 수수료(5% / 3%), 파티 인원 분배금을 자동 계산합니다. 아직 판매하지 않은 아이템은 <strong>드롭 보관함</strong>에 넣어 두었다가 실제 판매 시점에 수익으로 반영할 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 07 -->
+        <article data-category="income" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/07-ledger.png" alt="07. 메소 가계부 수입·지출 내역 관리" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-blue-500/15 px-2.5 py-0.5 text-[11px] font-bold text-blue-400">가계부</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">사이드바 메뉴</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">07. 메소 가계부 (수입 · 지출 통합 관리)</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                아이템 판매, 사냥 수입, 스타포스 강화, 잠재능력 재설정, 심볼 업그레이드 등 인게임 메소 수입과 지출을 카테고리·캐릭터별로 기록합니다. 모든 메소 입력란에는 실시간 한글 금액 변환 힌트(조/억/만)가 함께 표시됩니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 08 -->
+        <article data-category="income" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/08-hunting.png" alt="08. 사냥 기록 및 재획 타이머·알람" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-blue-500/15 px-2.5 py-0.5 text-[11px] font-bold text-blue-400">사냥 기록</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">사이드바 메뉴 · 미니 위젯</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">08. 사냥 기록 & 오버레이 사냥 위젯</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                재획비(120분)·소재비(30분) 단위 사냥 타이머, 획득 메소 및 솔 에르다 조각 수량 기록, 시간당 평균 사냥 수익 통계를 제공합니다. 게임 화면 위에 띄워 두는 <strong>미니 사냥 위젯(PIP)</strong>과 반복 알람(버프/회수 알림)도 함께 지원합니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 09 -->
+        <article data-category="income" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/09-calendar.png" alt="09. 월간 활동 달력" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-blue-500/15 px-2.5 py-0.5 text-[11px] font-bold text-blue-400">활동 달력</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">사이드바 메뉴</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">09. 월간 활동 달력</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                한 달 동안의 보스 처치, 드롭 아이템 획득, 가계부 수입/지출, 사냥 기록을 날짜별 달력 위에서 한눈에 확인하고, 특정 날짜를 선택해 당일 상세 활동 내역을 모아 볼 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article data-category="nexon" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/10-homework.png" alt="10. 스케줄러 컨텐츠 (일일/주간 숙제 현황)" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400">NEXON Open API</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">스케줄러 컨텐츠</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">10. 스케줄러 컨텐츠 (일일 · 주간 숙제 현황표)</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                메이플 스케줄러 API를 통해 계정 공통 <strong>에픽 던전</strong>, 월드 공통 <strong>몬스터파크 · 익스트림 몬스터파크</strong>, 길드 공통 <strong>지하 수로 · 플래그 레이스 점수</strong>, 그리고 캐릭터별 <strong>아케인/그란디스 일일·주간 퀘스트 및 무릉도장</strong> 완료 현황을 한 장의 표로 보여줍니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11 -->
+        <article data-category="nexon" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/11-equipment.png" alt="11. 착용 장비 확인 및 인게임 스타일 상세 툴팁" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400">NEXON Open API</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">장비 확인</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">11. 착용 장비 확인 (인게임 스타일 툴팁)</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                등록된 캐릭터의 착용 장비 슬롯을 그리드로 표시하며, 각 장비를 클릭하면 스타포스 수치, 스탯 분해(기본 + 스타포스 + 주문서 + 추가옵션), 잠재능력·에디셔널 잠재능력, 소울 옵션, 익셉셔널 강화를 인게임 툴팁 형태로 상세하게 표시합니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12 -->
+        <article data-category="nexon" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/12-spec-stat.png" alt="12. 캐릭터 스펙 - 전투력 및 스탯 개요" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400">NEXON Open API</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">캐릭터 스펙</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">12. 캐릭터 스펙 — 전투력 · 랭킹 · 핵심 스탯</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                전투력 구간별 강조 표기, 종합/월드/직업 레벨 랭킹, 핵심 전투 지표(스탯공격력, 보스 데미지, 방어율 무시, 최종 데미지, 크리티컬 데미지)와 공격/능력치·포스/유틸리티 세부 스탯, 심볼·어빌리티·세트 효과·링크 스킬·V매트릭스를 탭별로 조회합니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 13 -->
+        <article data-category="nexon" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/13-spec-hexa.png" alt="13. 캐릭터 스펙 - HEXA 매트릭스 (6차 코어 및 헥사 스탯)" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400">NEXON Open API</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">캐릭터 스펙 (헥사)</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">13. 캐릭터 스펙 — HEXA 매트릭스 & 재화 진행도</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                6차 스킬 코어, 마스터리 코어, 강화 코어, 공용 코어(솔 야누스)의 레벨과 누적 소모/남은 솔 에르다 및 조각 진행도를 계산하며, HEXA 스탯 코어 I·II·III의 메인/서브 스탯 레벨을 한눈에 보여줍니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 14 -->
+        <article data-category="nexon" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/14-spec-union.png" alt="14. 캐릭터 스펙 - 유니온 공격대·챔피언·아티팩트" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400">NEXON Open API</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">캐릭터 스펙 (유니온)</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">14. 캐릭터 스펙 — 유니온 · 챔피언 · 아티팩트</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                유니온 레벨·등급, 공격대 전투력 및 유니온 순위, 적용 중인 유니온 스탯과 공격대원 효과, 유니온 챔피언 휘장 효과, 유니온 아티팩트 레벨 및 크리스탈 유효 기간을 한 화면에서 확인합니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 15 -->
+        <article data-category="nexon" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/15-character-history.png" alt="15. 캐릭터 히스토리 (경험치·레벨·전투력·유니온 추이)" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400">NEXON Open API</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">캐릭터 히스토리</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">15. 캐릭터 성장 히스토리 (경험치 · 레벨 · 전투력 · 유니온)</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                선택한 기간(최근 7일/30일/90일/전체) 동안 캐릭터의 일자별 경험치 획득량과 레벨업 예상일, 레벨 상승 계단 그래프, 전투력 변화, 유니온 레벨 추이를 시각화합니다. 월드 리프로 OCID가 변경된 캐릭터도 이전 기록을 자동으로 이어서 표시합니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 16 -->
+        <article data-category="nexon" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/16-enhance-history.png" alt="16. 강화 기록 (스타포스·잠재능력·큐브 내역 및 기대 확률 비교)" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400">NEXON Open API</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">강화 기록</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">16. 강화 기록 & 공식 확률 대비 기대치 비교</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                NEXON Open API 강화 이력(스타포스, 잠재능력 재설정, 큐브)을 조회하여 총 소모 메소, 파괴 횟수, 등급 상승 횟수를 집계하고 공식 확률 대비 실제 결과를 비교 분석합니다. 강화 지출을 가계부로 바로 내보내는 빠른 등록 기능도 제공합니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 17 -->
+        <article data-category="system" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/17-settings-account.png" alt="17. 설정 - 다중 계정 관리 및 데이터 백업" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-amber-500/15 px-2.5 py-0.5 text-[11px] font-bold text-amber-400">설정 · 계정</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">다중 계정 · 백업</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">17. 통합 프로필 & 최대 5개 다중 계정 · 백업 관리</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                최대 5개의 메이플스토리 계정을 분리 등록하여 각 계정의 API 키·캐릭터·수익 기록을 독립적으로 관리할 수 있습니다. JSON 로컬 백업 파일 내보내기/불러오기 및 선택적 클라우드 스냅샷 동기화를 지원합니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 18 -->
+        <article data-category="system" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
+          <img src="./screenshots/18-settings-pet.png" alt="18. 출석 레벨 및 메이플월드 마을·펫 해금" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-amber-500/15 px-2.5 py-0.5 text-[11px] font-bold text-amber-400">출석 · 펫</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">성장 시스템</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">18. 일일 출석 체크 & 메이플월드 마을 · 펫 해금</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                매일 앱 실행 및 일일/주간 퀘스트 달성으로 계정 레벨(Lv.1~99)을 올리면 헤네시스·루디브리엄·아쿠아리움·리프레·무릉 등 9곳의 마을 배경과 달팽이·핑크빈·혼테일·판다 등 20종의 펫이 해금되어 대시보드에서 뛰어놉니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19 -->
+        <article data-category="system" class="shot-card flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 md:col-span-2">
+          <img src="./screenshots/19-achievements.png" alt="19. 업적 시스템 및 보스 처치 도감" class="shot-img w-full border-b border-slate-800" onclick="openLightbox(this.src, this.alt)" />
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="rounded-md bg-amber-500/15 px-2.5 py-0.5 text-[11px] font-bold text-amber-400">업적 · 보스 도감</span>
+                <span class="rounded-md bg-slate-800 px-2.5 py-0.5 text-[11px] text-slate-300">343종 업적 · 칭호 · 프로필 스킨</span>
+              </div>
+              <h3 class="text-lg font-bold text-white">19. 8개 분야 343종 업적 & 보스 도감 · 보상 프로필 스킨</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-300">
+                출석, 계정 레벨, 퀘스트, 보스 처치(보스·난이도별 도감 82종 포함), 드롭 아이템 컬렉션(칠흑·광휘·여명·익셉셔널), 누적 수익, 사냥, 캐릭터 성장 등 8개 분야 343개 업적을 달성하고 칭호와 레전드리·아케인·칠흑·광휘 프로필 배경 스킨을 해금할 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXON Open API 이용 안내 및 데이터 정책 -->
+  <section id="nexon-api" class="border-b border-slate-800/80 bg-slate-900/40 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 sm:p-10">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-400">NEXON Open API Integration</span>
+            <h2 class="mt-1 text-2xl font-extrabold text-white">NEXON Open API 활용 안내 및 데이터 보호 정책</h2>
+          </div>
+          <span class="rounded-xl border border-slate-700 bg-slate-800 px-4 py-2 text-xs font-bold text-slate-200">
+            Data based on NEXON Open API
+          </span>
+        </div>
+
+        <div class="mt-6 grid gap-8 lg:grid-cols-2">
+          <div>
+            <h3 class="text-base font-bold text-white mb-3">📌 활용 중인 NEXON Open API 기능</h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li>• <strong>계정 캐릭터 목록 및 식별자(OCID) 조회</strong>: 260레벨 이상 캐릭터 빠른 등록 및 닉네임 변경·월드 리프 시 기존 기록 자동 연결</li>
+              <li>• <strong>메이플 스케줄러 조회 (<code class="text-blue-300">/maplestory/v1/scheduler/character-state</code>)</strong>: 주간/월간 보스 처치 자동 동기화 및 일일/주간 심볼 퀘스트·에픽 던전·몬스터파크·길드 컨텐츠 현황 표시</li>
+              <li>• <strong>캐릭터 정보·스탯·장비·스킬 조회</strong>: 기본 정보, 상세 스탯/전투력, 착용 장비(스타포스/잠재/추옵/소울), 아케인·어센틱 심볼, 어빌리티, 세트 효과, 링크 스킬, V매트릭스, HEXA 매트릭스(코어/스탯)</li>
+              <li>• <strong>유니온 및 랭킹 정보 조회</strong>: 유니온 레벨/공격대/아티팩트/챔피언, 종합 레벨 랭킹 및 유니온 랭킹</li>
+              <li>• <strong>강화 이력 조회 (<code class="text-blue-300">/maplestory/v1/history/*</code>)</strong>: 스타포스, 잠재능력 재설정, 큐브 사용 내역 및 통계</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-base font-bold text-white mb-3">🛡️ 개인정보 · API Key 보호 및 이용 원칙</h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li>• <strong>100% 로컬 API 호출</strong>: 사용자가 등록한 개인 NEXON Open API Key는 사용자 PC의 Electron Main 프로세스에만 저장되며, 별도의 외부 수집 서버를 거치지 않고 사용자 PC에서 <code class="text-slate-200">open.api.nexon.com</code>으로 직접 호출합니다.</li>
+              <li>• <strong>식별자(OCID/OUID) 보호</strong>: 식별자 원문은 화면·로그·백업 노출을 차단하고 해시 대리 값으로 치환하여 처리하며, 캐시된 강화 기록 데이터는 이용 약관에 따라 30일 이내 주기로 갱신합니다.</li>
+              <li>• <strong>출처 명시 준수</strong>: NEXON Open API 데이터를 표시하는 모든 화면 하단 및 사이드바에 공식 출처 문구(<strong>Data based on NEXON Open API</strong>)를 명시합니다.</li>
+              <li>• <strong>비공식 팬메이드 프로젝트</strong>: 본 프로그램은 넥슨코리아(NEXON Korea)와 공식 제휴 관계가 없는 비영리 팬메이드(Fan-made) 유틸리티이며, 게임 내 이미지 및 명칭의 저작권은 ㈜넥슨코리아에 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="py-10 text-center text-xs text-slate-500">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-2">
+      <p class="font-semibold text-slate-300">Maple Income — 메이플스토리 보스 수익 계산기 & 캐릭터 통합 관리 앱</p>
+      <p>Data based on NEXON Open API · 본 서비스는 NEXON Open API를 활용하여 제작된 팬메이드 데스크톱 애플리케이션입니다.</p>
+      <p class="pt-2">
+        <a href="https://github.com/th0079/maplestory-income-releases" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">GitHub 저장소</a>
+        <span class="mx-2">·</span>
+        <a href="https://github.com/th0079/maplestory-income-releases/releases" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">전체 릴리스 노트</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- 이미지 확대 라이트박스 모달 -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+    onclick="closeLightbox()"
+  >
+    <div class="relative max-h-[92vh] max-w-6xl" onclick="event.stopPropagation()">
+      <div class="mb-2 flex items-center justify-between text-xs text-slate-300">
+        <span id="lightbox-caption" class="font-bold text-sm text-white"></span>
+        <button
+          type="button"
+          onclick="closeLightbox()"
+          class="rounded-lg bg-slate-800 px-3 py-1 text-xs font-bold text-slate-200 hover:bg-slate-700"
+        >
+          닫기 (ESC)
+        </button>
+      </div>
+      <img id="lightbox-img" src="" alt="" class="max-h-[85vh] w-auto rounded-xl border border-slate-700 shadow-2xl" />
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(src, alt) {
+      const box = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      img.src = src;
+      img.alt = alt || '';
+      cap.textContent = alt || '';
+      box.classList.remove('hidden');
+      box.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const box = document.getElementById('lightbox');
+      box.classList.add('hidden');
+      box.classList.remove('flex');
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('#feature-grid > article');
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        filterBtns.forEach((b) => {
+          b.className = 'filter-btn rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white transition';
+        });
+        btn.className = 'filter-btn rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white transition';
+
+        cards.forEach((card) => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
