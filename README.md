@@ -8,6 +8,20 @@
 
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
+<!-- LATEST_RELEASE_START -->
+## ✨ 최신 버전 안내 (v2.67.2) (2026-11-11)
+
+- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.67.2.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.67.2/Maple-Income-Setup-2.67.2.exe)
+- **릴리스 노트 전문**: [v2.67.2 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.2)
+- **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)
+
+### v2.67.2 주요 변경 사항
+
+- **[버그 수정] 스케줄러 컨텐츠 주간 초기화 직후 등록 컨텐츠 사라짐**: 목요일 초기화 직후 아직 접속하지 않은 캐릭터도 지난주에 등록해 둔 몬스터파크·에픽 던전·유니온 드래곤 퇴치·익스트림 몬스터파크가 미완료로 그대로 보입니다
+- **[버그 수정] 일일 퀘스트 심볼 순서**: 캐릭터마다 등록한 지역이 달라도 세르니움 → 아르크스 → … → 탈라하트 → 기어드락 지역 순서대로 칸이 놓입니다
+- **[버그 수정] 미완료 칸 표시 통일**: 아직 하지 않은 일일 퀘스트 칸이 `미완료`와 `-`로 섞여 보이던 것을 `-`로 맞췄습니다
+<!-- LATEST_RELEASE_END -->
+
 ---
 
 ## 📋 12개 사이드 페이지 요약
@@ -16,17 +30,17 @@
 
 | 번호 | 사이드 메뉴 | 핵심 기능 |
 | :---: | :--- | :--- |
-| **01** | **[대시보드](https://th0079.github.io/maplestory-income-releases/#page-01)** | 주간·월간 보스 수익 정산, 월드 90개 한도 최적화, 등록 캐릭터 목록, 260Lv+ 빠른 등록, 보스 프리셋 |
+| **01** | **[대시보드](https://th0079.github.io/maplestory-income-releases/#page-01)** | 주간·월간 보스 수익 정산, 월드 90개 한도 최적화, 등록 캐릭터 목록, 260Lv+ 빠른 등록, 16개 구간 간편 프리셋 |
 | **02** | **[수익 현황](https://th0079.github.io/maplestory-income-releases/#page-02)** | 주간·월간 수익 추이 차트, 결정·드롭·가계부 순수익 상세 펼침, 주간/월간 결산 이미지 저장 |
-| **03** | **[드롭 아이템](https://th0079.github.io/maplestory-income-releases/#page-03)** | 드롭 수익 내역, 미판매 드롭 보관함, 파티 분배금 계산기, 빠른 시세 등록 및 변동 그래프 |
+| **03** | **[드롭 아이템](https://th0079.github.io/maplestory-income-releases/#page-03)** | 드롭 수익 내역, 드롭 보관함([판매]·[사용]·사용 내역 별도 메모), 파티 분배금 계산기, 빠른 시세 등록 및 변동 그래프 |
 | **04** | **[가계부](https://th0079.github.io/maplestory-income-releases/#page-04)** | 월간 수입·지출 요약, 카테고리 비중 차트, API 강화 비용 원클릭 불러오기 |
 | **05** | **[사냥 기록](https://th0079.github.io/maplestory-income-releases/#page-05)** | 항상 위 사냥 위젯(타이머·버프 알림), 소재비(30분 단위)·전후 차이 계산, 조각 환산 수익 통계 |
 | **06** | **[활동 달력](https://th0079.github.io/maplestory-income-releases/#page-06)** | 보스·드롭·가계부 일별 수익 달력 및 날짜별 상세 내역 팝업 |
 | **07** | **[스케줄러 컨텐츠](https://th0079.github.io/maplestory-income-releases/#page-07)** | 에픽 던전, 몬스터파크, 길드 수로/플래그, 심볼 일일 퀘스트 API 동기화 |
 | **08** | **[장비 확인](https://th0079.github.io/maplestory-income-releases/#page-08)** | 장착 장비 24슬롯 그리드 및 스타포스·추옵·잠재·에디셔널 상세 툴팁 |
-| **09** | **[캐릭터 스펙](https://th0079.github.io/maplestory-income-releases/#page-09)** | 스탯·전투력, V매트릭스, 6차 HEXA, 심볼, 유니온, 어빌리티, 세트 효과 펼침, 링크 스킬 |
-| **10** | **[캐릭터 히스토리](https://th0079.github.io/maplestory-income-releases/#page-10)** | 기간별(7일/30일/1년/전체) 경험치·레벨·전투력·유니온·아티팩트 레벨 성장 차트 |
-| **11** | **[강화 기록](https://th0079.github.io/maplestory-income-releases/#page-11)** | 스타포스·잠재능력·큐브 사용 내역 조회, 장비별 소비 메소 및 기댓값 대비 편차 분석 |
+| **09** | **[캐릭터 스펙](https://th0079.github.io/maplestory-income-releases/#page-09)** | 스탯·전투력, V매트릭스, 6차 HEXA(상세 수치), 심볼, 유니온(인게임식 스탯·챔피언 석상·아티팩트), 어빌리티, 세트 효과, 링크 스킬 |
+| **10** | **[캐릭터 히스토리](https://th0079.github.io/maplestory-income-releases/#page-10)** | 기간별(7일/30일/1년/전체) 경험치·레벨·최고 전투력·유니온·아티팩트 레벨 성장 차트 |
+| **11** | **[강화 기록](https://th0079.github.io/maplestory-income-releases/#page-11)** | 스타포스(일반·슈페리얼)·잠재능력·큐브 기댓값 계산, 사용 이력 조회, 장비별 소비 메소 및 기댓값 대비 편차 분석 |
 | **12** | **[설정](https://th0079.github.io/maplestory-income-releases/#page-12)** | 통합 프로필, 5개 다계정·API 키, 출석·펫·마을, 퀘스트, 업적·도감, 목표 자산·테마·정보 |
 
 ---
@@ -35,7 +49,7 @@
 
 1. **설치 및 실행**: [Releases](https://github.com/th0079/maplestory-income-releases/releases/latest)에서 최신 `Maple-Income-Setup-x.y.z.exe` 다운로드 및 실행
 2. **NEXON Open API 키 등록**: **[설정 → 계정]**에서 API 키 입력 시 캐릭터 목록·스케줄러·강화 이력 연동 활성화
-3. **캐릭터 & 보스 등록**: **[대시보드 → + 캐릭터 추가]**로 260Lv+ 캐릭터 등록 후 자동 모드 또는 18단계 프리셋 적용
+3. **캐릭터 & 보스 등록**: **[대시보드 → + 캐릭터 추가]**로 260Lv+ 캐릭터 등록 후 자동 모드 또는 간편 프리셋 적용
 4. **수익 정산 & 기록 관리**: 매주 목요일 00:00(KST) 자동 정산 및 12개 메뉴에서 수익·숙제·장비·스펙·강화 확인
 
 ---

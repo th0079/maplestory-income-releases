@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="maple-release-version" content="v2.67.2" />
+  <meta name="maple-release-notes-hash" content="89f49b6217561df7" />
   <title>Maple Income — 기능 소개 및 12개 페이지 사용 안내</title>
   <link rel="icon" type="image/png" href="./screenshots/app-logo.png" />
   <meta name="description" content="메이플스토리 주간·월간 보스 수익 정산, 메이플 스케줄러 연동, 드롭·가계부·사냥 기록, 캐릭터 장비·스펙·히스토리·강화 기록 관리 데스크톱 앱 Maple Income 사용 안내" />
@@ -68,13 +70,14 @@
         <a href="#overview" class="hover:text-white transition">12개 메뉴 요약</a>
         <a href="#quickstart" class="hover:text-white transition">시작 방법</a>
         <a href="#pages-guide" class="hover:text-white transition">페이지별 상세 안내</a>
+        <a href="#changelog" class="hover:text-white transition">업데이트 내역</a>
         <a href="#api-info" class="hover:text-white transition">API 연동 안내</a>
       </nav>
       <div class="flex items-center gap-2.5">
-        <a href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.65.0/Maple-Income-Setup-2.65.0.exe"
+        <a href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.67.2/Maple-Income-Setup-2.67.2.exe"
            data-direct-exe-download
            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold bg-sky-600 hover:bg-sky-500 text-white shadow-lg shadow-sky-600/25 transition">
-          <span data-exe-label>최신 버전 다운로드 (.exe)</span>
+          <span data-exe-label>최신 버전 다운로드 (v2.67.2)</span>
         </a>
       </div>
     </div>
@@ -88,16 +91,19 @@
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700 text-xs font-semibold text-sky-300">
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
             <span>Windows 데스크톱 앱 · NEXON Open API 기반</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-bold"><!-- RELEASE_VERSION_START -->
+v2.67.2
+<!-- RELEASE_VERSION_END --></span>
           </div>
           <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-[1.18]">
             메이플스토리 수익 정산 &amp;<br />
             <span class="bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">캐릭터·숙제·강화 통합 관리</span>
           </h1>
           <div class="flex flex-wrap gap-3 pt-1">
-            <a href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.65.0/Maple-Income-Setup-2.65.0.exe"
+            <a href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.67.2/Maple-Income-Setup-2.67.2.exe"
                data-direct-exe-download
                class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white shadow-xl shadow-sky-600/25 transition">
-              <span data-exe-hero-label>Windows 설치 파일 다운로드 (.exe)</span>
+              <span data-exe-hero-label>Windows 설치 파일 다운로드 (v2.67.2 .exe)</span>
             </a>
             <a href="#pages-guide"
                class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 transition">
@@ -293,7 +299,7 @@
         <div class="page-card rounded-2xl p-5">
           <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-sky-600 text-white font-black text-xs mb-2.5">3</span>
           <h3 class="text-sm font-bold text-white mb-1">캐릭터 &amp; 보스 등록</h3>
-          <p class="text-xs text-slate-300"><strong>[+ 캐릭터 추가]</strong>로 260Lv+ 캐릭터 일괄 등록 후 자동 모드 또는 18단계 프리셋 적용</p>
+          <p class="text-xs text-slate-300"><strong>[+ 캐릭터 추가]</strong>로 260Lv+ 캐릭터 일괄 등록 후 자동 모드 또는 간편 프리셋 적용</p>
         </div>
         <div class="page-card rounded-2xl p-5">
           <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-sky-600 text-white font-black text-xs mb-2.5">4</span>
@@ -334,6 +340,126 @@
 
       <!-- 12개 페이지 카드 컨테이너 -->
       <div id="pages-container" class="space-y-8"></div>
+    </div>
+  </section>
+
+  <!-- 최신 업데이트 내역 -->
+  <section id="changelog" class="py-12 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-7">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Release Notes</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">최신 업데이트 내역</h2>
+          <p class="text-slate-400 mt-1 text-sm">새 릴리스 배포 시 최신 버전 다운로드 링크와 패치 노트가 자동으로 반영됩니다.</p>
+        </div>
+        <a href="https://github.com/th0079/maplestory-income-releases/releases"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition self-start sm:self-auto">
+          전체 릴리스 이력 보기 →
+        </a>
+      </div>
+      <div id="release-notes-list" class="grid gap-5">
+        <!-- RELEASE_NOTES_START -->
+        <article class="page-card rounded-2xl p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2.5">
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.2" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.67.2</a>
+              <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/35">LATEST</span>
+              <span class="text-xs text-slate-400">2026-11-12</span>
+            </div>
+            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.2" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-amber-500/15 text-amber-300 border-amber-500/30">버그 수정</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">스케줄러 컨텐츠 주간 초기화 직후 등록 컨텐츠 사라짐</strong>: 목요일 초기화 직후 아직 접속하지 않은 캐릭터도 지난주에 등록해 둔 몬스터파크·에픽 던전·유니온 드래곤 퇴치·익스트림 몬스터파크가 미완료로 그대로 보입니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">일일 퀘스트 심볼 순서</strong>: 캐릭터마다 등록한 지역이 달라도 세르니움 → 아르크스 → … → 탈라하트 → 기어드락 지역 순서대로 칸이 놓입니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">미완료 칸 표시 통일</strong>: 아직 하지 않은 일일 퀘스트 칸이 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">미완료</code>와 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">-</code>로 섞여 보이던 것을 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">-</code>로 맞췄습니다
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="page-card rounded-2xl p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2.5">
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.1" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.67.1</a>
+              <span class="text-xs text-slate-400">2026-11-09</span>
+            </div>
+            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.1" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-sky-500/15 text-sky-300 border-sky-500/30">개선</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 설정 간편 프리셋 새 구간</strong>: 간편 프리셋을 16개 구간(이적자솔 ~ 하벨솔)으로 바꿨습니다 — 유튜버 지명님 영상의 보스 구간 참고 (https://youtu.be/AWHJ7mvEoKQ)
+                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
+                    <li>프리셋마다 그 구간을 도전하기 위한 환산을 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">환산 4.05만 이상</code>처럼 보여 줍니다</li>
+                    <li>영상의 솔격·2인·3인 구성과 검은 마법사 인원을 그대로 담고, 남는 자리는 결정 가격이 높은 아래 보스로 채워 주간 12마리를 맞춥니다</li>
+                  </ul>
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">프리셋 수익 나눠 보기</strong>: 간편 프리셋·내 프리셋·현재 등록한 보스의 1인 수익을 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">주간 │ 월간 │ 한달(주간 4주 + 월간)</code>로 나눠 보여 줍니다
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="page-card rounded-2xl p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2.5">
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.67.0</a>
+              <span class="text-xs text-slate-400">2026-11-09</span>
+            </div>
+            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-emerald-500/15 text-emerald-300 border-emerald-500/30">신규 기능</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">사용 내역 별도 메모</strong>: 드롭 아이템 &gt; 사용 내역에 등록된 아이템마다 기존 획득·분배 메모와 구분되는 별도의 사용 기록 메모를 남기고 수정할 수 있습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">유니온 챔피언 석상·유니온 아티팩트 크리스탈</strong>: 캐릭터 스펙 &gt; 유니온에서 등급별 석상과 안개 효과·캐릭터 모습을 함께 보여 주고, 유니온 아티팩트 크리스탈도 실제 크리스탈 이미지로 표시합니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">유니온 스탯 게임 창식 보기</strong>: 캐릭터 스펙 &gt; 유니온 스탯을 인게임 창처럼 16칸(레벨/최대)·프리셋 탭(1~5)·적용 중인 효과 목록·남은 포인트로 한눈에 볼 수 있습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">슈페리얼 장비 스타포스 기댓값</strong>: 스타포스 기댓값 계산에서 타일런트 등 슈페리얼 장비를 고르면 슈페리얼 전용 강화 확률·고정 강화 비용·최대 15성 한도로 자동 계산하고, 적용되지 않는 프로텍트 실드·샤이닝 스타포스·1+1 옵션을 안내합니다
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-sky-500/15 text-sky-300 border-sky-500/30">개선</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">드롭 보관함 액션 버튼</strong>: 아이템마다 [판매]·[사용]·[메모]·[삭제] 버튼을 2×2 격자와 고유 색상으로 나눠 한눈에 구분하고 누르기 쉽게 다듬었습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">헥사 스탯 상세 수치</strong>: 캐릭터 스펙 &gt; 헥사 스탯 코어에서 메인·에디셔널 스탯의 레벨과 실제 증가 수치를 함께 보여 줍니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">유니온 스탯 긴 문구 표시</strong>: 창 폭을 넓혔을 때 유니온 공격대 점령 효과 문구가 줄임표로 잘리지 않고 전체가 보입니다
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-amber-500/15 text-amber-300 border-amber-500/30">버그 수정</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">목요일 00시 주간 결산</strong>: 목요일 00시에 일간 보스가 초기화될 때 지난주 일간 보스 수익이 빠지지 않도록 결산을 먼저 마친 뒤 초기화합니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">결산된 주 드롭 개별 편집</strong>: 지난주 정산 기록에서 묶음으로 저장된 드롭 아이템을 수정·삭제·배정할 때 묶음 전체가 아니라 선택한 1개만 바뀌도록 고쳤습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 설정 일간·주간 구분 및 처치 상태 유지</strong>: 같은 이름의 일간·주간 보스를 따로 다루고, 보스 설정을 저장하거나 프리셋을 불러와도 이미 체크한 처치 기록이 지워지지 않습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">강화 기록 빠른 등록</strong>: 하루에 강화 기록 가계부 빠른 등록을 여러 번 눌러도 이미 등록된 금액이 중복으로 더해지지 않습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">시간대(KST) 기준 통일</strong>: PC 시간대가 한국 표준시(KST)가 아니어도 수익 월 구분·히스토리·업적·주간 요약 이미지·결산 가계부 날짜가 메이플스토리 기준 시각(KST)으로 표시됩니다
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+<!-- RELEASE_NOTES_END -->
+      </div>
     </div>
   </section>
 
@@ -439,10 +565,10 @@
           },
           {
             shot: './screenshots/p01-dashboard-boss-preset.png',
-            title: '④ 보스 프리셋 (18단계 고정 & 커스텀 프리셋)',
+            title: '④ 보스 프리셋 (16개 구간 간편 프리셋 & 커스텀 프리셋)',
             items: [
-              '검밑솔 ~ 익적솔 18단계 보스 조합 원클릭 적용',
-              '현재 캐릭터의 보스 구성을 내 커스텀 프리셋으로 저장·재사용'
+              '이적자솔 ~ 하벨솔 16개 구간 보스 조합(권장 환산·파티 구성 포함) 원클릭 적용',
+              '주간 · 월간 · 한달(주간 4주 + 월간) 1인 수익 나눠 보기 및 내 커스텀 프리셋 저장·재사용'
             ]
           },
           {
@@ -536,7 +662,7 @@
             title: '② 드롭 보관함 (미판매 아이템 보관 · 판매/사용 전환)',
             items: [
               '획득 직후 판매하지 않은 아이템을 보관하고 현재 시세 합계와 보관 기간 표시',
-              '아이템 클릭 시 [판매함](이번 주 수익 반영) 또는 [사용함](직접 착용 처리)으로 즉시 전환'
+              '아이템 클릭 시 2×2 격자 버튼([판매]·[사용]·[메모]·[삭제])으로 즉시 전환 및 [사용 내역] 별도 사용 메모 기록'
             ]
           },
           {
@@ -745,9 +871,9 @@
           },
           {
             shot: './screenshots/p09-spec-union.png',
-            title: '④ [유니온] 공격대 점령 효과 · 유니온 챔피언 · 아티팩트',
+            title: '④ [유니온] 인게임 창식 스탯 · 유니온 챔피언 · 아티팩트',
             items: [
-              '유니온 레벨·공격대원 배치 효과·유니온 챔피언 휘장 및 아티팩트 크리스탈 정보 표시'
+              '유니온 레벨·등급별 유니온 챔피언 석상·크리스탈 이미지 기반 아티팩트 및 16칸 인게임식 유니온 스탯(프리셋 1~5) 표시'
             ]
           },
           {
@@ -815,8 +941,8 @@
         mainCaption: '11. 강화 기록 — 스타포스/잠재능력/큐브 시도·성공·실패·파괴 통계 및 타임라인',
         bullets: [
           'NEXON Open API 기반 스타포스·잠재능력 재설정·큐브 사용 이력 통합 조회',
-          '잠재능력/에디셔널/소울 종류별 필터 및 큐브 이름별 필터링 지원',
-          '시도별 전/후 성수(★) 또는 전/후 잠재 옵션 3줄 변화와 등급 보장(천장) 표시'
+          '스타포스(일반·슈페리얼 장비 지원)·잠재능력·큐브 7종 기댓값 계산 및 장비창 불러오기 지원',
+          '잠재능력/에디셔널/소울 종류별 필터 및 시도별 전/후 옵션·등급 보장(천장) 표시'
         ],
         details: [
           {
