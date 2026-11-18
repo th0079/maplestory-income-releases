@@ -9,13 +9,13 @@
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 <!-- LATEST_RELEASE_START -->
-## ✨ 최신 버전 안내 (v2.67.2) (2026-11-11)
+## ✨ 최신 버전 안내 (v2.68.0) (2026-11-18)
 
-- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.67.2.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.67.2/Maple-Income-Setup-2.67.2.exe)
-- **릴리스 노트 전문**: [v2.67.2 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.2)
+- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.68.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.68.0/Maple-Income-Setup-2.68.0.exe)
+- **릴리스 노트 전문**: [v2.68.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.68.0)
 - **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)
 
-### v2.67.2 주요 변경 사항
+### v2.68.0 주요 변경 사항
 
 - **[버그 수정] 스케줄러 컨텐츠 주간 초기화 직후 등록 컨텐츠 사라짐**: 목요일 초기화 직후 아직 접속하지 않은 캐릭터도 지난주에 등록해 둔 몬스터파크·에픽 던전·유니온 드래곤 퇴치·익스트림 몬스터파크가 미완료로 그대로 보입니다
 - **[버그 수정] 일일 퀘스트 심볼 순서**: 캐릭터마다 등록한 지역이 달라도 세르니움 → 아르크스 → … → 탈라하트 → 기어드락 지역 순서대로 칸이 놓입니다
