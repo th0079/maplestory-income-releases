@@ -9,13 +9,13 @@
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 <!-- LATEST_RELEASE_START -->
-## ✨ 최신 버전 안내 (v2.68.0) (2026-11-18)
+## ✨ 최신 버전 안내 (v2.69.0) (2026-11-19)
 
-- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.68.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.68.0/Maple-Income-Setup-2.68.0.exe)
-- **릴리스 노트 전문**: [v2.68.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.68.0)
+- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.69.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.69.0/Maple-Income-Setup-2.69.0.exe)
+- **릴리스 노트 전문**: [v2.69.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.69.0)
 - **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)
 
-### v2.68.0 주요 변경 사항
+### v2.69.0 주요 변경 사항
 
 - **[신규 기능] 메이플 ID 기준 결정 판매 한도**: 주간 결정 판매 한도(90개)를 월드가 아니라 메이플 ID 기준으로 계산하고, 주간 결정 제한은 대표 캐릭터로 보여 줍니다
 - **[신규 기능] 계정별 메이플 ID 보기**: 설정 > 계정에서 계정 줄을 누르면 펼쳐져 그 계정의 메이플 ID 목록이 보이고, 메이플 ID에 이름을 붙일 수 있습니다. 계정마다 `캐릭터 N · 메이플 ID N`을 표시하고, 지울 수 없는 첫 번째 계정에는 `기본` 뱃지를 붙였습니다
