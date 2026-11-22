@@ -9,13 +9,13 @@
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 <!-- LATEST_RELEASE_START -->
-## ✨ 최신 버전 안내 (v2.69.0) (2026-11-19)
+## ✨ 최신 버전 안내 (v2.70.0) (2026-11-22)
 
-- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.69.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.69.0/Maple-Income-Setup-2.69.0.exe)
-- **릴리스 노트 전문**: [v2.69.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.69.0)
+- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.70.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.70.0/Maple-Income-Setup-2.70.0.exe)
+- **릴리스 노트 전문**: [v2.70.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.70.0)
 - **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)
 
-### v2.69.0 주요 변경 사항
+### v2.70.0 주요 변경 사항
 
 - **[신규 기능] 착용 장비 확인 새 탭**: `장비 · 캐시·뷰티 · 안드로이드 · 펫` 탭으로 나눠 볼 수 있습니다
 - **[신규 기능] 착용 장비 칸 표시**: 장비 칸에 스타포스 별 수 뱃지를 달고, 포켓 옆에 칭호 칸이 생겼습니다. 기간제 장비·칭호·캐시 아이템은 남은 기간(`D-30`·`만료`)과 옵션 남은 기간을 칸에 표시합니다
