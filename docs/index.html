@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="maple-release-version" content="v2.70.0" />
-  <meta name="maple-release-notes-hash" content="60b918b6a6c02c3e" />
+  <meta name="maple-release-notes-hash" content="d616ded9e5f02689" />
   <title>Maple Income — 기능 소개 및 12개 페이지 사용 안내</title>
   <link rel="icon" type="image/png" href="./screenshots/app-logo.png" />
   <meta name="description" content="메이플스토리 주간·월간 보스 수익 정산, 메이플 스케줄러 연동, 드롭·가계부·사냥 기록, 캐릭터 장비·스펙·히스토리·강화 기록 관리 데스크톱 앱 Maple Income 사용 안내" />
@@ -364,9 +364,61 @@ v2.70.0
         <article class="page-card rounded-2xl p-6 space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div class="flex items-center gap-2.5">
-              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.69.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.69.0</a>
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.70.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.70.0</a>
               <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/35">LATEST</span>
-              <span class="text-xs text-slate-400">2026-11-19</span>
+              <span class="text-xs text-slate-400">2026-11-23</span>
+            </div>
+            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.70.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-emerald-500/15 text-emerald-300 border-emerald-500/30">신규 기능</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 프리셋</strong>: 자주 쓰는 수입·지출 항목을 프리셋(최대 20개)으로 저장해 두고, 금액을 확인하거나 입력해 바로 가계부에 등록할 수 있습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 심볼 빠른 등록</strong>: 아케인·어센틱·그랜드 어센틱 심볼의 강화 비용을 자동으로 계산해 지출에 등록할 수 있습니다
+                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
+                    <li><strong class="text-white font-semibold">자동 조회</strong>: 넥슨 Open API로 선택한 기간의 심볼 레벨 변화를 불러와 강화 비용을 한 번에 등록합니다</li>
+                    <li><strong class="text-white font-semibold">직접 선택</strong>: 심볼 이미지를 보며 심볼과 레벨 구간을 직접 골라 등록할 수 있습니다</li>
+                  </ul>
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 드롭 아이템 구매 빠른 등록</strong>: 드롭 아이템·시세 빠른 등록 목록에서 아이템을 골라 개수 × 개당 가격으로 지출을 등록하고, 입력한 가격을 시세에도 함께 반영합니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">솔 에르다 조각 시세 변동 차트</strong>: 사냥 기록에서 시세를 등록하면 날짜별 시세 변화를 차트로 확인할 수 있습니다(접기·펼치기, 기간별 시세 보기 및 등록·수정·삭제 지원)
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-sky-500/15 text-sky-300 border-sky-500/30">개선</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">[빠른 등록 ▾]</code> 메뉴 통합</strong>: 프리셋·드롭 아이템 구매·심볼 빠른 등록·강화 기록 빠른 등록을 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">[빠른 등록 ▾]</code> 드롭다운 하나로 묶었습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">솔 에르다 조각 구매</code> 카테고리 통합</strong>: 기존 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">스킬코어 강화</code> 지출을 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">솔 에르다 조각 구매</code> 카테고리로 통합했습니다(기존 기록은 자동으로 옮겨집니다)
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">사냥 기록 입력 및 사냥 위젯 개선</strong>: 사냥 시간·획득량 입력 칸의 구성을 정리하고, 시간·분·소재 칸에 위아래 화살표와 방향키(↑·↓) 조절을 추가했습니다. 사냥 위젯을 접었을 때는 타이머·알림 탭을 제목줄로 올려 더 얇게 표시합니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">유니온 챔피언 배치 조정</strong>: 캐릭터 스펙 &gt; 유니온에서 유니온 챔피언 카드 목록을 위쪽에, 휘장 효과 합계를 아래쪽에 배치했습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">목록 편집·삭제 단추 정리</strong>: 가계부 카테고리 관리·드롭 아이템 목록·드롭 기록·설정 계정의 편집·삭제 단추를 한 묶음으로 깔끔하게 통일했습니다
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-amber-500/15 text-amber-300 border-amber-500/30">버그 수정</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">캐릭터 스펙 조회 시 화면 밀림 수정</strong>: 캐릭터 스펙을 조회하는 동안 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">저장된 정보</code> 문구가 잠시 나타났다 사라지며 캐릭터 카드가 아래로 밀렸다가 올라오던 현상을 고쳤습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">사냥 기록 이중 스크롤바 수정</strong>: 사냥 기록 화면에서 페이지 바깥에 스크롤바가 하나 더 생기던 문제를 고쳤습니다
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="page-card rounded-2xl p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2.5">
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.69.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.69.0</a>
+              <span class="text-xs text-slate-400">2026-11-20</span>
             </div>
             <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.69.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
           </div>
@@ -412,7 +464,7 @@ v2.70.0
           <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div class="flex items-center gap-2.5">
               <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.68.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.68.0</a>
-              <span class="text-xs text-slate-400">2026-11-18</span>
+              <span class="text-xs text-slate-400">2026-11-19</span>
             </div>
             <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.68.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
           </div>
@@ -475,28 +527,6 @@ v2.70.0
                 <li class="leading-relaxed"><strong class="text-white font-semibold">활동 달력 지난주 결산 드롭</strong>: 같은 캐릭터·아이템 드롭이 보관함 구분으로 나뉘어 있을 때 표시가 엉키던 것을 고쳤습니다
                 </li>
                 <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 기록 아이콘</strong>: 밝은 화면에서 노랑·청록 카테고리 아이콘이 흐릿하던 것을 또렷하게 했습니다
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-        <article class="page-card rounded-2xl p-6 space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
-            <div class="flex items-center gap-2.5">
-              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.2" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.67.2</a>
-              <span class="text-xs text-slate-400">2026-11-11</span>
-            </div>
-            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.67.2" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-amber-500/15 text-amber-300 border-amber-500/30">버그 수정</span>
-              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
-                <li class="leading-relaxed"><strong class="text-white font-semibold">스케줄러 컨텐츠 주간 초기화 직후 등록 컨텐츠 사라짐</strong>: 목요일 초기화 직후 아직 접속하지 않은 캐릭터도 지난주에 등록해 둔 몬스터파크·에픽 던전·유니온 드래곤 퇴치·익스트림 몬스터파크가 미완료로 그대로 보입니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">일일 퀘스트 심볼 순서</strong>: 캐릭터마다 등록한 지역이 달라도 세르니움 → 아르크스 → … → 탈라하트 → 기어드락 지역 순서대로 칸이 놓입니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">미완료 칸 표시 통일</strong>: 아직 하지 않은 일일 퀘스트 칸이 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">미완료</code>와 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">-</code>로 섞여 보이던 것을 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">-</code>로 맞췄습니다
                 </li>
               </ul>
             </div>
