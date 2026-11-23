@@ -9,13 +9,13 @@
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 <!-- LATEST_RELEASE_START -->
-## ✨ 최신 버전 안내 (v2.70.0) (2026-11-22)
+## ✨ 최신 버전 안내 (v2.71.0) (2026-11-23)
 
-- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.70.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.70.0/Maple-Income-Setup-2.70.0.exe)
-- **릴리스 노트 전문**: [v2.70.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.70.0)
+- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.71.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.71.0/Maple-Income-Setup-2.71.0.exe)
+- **릴리스 노트 전문**: [v2.71.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.71.0)
 - **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)
 
-### v2.70.0 주요 변경 사항
+### v2.71.0 주요 변경 사항
 
 - **[신규 기능] 가계부 프리셋**: 자주 쓰는 수입·지출 항목을 프리셋(최대 20개)으로 저장해 두고, 금액을 확인하거나 입력해 바로 가계부에 등록할 수 있습니다
 - **[신규 기능] 가계부 심볼 빠른 등록**: 아케인·어센틱·그랜드 어센틱 심볼의 강화 비용을 자동으로 계산해 지출에 등록할 수 있습니다
