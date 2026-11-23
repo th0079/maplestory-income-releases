@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="maple-release-version" content="v2.71.0" />
-  <meta name="maple-release-notes-hash" content="d616ded9e5f02689" />
+  <meta name="maple-release-notes-hash" content="628eabbd619ad47a" />
   <title>Maple Income — 기능 소개 및 12개 페이지 사용 안내</title>
   <link rel="icon" type="image/png" href="./screenshots/app-logo.png" />
   <meta name="description" content="메이플스토리 주간·월간 보스 수익 정산, 메이플 스케줄러 연동, 드롭·가계부·사냥 기록, 캐릭터 장비·스펙·히스토리·강화 기록 관리 데스크톱 앱 Maple Income 사용 안내" />
@@ -364,9 +364,55 @@ v2.71.0
         <article class="page-card rounded-2xl p-6 space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div class="flex items-center gap-2.5">
-              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.70.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.70.0</a>
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.71.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.71.0</a>
               <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/35">LATEST</span>
-              <span class="text-xs text-slate-400">2026-11-22</span>
+              <span class="text-xs text-slate-400">2026-11-24</span>
+            </div>
+            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.71.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-emerald-500/15 text-emerald-300 border-emerald-500/30">신규 기능</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">노트 페이지 추가</strong>: 사이드바에 공략·기록·파티 관리를 한곳에 모은 5개 탭의 노트 메뉴가 추가되었습니다
+                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
+                    <li><strong class="text-white font-semibold">자유 노트</strong>: 마크다운 미리보기·체크박스 클릭 토글·상단 고정·검색 및 자동 저장을 지원합니다</li>
+                    <li><strong class="text-white font-semibold">보스 클리어 타임</strong>: 캐릭터·보스별 클리어 시간(분·초), 데미지, 인원, 날짜를 기록하고 최단 기록과 직전 대비 변화를 비교합니다</li>
+                    <li><strong class="text-white font-semibold">착용 장비 메모</strong>: 프리셋 1~3별 장비 스냅샷을 저장해 두고, 장비·칭호 칸별 메모와 세팅 메모를 한눈에 확인합니다</li>
+                    <li><strong class="text-white font-semibold">스펙업 목표</strong>: 캐릭터별·공통 목표 품목의 우선순위·예상 비용과 남은 예산을 관리합니다</li>
+                    <li><strong class="text-white font-semibold">보스 파티</strong>: 고정팟별 보스·요일·시각·분배 규칙과 파티원(저장된 파티원·30일 자동 갱신·분배 비율 설정)을 관리합니다</li>
+                  </ul>
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">드롭 아이템 · 보스 파티 연동 및 정산</strong>: 드롭 등록·보관함 판매·사용 시 보스 파티를 연결해 정산까지 이어서 처리할 수 있습니다
+                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
+                    <li><strong class="text-white font-semibold">파티 자동 반영 및 분배 비율 정산</strong>: 내 파티 선택 시 인원·캐릭터·분배 규칙을 자동으로 채우고, 파티원별 분배 비율(%)·1:1 교환액 복사·정산 완료 체크리스트(기본 접힘·카드 클릭 토글)를 제공합니다</li>
+                    <li><strong class="text-white font-semibold">보관함 사용 구매 정산</strong>: 보관함 아이템을 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">사용</code>으로 전환할 때 다인 파티 구매 정산 금액·수수료·정산 체크리스트를 함께 남기고, 필요 시 다시 보관함으로 되돌릴 수 있습니다</li>
+                    <li><strong class="text-white font-semibold">분배 제외</strong>: 주사위·독식 등으로 파티 분배 없이 수령한 경우 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">분배 제외</code>를 체크해 본인 100% 실수령·정산 제외로 기록합니다</li>
+                    <li><strong class="text-white font-semibold">파티 분배금 계산기 연동</strong>: 계산기에서 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">내 파티 불러오기</code>를 누르면 파티 인원과 멤버별 분배 비율을 바로 채웁니다</li>
+                  </ul>
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 프리셋 등록 개수 선택</strong>: 프리셋 창에서 등록 개수를 1~999개로 조절해 여러 개를 한 번에 합산 등록할 수 있습니다
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-sky-500/15 text-sky-300 border-sky-500/30">개선</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">드롭 아이템에서 보스 파티 바로 이동</strong>: 드롭 아이템 상단과 기록 폼에 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">파티 등록하기</code> 단추를 추가해 노트 &gt; 보스 파티 탭으로 바로 이동할 수 있습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">캐릭터 선택 드롭다운 개선</strong>: 캐릭터 선택 목록의 아바타 크기와 구도를 다듬어 캐릭터 얼굴이 더 선명하게 보이도록 개선했습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">삭제 확인 및 되돌리기 알림</strong>: 노트 5종과 보스 파티 데이터를 삭제할 때 확인 절차를 거치고, 삭제 후 오른쪽 아래 알림에서 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">[되돌리기]</code>를 지원합니다
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="page-card rounded-2xl p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2.5">
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.70.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.70.0</a>
+              <span class="text-xs text-slate-400">2026-11-23</span>
             </div>
             <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.70.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
           </div>
@@ -418,7 +464,7 @@ v2.71.0
           <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div class="flex items-center gap-2.5">
               <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.69.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.69.0</a>
-              <span class="text-xs text-slate-400">2026-11-19</span>
+              <span class="text-xs text-slate-400">2026-11-20</span>
             </div>
             <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.69.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
           </div>
@@ -455,78 +501,6 @@ v2.71.0
                 <li class="leading-relaxed"><strong class="text-white font-semibold">스타포스 기댓값 장비 선택</strong>: 22성으로 고정된 제네시스 무기는 스타포스 기댓값 계산 장비창에서 고를 수 없게 했습니다
                 </li>
                 <li class="leading-relaxed"><strong class="text-white font-semibold">오류 문구 정리</strong>: 스케줄러 컨텐츠의 실패 사유에 내부 오류 문구가 함께 나오던 것을 정리했습니다
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-        <article class="page-card rounded-2xl p-6 space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
-            <div class="flex items-center gap-2.5">
-              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.68.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.68.0</a>
-              <span class="text-xs text-slate-400">2026-11-18</span>
-            </div>
-            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.68.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-emerald-500/15 text-emerald-300 border-emerald-500/30">신규 기능</span>
-              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
-                <li class="leading-relaxed"><strong class="text-white font-semibold">메이플 ID 기준 결정 판매 한도</strong>: 주간 결정 판매 한도(90개)를 월드가 아니라 메이플 ID 기준으로 계산하고, 주간 결정 제한은 대표 캐릭터로 보여 줍니다
-                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
-                    <li>월드 보기에서도 한도는 모든 캐릭터 기준으로 적용하고 그 월드 몫을 따로 보여 줍니다. 판매 한도 때문에 빠지는 보스는 캐릭터 카드 아이콘에 표시됩니다</li>
-                    <li>사이드바 월드 보기에서 메이플 ID별로 나눠 볼 수 있습니다</li>
-                  </ul>
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">계정별 메이플 ID 보기</strong>: 설정 &gt; 계정에서 계정 줄을 누르면 펼쳐져 그 계정의 메이플 ID 목록이 보이고, 메이플 ID에 이름을 붙일 수 있습니다. 계정마다 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">캐릭터 N · 메이플 ID N</code>을 표시하고, 지울 수 없는 첫 번째 계정에는 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">기본</code> 뱃지를 붙였습니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 카테고리 직접 만들기</strong>: [카테고리 관리]에서 수입·지출 카테고리를 만들고, 이름을 바꾸고, 지울 수 있습니다(종류마다 최대 8개, 지운 카테고리의 기록은 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">기타</code>로 옮겨집니다)
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 새 카테고리</strong>: 수입에 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">솔 에르다 조각 판매</code>(개수 단위 입력·경매장 수수료 반영·사냥 기록 시세로 등록), 지출에 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">어빌리티 재설정</code>을 추가했습니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">캐릭터 검색</strong>: 캐릭터 스펙·장비 확인·강화 기댓값 화면에서 캐릭터를 검색할 수 있습니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 설정 정렬</strong>: 보스 목록을 처음 열면 게임 보스 목록 순서를 거꾸로 한 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">기본 순</code>(최신 보스가 위)으로 보여 주고, 정렬 단추로 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">기본 역순</code>·결정 가격 높은 순·낮은 순으로 바꿀 수 있습니다
-                </li>
-              </ul>
-            </div>
-            <div class="space-y-2">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-sky-500/15 text-sky-300 border-sky-500/30">개선</span>
-              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
-                <li class="leading-relaxed"><strong class="text-white font-semibold">창 크기에 맞춘 배치</strong>: 창을 넓히면 페이지와 팝업이 넓어진 공간을 채웁니다
-                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
-                    <li>넓은 창에서는 대시보드 캐릭터 카드가 2열로 나오고, 카드를 펼쳐도 옆 열 카드가 그대로 붙어 있습니다</li>
-                    <li>드롭 기록 등록 양식·시세 카드, 업적·캐릭터 추가 창, 보스 설정 창 높이도 창 크기를 따라 커집니다</li>
-                    <li>활동 달력 날짜 칸이 넓어지면 캐릭터를 더 많은 줄·칸으로 보여 줍니다</li>
-                  </ul>
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 도넛 그래프</strong>: 카테고리마다 고정된 색으로 한 그래프 안에서 같은 색이 겹치지 않고, 라이트·다크 모드 모두 맑고 진한 색으로 바꿨습니다
-                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
-                    <li>한 방향 빛 기준 음영으로 입체감을 더했습니다</li>
-                    <li>카테고리를 고르면 그 조각만 또렷하고 나머지는 옅게 보입니다</li>
-                    <li>카테고리 이름에서 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">수입</code>·<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">지출</code>을 뺐습니다(예: <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">기타 수입</code> → <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">기타</code>)</li>
-                  </ul>
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">대시보드 보스 체크리스트</strong>: 캐릭터 카드를 펼치면 시즌 보스를 월간 보스 옆에 나란히 보여 줍니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">다른 넥슨 계정 캐릭터 등록 막기</strong>: 지금 API 키와 다른 넥슨 계정의 캐릭터는 등록되지 않습니다
-                </li>
-              </ul>
-            </div>
-            <div class="space-y-2">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-amber-500/15 text-amber-300 border-amber-500/30">버그 수정</span>
-              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
-                <li class="leading-relaxed"><strong class="text-white font-semibold">테마에 따라 수익이 손실처럼 보이던 색</strong>: 코랄 민트 등 일부 테마에서 결정·수익 금액이 빨간색 계열로 보이던 것을 고쳤습니다. 테마를 바꿔도 어두운 카드가 어색하게 남지 않습니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">익스트림 몬스터파크 표시</strong>: 두 캐릭터가 클리어해도 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">1 / 2</code>로 보이던 것을 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">완료</code>로 표시합니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">활동 달력 날짜 칸</strong>: 캐릭터가 7명 이상이면 5명과 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">+N</code>으로 두 줄 안에 보여 줍니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">대시보드 캐릭터 카드</strong>: 월드·직업이 길어도 한 줄에 들어가도록 글씨 크기를 맞춥니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">활동 달력 지난주 결산 드롭</strong>: 같은 캐릭터·아이템 드롭이 보관함 구분으로 나뉘어 있을 때 표시가 엉키던 것을 고쳤습니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">가계부 기록 아이콘</strong>: 밝은 화면에서 노랑·청록 카테고리 아이콘이 흐릿하던 것을 또렷하게 했습니다
                 </li>
               </ul>
             </div>
