@@ -1,366 +1,317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko" class="dark scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="maple-release-version" content="v2.71.0" />
-  <meta name="maple-release-notes-hash" content="628eabbd619ad47a" />
-  <title>Maple Income — 기능 소개 및 12개 페이지 사용 안내</title>
-  <link rel="icon" type="image/png" href="./screenshots/app-logo.png" />
-  <meta name="description" content="메이플스토리 주간·월간 보스 수익 정산, 메이플 스케줄러 연동, 드롭·가계부·사냥 기록, 캐릭터 장비·스펙·히스토리·강화 기록 관리 데스크톱 앱 Maple Income 사용 안내" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-    body {
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #0b0f19;
-      color: #e2e8f0;
-    }
-    .hero-glow {
-      background: radial-gradient(circle at 20% 15%, rgba(56, 189, 248, 0.14), transparent 45%),
-                  radial-gradient(circle at 80% 25%, rgba(99, 102, 241, 0.14), transparent 45%);
-    }
-    .page-card {
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.72) 100%);
-      border: 1px solid rgba(51, 65, 85, 0.7);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .page-card:hover {
-      border-color: rgba(56, 189, 248, 0.55);
-      box-shadow: 0 12px 32px -12px rgba(14, 165, 233, 0.22);
-    }
-    .shot-frame {
-      background: #060911;
-      border: 1px solid rgba(71, 85, 105, 0.55);
-      box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.7);
-    }
-    .detail-panel {
-      display: none;
-    }
-    .detail-panel.open {
-      display: block;
-      animation: fadeSlide 0.22s ease-out;
-    }
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .tab-btn.active {
-      background: linear-gradient(90deg, #0284c7 0%, #2563eb 100%);
-      color: #ffffff;
-      border-color: transparent;
-    }
-  </style>
-</head>
-<body class="min-h-screen antialiased selection:bg-sky-500 selection:text-white">
-
-  <!-- 상단 고정 내비게이션 -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/85 border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-      <a href="#" class="flex items-center gap-3">
-        <img src="./screenshots/app-logo.png" alt="Maple Income 로고" class="w-9 h-9 object-contain drop-shadow-md shrink-0" />
-        <div>
-          <span class="font-extrabold text-lg tracking-tight text-white">Maple Income</span>
-          <span class="hidden sm:inline-block ml-2 px-2 py-0.5 text-[11px] font-semibold rounded-full bg-sky-500/15 text-sky-300 border border-sky-500/30">
-            기능 소개 &amp; 사용 안내
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="maple-release-version" content="v2.71.0" />
+    <meta name="maple-release-notes-hash" content="628eabbd619ad47a" />
+    <title>Maple Income — 메이플스토리 수익 정산 &amp; 캐릭터 관리</title>
+    <link rel="icon" type="image/png" href="./screenshots/app-logo.png" />
+    <meta
+      name="description"
+      content="메이플스토리 보스 결정 정산, 파티 드롭 분배, 가계부·사냥 기록, 노트 5종, 장비·스펙·히스토리·강화 기록 데스크톱 앱 Maple Income"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+      body {
+        font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: #0b0f19;
+        color: #e2e8f0;
+      }
+      .hero-glow {
+        background:
+          radial-gradient(circle at 18% 12%, rgba(56, 189, 248, 0.14), transparent 45%),
+          radial-gradient(circle at 82% 24%, rgba(99, 102, 241, 0.14), transparent 45%);
+      }
+      .page-card {
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.74) 100%);
+        border: 1px solid rgba(51, 65, 85, 0.7);
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+      .page-card:hover {
+        border-color: rgba(56, 189, 248, 0.55);
+      }
+      .shot-frame {
+        background: #060911;
+        border: 1px solid rgba(71, 85, 105, 0.55);
+      }
+      .top-tab {
+        color: #94a3b8;
+        border: 1px solid transparent;
+      }
+      .top-tab:hover {
+        color: #f8fafc;
+        background-color: rgba(30, 41, 59, 0.7);
+      }
+      .top-tab.active {
+        color: #ffffff;
+        background: linear-gradient(90deg, #0284c7 0%, #2563eb 100%);
+        box-shadow: 0 4px 14px -4px rgba(14, 165, 233, 0.45);
+      }
+      .feature-nav-btn.active {
+        background: rgba(14, 165, 233, 0.16);
+        border-color: rgba(56, 189, 248, 0.55);
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="flex min-h-screen flex-col antialiased selection:bg-sky-500 selection:text-white">
+    <header class="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md">
+      <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+        <button
+          type="button"
+          onclick="switchView('home')"
+          class="flex shrink-0 cursor-pointer items-center gap-2.5 text-left"
+        >
+          <img src="./screenshots/app-logo.png" alt="Maple Income 로고" class="h-8 w-8 object-contain" />
+          <span class="text-base font-extrabold tracking-tight text-white sm:text-lg">Maple Income</span>
+          <span class="hidden rounded-full border border-sky-500/30 bg-sky-500/15 px-2 py-0.5 text-[11px] font-semibold text-sky-300 sm:inline-block">
+            <!-- RELEASE_VERSION_START -->
+v2.71.0
+<!-- RELEASE_VERSION_END -->
           </span>
-        </div>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-        <a href="#overview" class="hover:text-white transition">12개 메뉴 요약</a>
-        <a href="#quickstart" class="hover:text-white transition">시작 방법</a>
-        <a href="#pages-guide" class="hover:text-white transition">페이지별 상세 안내</a>
-        <a href="#changelog" class="hover:text-white transition">업데이트 내역</a>
-        <a href="#api-info" class="hover:text-white transition">API 연동 안내</a>
-      </nav>
-      <div class="flex items-center gap-2.5">
-        <a href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.71.0/Maple-Income-Setup-2.71.0.exe"
-           data-direct-exe-download
-           class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold bg-sky-600 hover:bg-sky-500 text-white shadow-lg shadow-sky-600/25 transition">
+        </button>
+
+        <nav class="hidden items-center gap-1.5 rounded-xl border border-slate-800 bg-slate-900/80 p-1 md:flex" aria-label="상단 메뉴">
+          <button type="button" data-view-btn="home" onclick="switchView('home')" class="top-tab active cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition">
+            메인
+          </button>
+          <button type="button" data-view-btn="guide" onclick="switchView('guide')" class="top-tab cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition">
+            세부 설명
+          </button>
+          <button type="button" data-view-btn="changelog" onclick="switchView('changelog')" class="top-tab cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition">
+            업데이트
+          </button>
+          <button type="button" data-view-btn="info" onclick="switchView('info')" class="top-tab cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition">
+            시작 · API
+          </button>
+        </nav>
+
+        <a
+          href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.71.0/Maple-Income-Setup-2.71.0.exe"
+          data-direct-exe-download
+          class="inline-flex shrink-0 items-center rounded-xl bg-sky-600 px-3.5 py-2 text-xs font-bold text-white shadow-lg shadow-sky-600/20 transition hover:bg-sky-500 sm:text-sm"
+        >
           <span data-exe-label>최신 버전 다운로드 (v2.71.0)</span>
         </a>
       </div>
-    </div>
-  </header>
 
-  <!-- 히어로 섹션 -->
-  <section class="relative overflow-hidden hero-glow pt-12 pb-14 border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-6 space-y-5">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700 text-xs font-semibold text-sky-300">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>Windows 데스크톱 앱 · NEXON Open API 기반</span>
-            <span class="px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-bold"><!-- RELEASE_VERSION_START -->
-v2.71.0
-<!-- RELEASE_VERSION_END --></span>
+      <div class="flex gap-1.5 overflow-x-auto border-t border-slate-800/70 px-4 py-2 md:hidden">
+        <button type="button" data-view-btn="home" onclick="switchView('home')" class="top-tab active shrink-0 cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition">
+          메인
+        </button>
+        <button type="button" data-view-btn="guide" onclick="switchView('guide')" class="top-tab shrink-0 cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition">
+          세부 설명
+        </button>
+        <button type="button" data-view-btn="changelog" onclick="switchView('changelog')" class="top-tab shrink-0 cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition">
+          업데이트
+        </button>
+        <button type="button" data-view-btn="info" onclick="switchView('info')" class="top-tab shrink-0 cursor-pointer rounded-lg px-3 py-1.5 text-xs font-bold transition">
+          시작 · API
+        </button>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <!-- 1. 메인 화면 (간략한 설명 + 대표 사진만 깔끔하게 구성) -->
+      <div id="view-home" data-view="home">
+        <section class="hero-glow border-b border-slate-800/80 py-12 sm:py-16">
+          <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-12">
+            <div class="space-y-5 lg:col-span-5">
+              <span class="inline-flex items-center rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs font-semibold text-sky-300">
+                NEXON Open API · Windows 데스크톱 앱
+              </span>
+              <h1 class="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">
+                메이플스토리 수익 정산과<br />
+                캐릭터 관리를 한 곳에서
+              </h1>
+              <p class="text-sm leading-relaxed text-slate-300 sm:text-base">
+                보스 결정·드롭 분배·가계부·사냥 효율부터 노트·장비·스펙·강화 기록까지 13개 화면으로 관리합니다.
+              </p>
+
+              <div class="flex flex-wrap gap-3 pt-1">
+                <a
+                  href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.71.0/Maple-Income-Setup-2.71.0.exe"
+                  data-direct-exe-download
+                  class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-sky-500/25 transition hover:from-sky-400 hover:to-blue-500"
+                >
+                  <span data-exe-hero-label>Windows 설치 파일 다운로드 (v2.71.0 .exe)</span>
+                </a>
+                <button
+                  type="button"
+                  onclick="switchView('guide')"
+                  class="inline-flex cursor-pointer items-center justify-center rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-slate-700"
+                >
+                  기능별 세부 설명 →
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7">
+              <div
+                class="shot-frame group relative cursor-pointer overflow-hidden rounded-2xl"
+                onclick="openLightbox('./screenshots/p01-dashboard-main.png', '대시보드 — 주간·월간 수익 요약 및 보스 관리')"
+              >
+                <img
+                  src="./screenshots/p01-dashboard-main.png"
+                  alt="Maple Income 대시보드"
+                  class="block h-auto w-full transition duration-300 group-hover:scale-[1.01]"
+                />
+                <span class="absolute right-3 bottom-3 rounded-lg border border-slate-700 bg-slate-950/85 px-2.5 py-1 text-[11px] font-semibold text-slate-200">
+                  클릭하여 확대
+                </span>
+              </div>
+            </div>
           </div>
-          <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-[1.18]">
-            메이플스토리 수익 정산 &amp;<br />
-            <span class="bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">캐릭터·숙제·강화 통합 관리</span>
-          </h1>
-          <div class="flex flex-wrap gap-3 pt-1">
-            <a href="https://github.com/th0079/maplestory-income-releases/releases/download/v2.71.0/Maple-Income-Setup-2.71.0.exe"
-               data-direct-exe-download
-               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white shadow-xl shadow-sky-600/25 transition">
-              <span data-exe-hero-label>Windows 설치 파일 다운로드 (v2.71.0 .exe)</span>
+        </section>
+
+        <section class="py-12">
+          <div class="mx-auto max-w-6xl px-4 sm:px-6">
+            <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+              <div>
+                <h2 class="text-xl font-extrabold text-white sm:text-2xl">주요 화면 미리보기</h2>
+                <p class="mt-1 text-xs text-slate-400 sm:text-sm">
+                  화면을 선택하면 상단 세부 설명 탭에서 상세 기능과 추가 스크린샷을 확인할 수 있습니다.
+                </p>
+              </div>
+              <button
+                type="button"
+                onclick="switchView('guide')"
+                class="self-start cursor-pointer text-xs font-bold text-sky-400 hover:underline sm:self-auto"
+              >
+                전체 13개 메뉴 보기 →
+              </button>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <button
+                type="button"
+                onclick="openFeature('p02')"
+                class="page-card group flex cursor-pointer flex-col justify-between gap-3 rounded-2xl p-4 text-left"
+              >
+                <div>
+                  <h3 class="text-base font-bold text-white group-hover:text-sky-300">수익 현황</h3>
+                  <p class="mt-1 text-xs text-slate-400">주간·월간 누적 차트와 월별 주차 비교 상세</p>
+                </div>
+                <div class="shot-frame overflow-hidden rounded-xl">
+                  <img src="./screenshots/p02-income-main.png" alt="수익 현황" loading="lazy" class="block h-44 w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" />
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onclick="openFeature('p03')"
+                class="page-card group flex cursor-pointer flex-col justify-between gap-3 rounded-2xl p-4 text-left"
+              >
+                <div>
+                  <h3 class="text-base font-bold text-white group-hover:text-amber-300">드롭 아이템 · 파티 분배</h3>
+                  <p class="mt-1 text-xs text-slate-400">드롭 보관함, 파티 연동, 분배 비율 정산 및 계산기</p>
+                </div>
+                <div class="shot-frame overflow-hidden rounded-xl">
+                  <img src="./screenshots/p03-drop-main.png" alt="드롭 아이템" loading="lazy" class="block h-44 w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" />
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onclick="openFeature('p04')"
+                class="page-card group flex cursor-pointer flex-col justify-between gap-3 rounded-2xl p-4 text-left"
+              >
+                <div>
+                  <h3 class="text-base font-bold text-white group-hover:text-blue-300">가계부</h3>
+                  <p class="mt-1 text-xs text-slate-400">3D 도넛 차트, 프리셋(개수 선택), 심볼·드롭 빠른 등록</p>
+                </div>
+                <div class="shot-frame overflow-hidden rounded-xl">
+                  <img src="./screenshots/p04-ledger-main.png" alt="가계부" loading="lazy" class="block h-44 w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" />
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onclick="openFeature('p05')"
+                class="page-card group flex cursor-pointer flex-col justify-between gap-3 rounded-2xl p-4 text-left"
+              >
+                <div>
+                  <h3 class="text-base font-bold text-white group-hover:text-violet-300">사냥 기록 · 위젯</h3>
+                  <p class="mt-1 text-xs text-slate-400">소재 효율, 솔 에르다 시세 차트, 항상 위 PiP 위젯</p>
+                </div>
+                <div class="shot-frame overflow-hidden rounded-xl">
+                  <img src="./screenshots/p05-hunting-main.png" alt="사냥 기록" loading="lazy" class="block h-44 w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" />
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onclick="openFeature('p09')"
+                class="page-card group flex cursor-pointer flex-col justify-between gap-3 rounded-2xl p-4 text-left"
+              >
+                <div>
+                  <h3 class="text-base font-bold text-white group-hover:text-sky-300">장비 · 캐시 · 펫</h3>
+                  <p class="mt-1 text-xs text-slate-400">장비 툴팁, 프리셋 1~3, 코디·안드로이드·펫 조회</p>
+                </div>
+                <div class="shot-frame overflow-hidden rounded-xl">
+                  <img src="./screenshots/p08-equipment-main.png" alt="장비 확인" loading="lazy" class="block h-44 w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" />
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onclick="openFeature('p10')"
+                class="page-card group flex cursor-pointer flex-col justify-between gap-3 rounded-2xl p-4 text-left"
+              >
+                <div>
+                  <h3 class="text-base font-bold text-white group-hover:text-indigo-300">스펙 · 히스토리 · 강화</h3>
+                  <p class="mt-1 text-xs text-slate-400">8개 스펙 탭, 전투력 성장 추이, 스타포스·큐브 이력</p>
+                </div>
+                <div class="shot-frame overflow-hidden rounded-xl">
+                  <img src="./screenshots/p09-spec-stat.png" alt="캐릭터 스펙" loading="lazy" class="block h-44 w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" />
+                </div>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 2. 세부 설명 화면 (상단 탭 클릭 시 표시: 좌측 13개 메뉴 + 우측 기능별 상세) -->
+      <div id="view-guide" data-view="guide" class="hidden py-8 sm:py-10">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="mb-6 flex flex-col justify-between gap-3 border-b border-slate-800 pb-5 sm:flex-row sm:items-end">
+            <div>
+              <span class="text-xs font-bold tracking-wider text-sky-400 uppercase">Feature Guide</span>
+              <h2 class="mt-1 text-2xl font-extrabold text-white">기능별 세부 설명</h2>
+            </div>
+            <p class="text-xs text-slate-400">왼쪽 메뉴에서 페이지를 고르면 상세 기능과 스크린샷이 표시됩니다.</p>
+          </div>
+
+          <div class="flex flex-col gap-6 lg:flex-row">
+            <aside class="lg:w-64 lg:shrink-0">
+              <div id="feature-nav" class="flex gap-2 overflow-x-auto pb-2 lg:sticky lg:top-24 lg:flex-col lg:gap-1.5 lg:overflow-visible lg:pb-0"></div>
+            </aside>
+            <div id="feature-detail" class="min-w-0 flex-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 업데이트 내역 화면 -->
+      <div id="view-changelog" data-view="changelog" class="hidden py-10">
+        <section id="changelog" class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+            <div>
+              <span class="text-xs font-bold tracking-wider text-emerald-400 uppercase">Release Notes</span>
+              <h2 class="mt-1 text-2xl font-extrabold text-white">최신 업데이트 내역</h2>
+            </div>
+            <a
+              href="https://github.com/th0079/maplestory-income-releases/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center self-start rounded-xl border border-slate-700 bg-slate-800 px-3.5 py-2 text-xs font-bold text-slate-200 transition hover:bg-slate-700"
+            >
+              전체 릴리스 이력 →
             </a>
-            <a href="#pages-guide"
-               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-bold bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 transition">
-              <span>12개 페이지 화면 &amp; 사용법 보기</span>
-            </a>
           </div>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 text-xs text-slate-300">
-            <div class="px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800">
-              <div class="text-slate-400">메뉴 구성</div>
-              <div class="font-bold text-white mt-0.5">12개 사이드 페이지</div>
-            </div>
-            <div class="px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800">
-              <div class="text-slate-400">보스·숙제 추적</div>
-              <div class="font-bold text-emerald-400 mt-0.5">스케줄러 API 연동</div>
-            </div>
-            <div class="px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800">
-              <div class="text-slate-400">다계정 지원</div>
-              <div class="font-bold text-amber-300 mt-0.5">최대 5개 프로필</div>
-            </div>
-            <div class="px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800">
-              <div class="text-slate-400">데이터 보관</div>
-              <div class="font-bold text-sky-300 mt-0.5">로컬 SQLite 저장</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 대표 대시보드 프리뷰 -->
-        <div class="lg:col-span-6">
-          <div class="shot-frame rounded-2xl overflow-hidden cursor-pointer group relative"
-               onclick="openLightbox('./screenshots/p01-dashboard-main.png', '01. 대시보드 — 주간 예상/실현 수익, 목표 자산, 메이플포인트 환산, 통합 프로필 및 캐릭터 보스 카드')">
-            <img src="./screenshots/p01-dashboard-main.png" alt="Maple Income 대시보드 화면" class="w-full h-auto block group-hover:scale-[1.01] transition duration-300" />
-            <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-slate-950/85 border border-slate-700 text-xs font-semibold text-slate-200">
-              🔍 클릭하여 확대
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 12개 페이지 요약 그리드 -->
-  <section id="overview" class="py-12 border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-8">
-        <span class="text-xs font-bold uppercase tracking-wider text-sky-400">12 Sidebar Pages</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">12개 사이드 페이지 핵심 요약</h2>
-        <p class="text-slate-400 mt-1.5 text-sm">카드를 클릭하면 해당 페이지의 대표 화면과 세부 사용 설명으로 이동합니다.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-        <a href="#page-01" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-sky-400 mb-1.5"><span>01 · 보스 &amp; 숙제</span><span>세부 6장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-sky-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
-              <span>대시보드</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">주간·월간 보스 수익 정산, 월드 90개 한도 최적화, 260Lv+ 캐릭터 등록, 보스 프리셋</p>
-          </div>
-        </a>
-        <a href="#page-02" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-emerald-400 mb-1.5"><span>02 · 수익 &amp; 메소</span><span>세부 4장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-              <span>수익 현황</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">주간·월간 결정석, 드롭 아이템, 가계부 순수익 차트 및 주간/월간 결산 이미지 저장</p>
-          </div>
-        </a>
-        <a href="#page-03" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-amber-400 mb-1.5"><span>03 · 수익 &amp; 메소</span><span>세부 4장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/></svg>
-              <span>드롭 아이템</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">보스 드롭 기록·보관함 관리, 파티 분배금 계산기, 빠른 등록 및 시세 변동 그래프</p>
-          </div>
-        </a>
-        <a href="#page-04" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-purple-400 mb-1.5"><span>04 · 수익 &amp; 메소</span><span>세부 2장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
-              <span>가계부</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">월간 수입·지출 요약, 카테고리 비중 차트, API 강화 비용 원클릭 불러오기</p>
-          </div>
-        </a>
-        <a href="#page-05" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-cyan-400 mb-1.5"><span>05 · 수익 &amp; 메소</span><span>세부 3장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-cyan-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
-              <span>사냥 기록</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">사냥 위젯(타이머·버프 알림), 소재비(30분 단위)·전후 차이 계산, 조각 환산 수익 통계</p>
-          </div>
-        </a>
-        <a href="#page-06" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-pink-400 mb-1.5"><span>06 · 보스 &amp; 숙제</span><span>세부 1장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-pink-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
-              <span>활동 달력</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">보스·드롭·가계부 일별 수익 달력 및 날짜별 상세 내역 팝업</p>
-          </div>
-        </a>
-        <a href="#page-07" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-teal-400 mb-1.5"><span>07 · 보스 &amp; 숙제</span><span>세부 2장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-teal-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
-              <span>스케줄러 컨텐츠</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">에픽 던전, 몬스터파크, 길드 수로/플래그, 심볼 일일 퀘스트 API 동기화</p>
-          </div>
-        </a>
-        <a href="#page-08" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-indigo-400 mb-1.5"><span>08 · 캐릭터 &amp; 강화</span><span>세부 1장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-indigo-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
-              <span>장비 확인</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">장착 장비 24슬롯 그리드 및 스타포스·추옵·잠재·에디셔널 상세 툴팁</p>
-          </div>
-        </a>
-        <a href="#page-09" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-sky-400 mb-1.5"><span>09 · 캐릭터 &amp; 강화</span><span>세부 7장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-sky-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" x2="9" y1="14" y2="18"/><line x1="7" x2="4" y1="17" y2="20"/><line x1="3" x2="5" y1="19" y2="21"/></svg>
-              <span>캐릭터 스펙</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">스탯·전투력, V매트릭스, 6차 HEXA, 심볼, 유니온, 어빌리티, 세트 효과, 링크 스킬</p>
-          </div>
-        </a>
-        <a href="#page-10" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-violet-400 mb-1.5"><span>10 · 캐릭터 &amp; 강화</span><span>세부 2장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-violet-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
-              <span>캐릭터 히스토리</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">기간별(7일/30일/1년/전체) 경험치·레벨·전투력·유니온·아티팩트 레벨 성장 차트</p>
-          </div>
-        </a>
-        <a href="#page-11" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-orange-400 mb-1.5"><span>11 · 캐릭터 &amp; 강화</span><span>세부 4장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-orange-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <span>강화 기록</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">스타포스·잠재능력·큐브 사용 이력 조회, 장비별 소비 메소 및 기댓값 대비 편차 분석</p>
-          </div>
-        </a>
-        <a href="#page-12" class="page-card rounded-2xl p-4 flex flex-col justify-between hover:no-underline">
-          <div>
-            <div class="flex items-center justify-between text-xs font-bold text-rose-400 mb-1.5"><span>12 · 설정 &amp; 계정</span><span>세부 8장 →</span></div>
-            <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <svg class="w-4 h-4 text-rose-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-              <span>설정</span>
-            </h3>
-            <p class="text-xs text-slate-300 mt-1">통합 프로필, 5개 다계정·API 키, 출석·펫, 퀘스트, 업적, 목표 자산, 알림, 정보</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 빠른 시작 4단계 -->
-  <section id="quickstart" class="py-12 bg-slate-900/40 border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-8">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Quick Start</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">4단계 시작 안내</h2>
-      </div>
-      <div class="grid md:grid-cols-4 gap-4">
-        <div class="page-card rounded-2xl p-5">
-          <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-sky-600 text-white font-black text-xs mb-2.5">1</span>
-          <h3 class="text-sm font-bold text-white mb-1">설치 및 실행</h3>
-          <p class="text-xs text-slate-300">상단 다운로드 버튼으로 <code class="text-sky-300">Maple-Income-Setup.exe</code> 설치 (이후 앱 내 자동 업데이트 지원)</p>
-        </div>
-        <div class="page-card rounded-2xl p-5">
-          <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-sky-600 text-white font-black text-xs mb-2.5">2</span>
-          <h3 class="text-sm font-bold text-white mb-1">NEXON Open API 키 등록</h3>
-          <p class="text-xs text-slate-300"><strong>[설정 → 계정]</strong>에서 API 키 입력 시 캐릭터 목록·스케줄러·강화 이력 연동 활성화</p>
-        </div>
-        <div class="page-card rounded-2xl p-5">
-          <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-sky-600 text-white font-black text-xs mb-2.5">3</span>
-          <h3 class="text-sm font-bold text-white mb-1">캐릭터 &amp; 보스 등록</h3>
-          <p class="text-xs text-slate-300"><strong>[+ 캐릭터 추가]</strong>로 260Lv+ 캐릭터 일괄 등록 후 자동 모드 또는 간편 프리셋 적용</p>
-        </div>
-        <div class="page-card rounded-2xl p-5">
-          <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-sky-600 text-white font-black text-xs mb-2.5">4</span>
-          <h3 class="text-sm font-bold text-white mb-1">수익 정산 &amp; 기록 관리</h3>
-          <p class="text-xs text-slate-300">매주 목요일 00시(KST) 자동 정산 및 12개 메뉴에서 수익·숙제·장비·스펙·강화 확인</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 12개 사이드 페이지 상세 가이드 -->
-  <section id="pages-guide" class="py-14 border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-7 gap-4">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-sky-400">Page-by-Page Guide</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">12개 사이드 페이지 화면 및 세부 사용 설명</h2>
-          <p class="text-slate-400 mt-1 text-sm">각 페이지의 대표 화면 또는 <strong>[세부 사용 사진 및 설명 보기]</strong>를 클릭하면 하위 기능 화면과 설명이 펼쳐집니다.</p>
-        </div>
-        <div class="flex flex-wrap items-center gap-2">
-          <button onclick="toggleAllDetails(true)" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-sky-600/20 hover:bg-sky-600/30 text-sky-300 border border-sky-500/40 transition cursor-pointer">
-            + 세부 설명 모두 펼치기
-          </button>
-          <button onclick="toggleAllDetails(false)" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition cursor-pointer">
-            − 모두 접기
-          </button>
-        </div>
-      </div>
-
-      <!-- 카테고리 필터 탭 -->
-      <div class="flex flex-wrap gap-2 mb-8">
-        <button onclick="filterCategory('all')" data-cat-btn="all" class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800/80 text-slate-300 transition cursor-pointer">전체 (12)</button>
-        <button onclick="filterCategory('boss')" data-cat-btn="boss" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800/80 text-slate-300 transition cursor-pointer">보스 · 달력 · 스케줄러 (01, 06, 07)</button>
-        <button onclick="filterCategory('income')" data-cat-btn="income" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800/80 text-slate-300 transition cursor-pointer">수익 · 드롭 · 가계부 · 사냥 (02, 03, 04, 05)</button>
-        <button onclick="filterCategory('spec')" data-cat-btn="spec" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800/80 text-slate-300 transition cursor-pointer">장비 · 스펙 · 히스토리 · 강화 (08, 09, 10, 11)</button>
-        <button onclick="filterCategory('settings')" data-cat-btn="settings" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800/80 text-slate-300 transition cursor-pointer">설정 · 다계정 · 업적 (12)</button>
-      </div>
-
-      <!-- 12개 페이지 카드 컨테이너 -->
-      <div id="pages-container" class="space-y-8"></div>
-    </div>
-  </section>
-
-  <!-- 최신 업데이트 내역 -->
-  <section id="changelog" class="py-12 border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-7">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Release Notes</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">최신 업데이트 내역</h2>
-          <p class="text-slate-400 mt-1 text-sm">새 릴리스 배포 시 최신 버전 다운로드 링크와 패치 노트가 자동으로 반영됩니다.</p>
-        </div>
-        <a href="https://github.com/th0079/maplestory-income-releases/releases"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition self-start sm:self-auto">
-          전체 릴리스 이력 보기 →
-        </a>
-      </div>
-      <div id="release-notes-list" class="grid gap-5">
-        <!-- RELEASE_NOTES_START -->
+          <div id="release-notes-list" class="grid gap-4">
+            <!-- RELEASE_NOTES_START -->
         <article class="page-card rounded-2xl p-6 space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div class="flex items-center gap-2.5">
@@ -507,807 +458,542 @@ v2.71.0
           </div>
         </article>
 <!-- RELEASE_NOTES_END -->
-      </div>
-    </div>
-  </section>
-
-  <!-- NEXON Open API 이용 및 데이터 보안 안내 -->
-  <section id="api-info" class="py-12 bg-slate-900/50 border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="page-card rounded-2xl p-6 space-y-2.5">
-          <div class="text-xs font-bold uppercase tracking-wider text-sky-400">NEXON Open API</div>
-          <h3 class="text-lg font-extrabold text-white">연동 API 항목</h3>
-          <ul class="space-y-1.5 text-sm text-slate-300">
-            <li>• <strong>캐릭터 목록</strong> (<code class="text-sky-300">/maplestory/v1/character/list</code>): 계정 내 260Lv+ 캐릭터 검색·등록</li>
-            <li>• <strong>메이플 스케줄러</strong> (<code class="text-sky-300">/maplestory/v1/scheduler/character-state</code>): 보스 처치·일일/주간 숙제 동기화</li>
-            <li>• <strong>장비·스펙·유니온·랭킹</strong> (<code class="text-sky-300">basic</code>, <code class="text-sky-300">stat</code>, <code class="text-sky-300">item-equipment</code>, <code class="text-sky-300">vmatrix</code>, <code class="text-sky-300">hexamatrix</code>, <code class="text-sky-300">union</code>): 장비 툴팁·8개 스펙 탭·성장 차트</li>
-            <li>• <strong>강화 이력</strong> (<code class="text-sky-300">/maplestory/v1/history/*</code>): 스타포스·잠재능력·큐브 내역 및 가계부 연동</li>
-          </ul>
-        </div>
-        <div class="page-card rounded-2xl p-6 space-y-2.5">
-          <div class="text-xs font-bold uppercase tracking-wider text-emerald-400">Local Security</div>
-          <h3 class="text-lg font-extrabold text-white">API 키 보안 및 로컬 저장</h3>
-          <ul class="space-y-1.5 text-sm text-slate-300">
-            <li>• <strong>OS 암호화 보관</strong>: API 키는 Electron <code class="text-emerald-300">safeStorage</code>로 암호화되어 사용자 PC 내부에만 저장</li>
-            <li>• <strong>로컬 SQLite DB</strong>: 모든 수익·가계부·캐릭터 캐시는 로컬 DB에 보관되며 JSON 백업/복원 지원</li>
-            <li>• <strong>호출 정책 준수</strong>: 날짜·식별자별 캐싱, 동시 호출 제한, 지수 백오프 재시도 적용</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 푸터 -->
-  <footer class="py-10 text-center text-xs text-slate-400 space-y-2">
-    <div class="inline-flex items-center justify-center gap-2 font-semibold text-slate-300">
-      <img src="./screenshots/app-logo.png" alt="Maple Income 로고" class="w-5 h-5 object-contain" />
-      <span>Maple Income — 메이플스토리 수익 계산기 &amp; 캐릭터 관리 데스크톱 앱</span>
-    </div>
-    <div>Data based on NEXON Open API · 본 프로그램은 NEXON Open API를 활용하여 제작된 개인 개발 애플리케이션입니다.</div>
-    <div class="pt-1">
-      <a href="https://github.com/th0079/maplestory-income-releases" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">GitHub 저장소</a>
-      <span class="mx-2">·</span>
-      <a href="https://github.com/th0079/maplestory-income-releases/releases" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">릴리즈 노트 &amp; 다운로드</a>
-    </div>
-  </footer>
-
-  <!-- 이미지 확대 라이트박스 모달 -->
-  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 p-4 backdrop-blur-sm" onclick="closeLightbox()">
-    <div class="relative max-w-5xl w-full flex flex-col items-center" onclick="event.stopPropagation()">
-      <div class="w-full flex items-center justify-between mb-3 px-1">
-        <p id="lightbox-caption" class="text-sm sm:text-base font-bold text-white truncate pr-4"></p>
-        <button onclick="closeLightbox()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-600 cursor-pointer shrink-0">
-          ✕ 닫기 (ESC)
-        </button>
-      </div>
-      <div class="max-h-[84vh] overflow-auto rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl">
-        <img id="lightbox-img" src="" alt="" class="max-w-full h-auto block mx-auto" />
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const PAGES_DATA = [
-      {
-        id: 'page-01',
-        num: '01',
-        category: 'boss',
-        catLabel: '보스 · 스케줄',
-        title: '대시보드 (Dashboard)',
-        subtitle: '주간·월간 보스 수익 정산, 월드 90개 한도 최적화, 캐릭터별 보스 체크리스트',
-        mainShot: './screenshots/p01-dashboard-main.png',
-        mainCaption: '01. 대시보드 — 상단 요약 카드(아쿠아리움 마을 & 스쿠버 페페 펫), 통합 프로필 바(별빛 배경 & 정예 모험가 칭호), 캐릭터별 보스 카드',
-        bullets: [
-          '주간·월간 보스 예상 수익(선택 기준)과 실현 수익(클리어 기준) 실시간 합산',
-          '월드당 주간 90개·캐릭터당 12개 결정석 한도 추적 및 고수익 순 자동 최적화',
-          '시작하기 안내 카드(API 키 설정 → 캐릭터 등록 → 보스 설정) 단계별 가이드',
-          '사이드바 메뉴 묶음 구분선(수익 관리 / 캐릭터 관리 / 설정) 직관적 분리',
-          '30분 주기 백그라운드 자동 갱신 및 창 복귀 시 즉시 최신화',
-          '캐릭터별 [자동 모드](스케줄러 API 연동) / [수동 모드](직접 체크) 개별 전환'
-        ],
-        details: [
-          {
-            shot: './screenshots/p01-dashboard-char-list.png',
-            title: '① 보스 등록된 캐릭터 목록 (자동 · 수동 모드)',
-            items: [
-              '등록된 다수의 보스 캐릭터 카드 나열 및 캐릭터별 주간·월간 결정석 수익 합산',
-              '캐릭터별 [자동 모드](스케줄러 동기화)와 [수동 모드](원클릭 주간 완료/전체 완료) 개별 지원'
-            ]
-          },
-          {
-            shot: './screenshots/p01-dashboard-add-char.png',
-            title: '② 캐릭터 추가 (260Lv+ 빠른 등록)',
-            items: [
-              'API 키 기반으로 계정 내 260레벨 이상 캐릭터를 월드별로 일괄 조회·선택 등록',
-              '[직접 검색] 탭에서 캐릭터 닉네임 개별 검색 지원'
-            ]
-          },
-          {
-            shot: './screenshots/p01-dashboard-boss-auto.png',
-            title: '③ 보스 설정 모달 (자동 모드 & 파티 인원)',
-            items: [
-              '주간 보스(최대 12마리)·월간 보스(검은 마법사) 난이도 및 파티 인원(1~6인) 설정',
-              '자동 모드 시 인게임 메이플 스케줄러의 보스 목록·처치 여부 자동 반영'
-            ]
-          },
-          {
-            shot: './screenshots/p01-dashboard-boss-preset.png',
-            title: '④ 보스 프리셋 (16개 구간 간편 프리셋 & 커스텀 프리셋)',
-            items: [
-              '이적자솔 ~ 하벨솔 16개 구간 보스 조합(권장 환산·파티 구성 포함) 원클릭 적용',
-              '주간 · 월간 · 한달(주간 4주 + 월간) 1인 수익 나눠 보기 및 내 커스텀 프리셋 저장·재사용'
-            ]
-          },
-          {
-            shot: './screenshots/p01-dashboard-mode-guide.png',
-            title: '⑤ 보스 추적 모드 안내',
-            items: [
-              '수동 모드(직접 체크)와 자동 모드(스케줄러 API 연동) 동작 방식 안내',
-              '파티격(2~6인) 결정석 1/N 분배 설정 안내'
-            ]
-          },
-          {
-            shot: './screenshots/p01-dashboard-share.png',
-            title: '⑥ 주간 보스 수익 요약 카드 공유',
-            items: [
-              '이번 주 총 수익·보스 처치 수·캐릭터별 기여도를 이미지 카드로 생성',
-              '클립보드 이미지 복사 또는 PNG 파일 저장 지원'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-02',
-        num: '02',
-        category: 'income',
-        catLabel: '수익 · 메소',
-        title: '수익 현황 (Income Analytics)',
-        subtitle: '주간·월간 결정석, 드롭 아이템, 가계부 순수익 추이 및 주간/월간 결산 이미지 저장',
-        mainShot: './screenshots/p02-income-main.png',
-        mainCaption: '02. 수익 현황 — 주간 수익 추이 차트(주간/월간 결정석·드롭·가계부) 및 주차별 정산 표',
-        bullets: [
-          '최근 8주 주간 추이 및 최근 6개월 월간 추이 차트로 결정석·드롭·가계부 순수익 비교',
-          '결정·드롭 아이템·가계부 순수익 카드 클릭 시 항목별 세부 기여도 및 수입/지출 내역 펼침',
-          '주간·월간 수익 결산 카드를 이미지로 미리보기 및 저장 지원'
-        ],
-        details: [
-          {
-            shot: './screenshots/p02-income-detail.png',
-            title: '① 결정 · 드롭 아이템 · 가계부 순수익 펼쳐진 모습',
-            items: [
-              '결정(캐릭터별 기여도), 드롭 아이템(아이템별 수익), 가계부 순이익(수입·지출 카테고리별 내역) 동시 펼침 확인'
-            ]
-          },
-          {
-            shot: './screenshots/p02-income-monthly.png',
-            title: '② 월간 수익 추이 탭',
-            items: [
-              '[월간] 탭 전환 시 월 단위 총 수익·결정석·드롭·가계부 합산 추이 비교'
-            ]
-          },
-          {
-            shot: './screenshots/p02-income-share-week.png',
-            title: '③ 주간 수익 결산 이미지 예시',
-            items: [
-              '해당 주차의 총 수익, 결정/드롭/가계부 비중, 캐릭터별 결정 기여 TOP 3, 드롭 수익 TOP 3 요약 이미지 저장'
-            ]
-          },
-          {
-            shot: './screenshots/p02-income-share-month.png',
-            title: '④ 월간 수익 결산 이미지 예시',
-            items: [
-              '해당 월의 총 수익, 결정/드롭/가계부 비중, 캐릭터별 결정 기여 TOP 3, 드롭 수익 TOP 3 요약 이미지 저장'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-03',
-        num: '03',
-        category: 'income',
-        catLabel: '수익 · 메소',
-        title: '드롭 아이템 (Drop Items & Storage)',
-        subtitle: '보스 고가 드롭 기록·보관함 관리, 파티 분배금 계산기, 빠른 등록 및 시세 변동 그래프',
-        mainShot: './screenshots/p03-drop-main.png',
-        mainCaption: '03. 드롭 아이템 — 칠흑·여명·근원·연마석 드롭 기록 등록 및 미판매 드롭 보관함',
-        bullets: [
-          '드롭 아이템 획득 캐릭터·판매가·파티 인원(1~6인)·수수료(3%/5%) 반영 정산',
-          '미판매 아이템은 [드롭 보관함]에 보관 후 판매 시점에 정산 전환',
-          '칠흑·광휘 장신구 빠른 시세 등록 및 아이템별 가격 변동 그래프 제공'
-        ],
-        details: [
-          {
-            shot: './screenshots/p03-drop-records.png',
-            title: '① 드롭 수익 내역 (캐릭터별 · 건별 정산)',
-            items: [
-              '판매 완료된 드롭 아이템의 캐릭터별 실수령액 합계·비중(%) 및 건별 판매가·수수료·분배 인원 표시',
-              '캐릭터별 묶음 / 건별 나열 전환 및 금액·최신순 정렬, 메모·수정·삭제 지원'
-            ]
-          },
-          {
-            shot: './screenshots/p03-drop-storage.png',
-            title: '② 드롭 보관함 (미판매 아이템 보관 · 판매/사용 전환)',
-            items: [
-              '획득 직후 판매하지 않은 아이템을 보관하고 현재 시세 합계와 보관 기간 표시',
-              '아이템 클릭 시 2×2 격자 버튼([판매]·[사용]·[메모]·[삭제])으로 즉시 전환 및 [사용 내역] 별도 사용 메모 기록'
-            ]
-          },
-          {
-            shot: './screenshots/p03-drop-split.png',
-            title: '③ 분배금 계산기',
-            items: [
-              '아이템 시세·경매장 수수료(3%/5%)·교환 수수료·파티 인원(2~6인) 기준 계산',
-              '1인당 수령액과 파티원에게 송금할 1인당 분배금 자동 산출'
-            ]
-          },
-          {
-            shot: './screenshots/p03-drop-prices.png',
-            title: '④ 빠른 등록 아이템 내역 & 시세 변동 그래프',
-            items: [
-              '칠흑·광휘 장신구 기본 시세 빠른 등록 및 일괄 수정 지원',
-              '등록된 아이템 클릭 시 시세 변동 그래프와 직전/평균 대비 등락률 확인'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-04',
-        num: '04',
-        category: 'income',
-        catLabel: '수익 · 메소',
-        title: '가계부 (Meso Ledger)',
-        subtitle: '월간 수입·지출 요약, 카테고리 비중 도넛 차트, API 강화 비용 불러오기',
-        mainShot: './screenshots/p04-ledger-main.png',
-        mainCaption: '04. 가계부 — 월간 수입·지출·순수익 요약, 카테고리 비중 도넛 차트 및 내역 입력',
-        bullets: [
-          '아이템 판매·사냥·보스 분배금 등 수입과 스타포스·잠재능력·구매 지출 통합 관리',
-          '3D 도넛 차트로 이번 달 수입/지출 카테고리별 비중 시각화',
-          '캐릭터·월드·카테고리별 내역 필터링 및 수정/삭제 지원'
-        ],
-        details: [
-          {
-            shot: './screenshots/p04-ledger-quick-enhance.png',
-            title: '① 강화 내역에서 지출 자동 불러오기',
-            items: [
-              '선택한 날짜의 API 스타포스 소비 메소 합계·잠재능력 건수를 조회해 지출로 즉시 등록'
-            ]
-          },
-          {
-            shot: './screenshots/p04-ledger-list.png',
-            title: '② 월간 거래 내역 목록 및 필터',
-            items: [
-              '전체/수입/지출 탭 전환 및 항목별 금액·메모·캐릭터 확인'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-05',
-        num: '05',
-        category: 'income',
-        catLabel: '수익 · 메소',
-        title: '사냥 기록 (Hunting Session)',
-        subtitle: '사냥 위젯(타이머·버프 알림), 소재비(30분 단위)·전후 차이 계산, 조각 환산 수익 통계',
-        mainShot: './screenshots/p05-hunting-main.png',
-        mainCaption: '05. 사냥 기록 — 소재비 단위 사냥 시간·순수 메소·솔 에르다 조각 기록 및 환산 수익',
-        bullets: [
-          '항상 위(PiP) 사냥 위젯으로 사냥 타이머, 버프 리필 알림, 사냥 전/후 획득량 즉시 기록',
-          '소재비 개수(1소재 = 30분) 선택으로 사냥 시간(30분~240분) 원클릭 입력',
-          '순수 메소 수익 + (솔 에르다 조각 개수 × 조각 시세) 합산 총 사냥 수익 산출'
-        ],
-        details: [
-          {
-            shot: './screenshots/p05-hunting-widget.png',
-            title: '① 사냥 위젯 (항상 위 타이머 · 버프 리필 알림 · 간편 기록)',
-            items: [
-              '게임 화면 위에 고정(Pin)해 사용하는 전용 미니 창으로 스톱워치 및 30분 버프 리필·반복 알림음 제공',
-              '위젯 내에서 사냥 전/후 메소·조각 수를 바로 입력해 사냥 기록 추가 및 오늘 누적 수익 확인'
-            ]
-          },
-          {
-            shot: './screenshots/p05-hunting-diff.png',
-            title: '② 전/후 차이 입력 모드',
-            items: [
-              '사냥 시작 전/종료 후 보유 메소·솔 에르다 조각 수 입력 시 획득량 자동 계산'
-            ]
-          },
-          {
-            shot: './screenshots/p05-hunting-stats.png',
-            title: '③ 최근 사냥 내역 & 1소재(30분) 평균 효율',
-            items: [
-              '전체·최근 30일·이번 달 기준 총 사냥 시간, 총 수익, 1소재 평균 메소·조각 통계 표시'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-06',
-        num: '06',
-        category: 'boss',
-        catLabel: '보스 · 스케줄',
-        title: '활동 달력 (Activity Calendar)',
-        subtitle: '보스·드롭·가계부 일별 수익 달력 및 날짜별 상세 내역 팝업',
-        mainShot: './screenshots/p06-calendar-main.png',
-        mainCaption: '06. 활동 달력 — 월간 보스 수익·드롭·가계부 수입/지출 통합 달력',
-        bullets: [
-          '보스 결정석(파랑), 드롭 아이템(노랑), 가계부 수입(초록)·지출(빨강) 일별 표시',
-          '상단 필터 칩으로 원하는 활동 카테고리만 선택 표시',
-          '하단 요약 바에서 해당 월의 카테고리별 합계와 순수익 제공'
-        ],
-        details: [
-          {
-            shot: './screenshots/p06-calendar-detail.png',
-            title: '① 일별 활동 상세 내역 팝업',
-            items: [
-              '달력의 날짜 클릭 시 해당 일자의 보스 처치·드롭·가계부 상세 내역 모달 표시'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-07',
-        num: '07',
-        category: 'boss',
-        catLabel: '보스 · 스케줄',
-        title: '스케줄러 컨텐츠 (Maple Scheduler)',
-        subtitle: '에픽 던전, 몬스터파크, 길드 컨텐츠, 심볼 일일 퀘스트 API 동기화',
-        mainShot: './screenshots/p07-homework-main.png',
-        mainCaption: '07. 스케줄러 컨텐츠 — 캐릭터별 주간·일일 컨텐츠 및 아케인/어센틱 일일 퀘스트 현황판',
-        bullets: [
-          'NEXON Open API 메이플 스케줄러 연동으로 주간·일일 숙제 완료 여부 자동 동기화',
-          '주간 컨텐츠: 하이마운틴·앵글러 컴퍼니·악몽선경, 몬스터파크 익스트림, 길드 수로·플래그, 무릉도장',
-          '일일 컨텐츠: 몬스터파크, 아케인리버 6개 지역·그란디스 7개 지역 일일 퀘스트'
-        ],
-        details: [
-          {
-            shot: './screenshots/p07-homework-all.png',
-            title: '① 전체 컨텐츠 펼쳐보기',
-            items: [
-              '[전체 컨텐츠] 토글 시 스케줄러 미등록 항목을 포함한 모든 주간·일일 컨텐츠 표시'
-            ]
-          },
-          {
-            shot: './screenshots/p07-homework-help.png',
-            title: '② 스케줄러 컨텐츠 안내 모달',
-            items: [
-              '월드/계정 내 캐릭터 공유 한도 및 데이터 갱신 시점 안내'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-08',
-        num: '08',
-        category: 'spec',
-        catLabel: '캐릭터 · 강화',
-        title: '장비 확인 (Character Equipment)',
-        subtitle: '장착 장비 24슬롯 그리드 및 스타포스·추옵·잠재·에디셔널 상세 툴팁',
-        mainShot: './screenshots/p08-equipment-main.png',
-        mainCaption: '08. 장비 확인 — 장착 장비 24슬롯 인게임 배치 그리드',
-        bullets: [
-          '반지 1~4, 무기·보조·엠블렘, 방어구, 장신구, 안드로이드, 심장 등 24슬롯 표시',
-          '슬롯 상단에 스타포스 수치(★22 등), 하단에 잠재/에디셔널 등급 배지(L/U/E/R) 표기',
-          '장비 프리셋(1·2·3) 전환 및 착용 중인 프리셋 [ON] 배지 실시간 표시'
-        ],
-        details: [
-          {
-            shot: './screenshots/p08-equipment-tooltip.png',
-            title: '① 장비 슬롯 상세 툴팁',
-            items: [
-              '장비 클릭 시 기본/추가옵션(추옵 합계)·잠재능력·에디셔널·익셉셔널·소울 상세 툴팁 표시'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-09',
-        num: '09',
-        category: 'spec',
-        catLabel: '캐릭터 · 강화',
-        title: '캐릭터 스펙 (Character Spec — 8개 탭)',
-        subtitle: '스탯·전투력, V매트릭스, 6차 HEXA, 심볼, 유니온, 어빌리티, 세트 효과, 링크 스킬',
-        mainShot: './screenshots/p09-spec-stat.png',
-        mainCaption: '09. 캐릭터 스펙 — [스탯 개요] 전투력, 랭킹, 핵심 전투 스탯(보공·방무·크뎀·쿨감·아드/메획)',
-        bullets: [
-          '단일 화면 내 8개 탭으로 캐릭터의 모든 전투 지표와 코어·유니온·스킬 구성 통합 제공',
-          '링크 스킬 프리셋 1·2·3 전환 및 링크 스킬 직업 배지([아크], [데몬어벤져] 등) 표시',
-          '세트 효과 세트별 단계 합산 스탯(보공, 방무, 올스탯 등) 표시',
-          '6차 HEXA 코어 및 심볼 강화 진행률(%)·누적 소모량 자동 계산'
-        ],
-        details: [
-          {
-            shot: './screenshots/p09-spec-vmatrix.png',
-            title: '① [V매트릭스] 5차 장착 코어 및 슬롯 강화 레벨',
-            items: [
-              '5차 스킬코어·강화코어·특수코어 장착 목록 및 코어별 강화 레벨 표시'
-            ]
-          },
-          {
-            shot: './screenshots/p09-spec-hexa.png',
-            title: '② [HEXA] 6차 코어 진행률 & 솔 에르다 조각 누적 소모량',
-            items: [
-              '스킬·마스터리·강화·공용 코어 레벨(최대 Lv.30) 및 전체 조각 진행률·HEXA 스탯 표시'
-            ]
-          },
-          {
-            shot: './screenshots/p09-spec-symbol.png',
-            title: '③ [심볼] 아케인심볼 · 어센틱심볼 · 그랜드 어센틱심볼',
-            items: [
-              '심볼별 레벨·성장치·주스탯 증가량 및 포스 합계(ARC/AUT) 표시'
-            ]
-          },
-          {
-            shot: './screenshots/p09-spec-union.png',
-            title: '④ [유니온] 인게임 창식 스탯 · 유니온 챔피언 · 아티팩트',
-            items: [
-              '유니온 레벨·등급별 유니온 챔피언 석상·크리스탈 이미지 기반 아티팩트 및 16칸 인게임식 유니온 스탯(프리셋 1~5) 표시'
-            ]
-          },
-          {
-            shot: './screenshots/p09-spec-ability.png',
-            title: '⑤ [어빌리티] 레전드리 어빌리티 & 프리셋 1·2·3',
-            items: [
-              '장착 어빌리티 3줄 옵션·등급 색상 및 프리셋별 구성 비교'
-            ]
-          },
-          {
-            shot: './screenshots/p09-spec-set-effect.png',
-            title: '⑥ [세트 효과] 칠흑 · 에테르넬 세트 효과 & 합산 스탯',
-            items: [
-              '적용 중인 세트 아이템 장착 개수와 단계별 옵션 상세 펼침 및 세트별 누적 합산 스탯 표시'
-            ]
-          },
-          {
-            shot: './screenshots/p09-spec-link-skill.png',
-            title: '⑦ [링크 스킬] 장착 링크 스킬 & 직업 배지 · 프리셋',
-            items: [
-              '전수받은 링크 스킬 아이콘·효과, 직업 배지([아크], [데몬어벤져] 등) 및 프리셋 1·2·3 전환'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-10',
-        num: '10',
-        category: 'spec',
-        catLabel: '캐릭터 · 강화',
-        title: '캐릭터 히스토리 (Growth History)',
-        subtitle: '기간별(7일/30일/1년/전체) 경험치·레벨·전투력·유니온·아티팩트 레벨 성장 차트',
-        mainShot: './screenshots/p10-history-main.png',
-        mainCaption: '10. 캐릭터 히스토리 — 30일 경험치(%), 레벨업 예상일, 레벨 히스토리 추이 차트',
-        bullets: [
-          '일별 스냅샷 기반으로 최근 7일·30일·1년·전체 기간 성장 추이 시각화',
-          '일평균 경험치 획득량 기반 다음 레벨 달성 예상일(D-Day) 산출',
-          '전투력, 유니온 레벨, 유니온 아티팩트 레벨 성장 히스토리 차트 제공'
-        ],
-        details: [
-          {
-            shot: './screenshots/p10-history-combat-union.png',
-            title: '① 전투력 · 유니온 · 아티팩트 레벨 히스토리 차트',
-            items: [
-              '기간 내 전투력 상승량, 계정 유니온 레벨 증가 추이, 유니온 아티팩트 레벨 달성 이력 시각화'
-            ]
-          },
-          {
-            shot: './screenshots/p10-history-7d.png',
-            title: '② 기간 필터 전환 (최근 7일 상세 추이)',
-            items: [
-              '[7일]·[30일]·[1년]·[전체] 버튼으로 단기 사냥/스펙업 변화와 장기 성장 기록 전환'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-11',
-        num: '11',
-        category: 'spec',
-        catLabel: '캐릭터 · 강화',
-        title: '강화 기록 (Enhance History)',
-        subtitle: '스타포스·잠재능력·큐브 사용 이력 조회, 장비별 소비 메소 및 기댓값 대비 편차 분석',
-        mainShot: './screenshots/p11-enhance-main.png',
-        mainCaption: '11. 강화 기록 — 스타포스/잠재능력/큐브 시도·성공·실패·파괴 통계 및 타임라인',
-        bullets: [
-          'NEXON Open API 기반 스타포스·잠재능력 재설정·큐브 사용 이력 통합 조회',
-          '스타포스(일반·슈페리얼 장비 지원)·잠재능력·큐브 7종 기댓값 계산 및 장비창 불러오기 지원',
-          '잠재능력/에디셔널/소울 종류별 필터 및 시도별 전/후 옵션·등급 보장(천장) 표시'
-        ],
-        details: [
-          {
-            shot: './screenshots/p11-enhance-sf-summary.png',
-            title: '① [아이템별 소비 메소 요약] 장비별 누적 강화 비용',
-            items: [
-              '장비별 시도 횟수·성공·실패·파괴·최고 달성 성수 및 총 소비 메소 순위 집계'
-            ]
-          },
-          {
-            shot: './screenshots/p11-enhance-sf-prob.png',
-            title: '② [확률 기대치 대비 분석] 기댓값 vs 실제 결과 비교',
-            items: [
-              '성수 구간별·전체 합산 기준 기댓값과 실제 성공/파괴 횟수 편차(%p) 비교'
-            ]
-          },
-          {
-            shot: './screenshots/p11-enhance-potential.png',
-            title: '③ [잠재능력 재설정] 등급 상승 편차 및 옵션 비교',
-            items: [
-              '메소 잠재능력 재설정 등급업 기댓값 비교 및 시도별 전/후 잠재능력 3줄 옵션 표시'
-            ]
-          },
-          {
-            shot: './screenshots/p11-enhance-cube.png',
-            title: '④ [큐브 사용 내역] 큐브별 사용 기록 · 등급 상승 · 전/후 옵션',
-            items: [
-              '블랙 큐브·화이트 에디셔널 큐브 등 큐브 사용 횟수, 감정 비용, 등급 보장(천장) 및 전/후 옵션 변화 조회'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'page-12',
-        num: '12',
-        category: 'settings',
-        catLabel: '설정 · 계정',
-        title: '설정 (Settings — 8개 탭)',
-        subtitle: '통합 프로필, 5개 다계정·API 키, 출석·펫·마을, 퀘스트, 업적, 목표 자산·테마, 알림, 정보',
-        mainShot: './screenshots/p12-settings-account.png',
-        mainCaption: '12. 설정 [계정] — 통합 프로필(별빛 배경 & 정예 모험가 칭호), 다계정 전환, API 키 설정, 자동 백업 관리',
-        bullets: [
-          '최대 5개 계정 프로필 생성·전환 (프로필별 독립된 로컬 DB와 API 키 분리 관리, 지운 계정 복원)',
-          '계정 출석 레벨업으로 해금되는 펫·마을 배경·프로필 배경 스킨·칭호 커스터마이징',
-          '요일/시각별 Windows 알림, 트레이 상주, 30분 주기 백그라운드 자동 갱신, Windows 시작 시 실행',
-          '변경 후·종료 시 자동 백업 목록 조회 및 복원, 외부 백업 폴더 경로 지정'
-        ],
-        details: [
-          {
-            shot: './screenshots/p12-settings-profile-edit.png',
-            title: '① 통합 프로필 편집 모달 (닉네임 · 칭호 · 프로필 배경 스킨)',
-            items: [
-              '대표 아바타·닉네임·칭호(정예 모험가 등)·프로필 배경 스킨(별빛 등) 선택 및 미리보기'
-            ]
-          },
-          {
-            shot: './screenshots/p12-settings-pet.png',
-            title: '② [출석 · 펫] 계정 출석 현황 및 펫(스쿠버 페페) · 마을(아쿠아리움) 선택',
-            items: [
-              '연속/누적 출석일 확인 및 해금된 대표 펫(스쿠버 페페 등)·마을 배경(아쿠아리움 등) 변경'
-            ]
-          },
-          {
-            shot: './screenshots/p12-settings-quest.png',
-            title: '③ [퀘스트] 일일 · 주간 앱 활동 퀘스트',
-            items: [
-              '보스 클리어·가계부 기록·사냥 기록·스케줄러 연동 등 일일/주간 퀘스트 달성 및 XP 획득'
-            ]
-          },
-          {
-            shot: './screenshots/p12-settings-achievement.png',
-            title: '④ [업적] 업적 컬렉션 & 보스 처치 도감',
-            items: [
-              '출석·계정 레벨·퀘스트 업적 진행도 및 보스 난이도별 첫 처치 도감 확인'
-            ]
-          },
-          {
-            shot: './screenshots/p12-settings-goal.png',
-            title: '⑤ [목표 자산 · 시세] 목표 메소 · 메포 시세 · 조각 시세 · 시즌 보스',
-            items: [
-              '목표 자산/현재 자산, 1억당 메포 시세, 솔 에르다 조각 시세, 시즌 보스 결정석 가격 설정'
-            ]
-          },
-          {
-            shot: './screenshots/p12-settings-display.png',
-            title: '⑥ [화면] 다크/라이트 테마 및 대시보드 카드 스타일 설정',
-            items: [
-              '다크/라이트 모드 전환 및 대시보드 상단 요약 카드 스타일(기존 4색·블루 4종·커스텀) 설정'
-            ]
-          },
-          {
-            shot: './screenshots/p12-settings-notification.png',
-            title: '⑦ [알림] 요일/시각별 Windows 알림 & 트레이 상주 · 자동 갱신',
-            items: [
-              '남은 보스 알림(목요일 21시 등) 및 직접 입력 알림 등록, Windows 시작 프로그램 및 트레이 상주',
-              '30분 주기 백그라운드 자동 갱신 및 창 복귀 시 즉시 최신화'
-            ]
-          },
-          {
-            shot: './screenshots/p12-settings-info.png',
-            title: '⑧ [정보] 데이터 출처 안내 · 프로그램 안내 · 자동 백업 관리',
-            items: [
-              'NEXON Open API 데이터 출처 표기, 현재 버전 확인 및 업데이트·패치내역 조회',
-              '변경 후·종료 시 자동 백업 목록 조회 및 복원, 외부 백업 폴더 경로 지정'
-            ]
-          }
-        ]
-      }
-    ];
-
-    function renderPages(filterCat = 'all') {
-      const container = document.getElementById('pages-container');
-      const filtered = filterCat === 'all'
-        ? PAGES_DATA
-        : PAGES_DATA.filter(p => p.category === filterCat);
-
-      container.innerHTML = filtered.map((page) => `
-        <article id="${page.id}" class="page-card rounded-3xl overflow-hidden scroll-mt-20">
-          <div class="p-6 sm:p-8">
-            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
-              <div class="flex items-center gap-3">
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-sky-600/20 border border-sky-500/40 text-sky-300 font-black text-base">
-                  ${page.num}
-                </span>
-                <div>
-                  <span class="text-[11px] font-bold uppercase tracking-wider text-sky-400">${page.catLabel}</span>
-                  <h3 class="text-xl sm:text-2xl font-extrabold text-white">${page.title}</h3>
-                </div>
-              </div>
-              <button onclick="toggleDetail('${page.id}')"
-                      id="btn-${page.id}"
-                      class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-sky-600 hover:bg-sky-500 text-white shadow-lg shadow-sky-600/20 transition cursor-pointer">
-                <span id="icon-${page.id}">▼</span>
-                <span id="label-${page.id}">세부 사용 사진 및 설명 펼치기 (${page.details.length}개 화면)</span>
-              </button>
-            </div>
-
-            <p class="text-slate-300 text-sm mb-5">${page.subtitle}</p>
-
-            <div class="grid lg:grid-cols-12 gap-6 items-start">
-              <!-- 좌측: 페이지 대표 스크린샷 -->
-              <div class="lg:col-span-7">
-                <div class="shot-frame rounded-2xl overflow-hidden cursor-pointer group relative"
-                     onclick="toggleDetail('${page.id}')">
-                  <img src="${page.mainShot}" alt="${page.title} 대표 화면" loading="lazy"
-                       class="w-full h-auto block group-hover:scale-[1.01] transition duration-300" />
-                  <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent p-3.5 flex items-center justify-between gap-2">
-                    <span class="text-xs font-semibold text-slate-200 truncate">${page.mainCaption}</span>
-                    <span class="shrink-0 px-2.5 py-1 rounded-lg bg-sky-600/90 text-white text-[11px] font-bold">
-                      클릭 시 세부 화면 펼치기
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 우측: 핵심 요약 및 세부 바로가기 -->
-              <div class="lg:col-span-5 space-y-4">
-                <div class="rounded-2xl bg-slate-900/85 border border-slate-800 p-5">
-                  <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-3">핵심 기능 요약</h4>
-                  <ul class="space-y-2 text-xs sm:text-sm text-slate-200 leading-relaxed">
-                    ${page.bullets.map(b => `
-                      <li class="flex items-start gap-2">
-                        <span class="text-sky-400 font-bold mt-0.5">✓</span>
-                        <span>${b}</span>
-                      </li>
-                    `).join('')}
-                  </ul>
-                </div>
-
-                <div class="rounded-2xl bg-slate-900/60 border border-slate-800/90 p-4">
-                  <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-bold text-slate-300">포함된 세부 사용 화면 (${page.details.length}장)</span>
-                    <button onclick="openLightbox('${page.mainShot}', '${page.mainCaption.replace(/'/g, "\\'")}')"
-                            class="text-xs text-sky-400 hover:underline cursor-pointer">
-                      대표 사진 크게 보기 🔍
-                    </button>
-                  </div>
-                  <div class="flex flex-wrap gap-1.5">
-                    ${page.details.map((d) => `
-                      <button onclick="toggleDetail('${page.id}', true)"
-                              class="text-left px-2.5 py-1.5 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-[11px] text-slate-200 border border-slate-700/80 transition cursor-pointer">
-                        ${d.title}
-                      </button>
-                    `).join('')}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+        </section>
+      </div>
 
-          <!-- 클릭 시 펼쳐지는 세부 사용 사진 및 설명 영역 -->
-          <div id="detail-${page.id}" class="detail-panel border-t border-slate-800 bg-slate-950/75 p-6 sm:p-8">
-            <div class="flex items-center justify-between mb-5">
-              <h4 class="text-base sm:text-lg font-extrabold text-sky-300">
-                📌 ${page.num}. ${page.title} — 세부 기능 사진 및 사용 설명 (${page.details.length}개)
-              </h4>
-              <button onclick="toggleDetail('${page.id}', false)"
-                      class="text-xs font-bold text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 cursor-pointer">
-                ▲ 접기
-              </button>
+      <!-- 4. 시작 · API 안내 화면 -->
+      <div id="view-info" data-view="info" class="hidden py-10">
+        <div class="mx-auto max-w-6xl space-y-8 px-4 sm:px-6">
+          <section id="quickstart">
+            <div class="mb-5">
+              <span class="text-xs font-bold tracking-wider text-sky-400 uppercase">Quick Start</span>
+              <h2 class="mt-1 text-2xl font-extrabold text-white">3단계 시작 방법</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-6">
-              ${page.details.map(d => `
-                <div class="rounded-2xl bg-slate-900/90 border border-slate-800 overflow-hidden flex flex-col justify-between">
-                  <div class="p-4 sm:p-5">
-                    <h5 class="text-sm sm:text-base font-bold text-white mb-2">${d.title}</h5>
-                    <ul class="space-y-1 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      ${d.items.map(item => `<li>• ${item}</li>`).join('')}
-                    </ul>
-                  </div>
-                  <div class="px-4 pb-4">
-                    <div class="shot-frame rounded-xl overflow-hidden cursor-pointer group relative"
-                         onclick="openLightbox('${d.shot}', '${(page.title + ' — ' + d.title).replace(/'/g, "\\'")}')">
-                      <img src="${d.shot}" alt="${d.title}" loading="lazy"
-                           class="w-full h-auto block group-hover:scale-[1.01] transition duration-300" />
-                      <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md bg-slate-950/85 border border-slate-700 text-[11px] font-semibold text-slate-200">
-                        🔍 클릭하여 확대
-                      </div>
+            <div class="grid gap-4 md:grid-cols-3">
+              <div class="page-card rounded-2xl p-5">
+                <div class="mb-2 text-xs font-bold text-sky-400">STEP 1</div>
+                <h3 class="text-base font-bold text-white">설치 파일 실행</h3>
+                <p class="mt-1 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                  상단 다운로드 버튼으로 <code class="text-sky-300">.exe</code> 설치 파일을 내려받아 실행합니다.
+                </p>
+              </div>
+              <div class="page-card rounded-2xl p-5">
+                <div class="mb-2 text-xs font-bold text-emerald-400">STEP 2</div>
+                <h3 class="text-base font-bold text-white">NEXON Open API 키 등록</h3>
+                <p class="mt-1 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                  넥슨 Open API에서 발급받은 키를 설정 화면에 입력하면 OS 암호화 저장소에 보관됩니다.
+                </p>
+              </div>
+              <div class="page-card rounded-2xl p-5">
+                <div class="mb-2 text-xs font-bold text-violet-400">STEP 3</div>
+                <h3 class="text-base font-bold text-white">캐릭터 등록 후 관리</h3>
+                <p class="mt-1 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                  대시보드에서 캐릭터를 추가하면 스케줄러·보스·장비·스펙·강화 이력을 자동으로 불러옵니다.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="api-info" class="grid gap-5 md:grid-cols-2">
+            <div class="page-card space-y-2.5 rounded-2xl p-6">
+              <div class="text-xs font-bold tracking-wider text-sky-400 uppercase">NEXON Open API</div>
+              <h3 class="text-lg font-extrabold text-white">연동 API 항목</h3>
+              <ul class="space-y-1.5 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                <li>• <strong>캐릭터 · 스케줄러</strong>: 보유 캐릭터 검색 및 일간·주간 보스/숙제 동기화</li>
+                <li>• <strong>장비 · 스펙 · 히스토리</strong>: 장비 툴팁, 캐시/펫, 8개 스펙 탭, 일자별 성장 그래프</li>
+                <li>• <strong>강화 이력</strong>: 스타포스·잠재능력·큐브 내역 조회 및 가계부 연동</li>
+              </ul>
+            </div>
+            <div class="page-card space-y-2.5 rounded-2xl p-6">
+              <div class="text-xs font-bold tracking-wider text-emerald-400 uppercase">Local Security</div>
+              <h3 class="text-lg font-extrabold text-white">보안 및 로컬 저장</h3>
+              <ul class="space-y-1.5 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                <li>• <strong>OS 암호화 보관</strong>: API 키는 Electron <code class="text-emerald-300">safeStorage</code>로 PC 내부에만 저장</li>
+                <li>• <strong>로컬 SQLite DB</strong>: 모든 수익·노트·가계부 데이터 로컬 저장 및 JSON 백업/복원 지원</li>
+                <li>• <strong>호출 한도 준수</strong>: 날짜별 캐싱, 동시 호출 제한 및 재시도 정책 적용</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="mt-auto space-y-2 border-t border-slate-800/80 py-8 text-center text-xs text-slate-400">
+      <div class="inline-flex items-center justify-center gap-2 font-semibold text-slate-300">
+        <img src="./screenshots/app-logo.png" alt="Maple Income 로고" class="h-5 w-5 object-contain" />
+        <span>Maple Income — 메이플스토리 수익 계산기 &amp; 캐릭터 관리 데스크톱 앱</span>
+      </div>
+      <div>Data based on NEXON Open API · 본 프로그램은 NEXON Open API를 활용하여 제작된 개인 개발 애플리케이션입니다.</div>
+      <div class="pt-1">
+        <a href="https://github.com/th0079/maplestory-income-releases" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">
+          GitHub 저장소
+        </a>
+        <span class="mx-2">·</span>
+        <a href="https://github.com/th0079/maplestory-income-releases/releases" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">
+          릴리스 및 다운로드
+        </a>
+      </div>
+    </footer>
+
+    <div
+      id="lightbox"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+      onclick="closeLightbox()"
+    >
+      <div class="flex w-full max-w-5xl flex-col items-center" onclick="event.stopPropagation()">
+        <div class="mb-2.5 flex w-full items-center justify-between px-1">
+          <p id="lightbox-caption" class="truncate pr-4 text-sm font-bold text-white sm:text-base"></p>
+          <button
+            type="button"
+            onclick="closeLightbox()"
+            class="shrink-0 cursor-pointer rounded-lg border border-slate-600 bg-slate-800 px-3 py-1.5 text-xs font-bold text-slate-200 hover:bg-slate-700"
+          >
+            ✕ 닫기 (ESC)
+          </button>
+        </div>
+        <div class="max-h-[84vh] overflow-auto rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl">
+          <img id="lightbox-img" src="" alt="" class="mx-auto block h-auto max-w-full" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const FEATURES = [
+        {
+          id: 'p01',
+          num: '01',
+          group: '수익 관리',
+          title: '대시보드',
+          summary: '주간·월간 보스 결정 수익, 목표 자산 달성률, 캐릭터별 보스 처치 현황을 한 화면에서 관리합니다.',
+          points: [
+            '상단 4개 요약 카드(주간 예상 수익 · 목표 자산 · 실현 수익 · 메포 환산)',
+            '메이플 ID 기준 주간 90개 결정 판매 한도 및 최적화 자동 계산',
+            '캐릭터별 자동(스케줄러) / 수동 보스 설정 및 18단계 보스 프리셋 지원',
+            '주간 보스·수익 요약 카드 이미지 저장 및 클립보드 복사'
+          ],
+          shots: [
+            { title: '대시보드 메인', src: './screenshots/p01-dashboard-main.png' },
+            { title: '캐릭터 목록 & 보스 설정', src: './screenshots/p01-dashboard-char-list.png' },
+            { title: '캐릭터 추가 (API 연동)', src: './screenshots/p01-dashboard-add-char.png' },
+            { title: '보스 프리셋 · 요약 이미지', src: './screenshots/p01-dashboard-share.png' }
+          ]
+        },
+        {
+          id: 'p02',
+          num: '02',
+          group: '수익 관리',
+          title: '수익 현황',
+          summary: '주차별·월별 수익 추이를 누적 차트로 비교하고, 결정·드롭·가계부 항목별 순수익을 분석합니다.',
+          points: [
+            '주간·월간 누적 막대 차트 및 구성 비율(%) 분석',
+            '월별 주차 비교 상세 뷰(주 평균 · 최고/최저 주차 · 증감 비교)',
+            '결정·드롭·가계부 세부 수익 드릴다운',
+            '주간·월간 정산 요약 이미지 생성 및 공유'
+          ],
+          shots: [
+            { title: '수익 현황 주간 차트', src: './screenshots/p02-income-main.png' },
+            { title: '월간 수익 추이', src: './screenshots/p02-income-monthly.png' },
+            { title: '결정 · 드롭 · 가계부 상세', src: './screenshots/p02-income-detail.png' },
+            { title: '주간 정산 이미지', src: './screenshots/p02-income-share-week.png' }
+          ]
+        },
+        {
+          id: 'p03',
+          num: '03',
+          group: '수익 관리',
+          title: '드롭 아이템',
+          summary: '드롭 등록·보관함 관리부터 보스 파티 분배 비율(%) 정산, 1:1 교환액 복사, 시세 차트까지 한곳에서 처리합니다.',
+          points: [
+            '수익 등록 · 드롭 보관함(보관 · 판매 · 사용 구매 정산 · 복원) 분리 관리',
+            '보스 파티 연동 시 인원·분배 규칙 자동 반영 및 파티원별 분배 비율(%) 정산 체크리스트',
+            '주사위·독식 등 분배 제외(100% 본인 수령) 옵션 및 파티 분배금 계산기',
+            '보스별 빠른 등록 목록, 초성/약어 검색, 날짜별 시세 변동 그래프'
+          ],
+          shots: [
+            { title: '드롭 아이템 메인', src: './screenshots/p03-drop-main.png' },
+            { title: '드롭 수익·획득 내역', src: './screenshots/p03-drop-records.png' },
+            { title: '드롭 보관함', src: './screenshots/p03-drop-storage.png' },
+            { title: '파티 분배금 계산기 · 시세 차트', src: './screenshots/p03-drop-split.png' }
+          ]
+        },
+        {
+          id: 'p04',
+          num: '04',
+          group: '수익 관리',
+          title: '가계부',
+          summary: '3D 입체 도넛 차트와 일자별 타임라인으로 메소 수입·지출을 기록하고 빠른 등록 기능을 제공합니다.',
+          points: [
+            '수입·지출 카테고리별 3D 입체 도넛 차트 및 커스텀 카테고리(최대 8개) 관리',
+            '프리셋(1~999개 등록 개수 선택), 심볼 업그레이드(자동 비교/직접 선택), 드롭 구매 빠른 등록',
+            '솔 에르다 조각 개수 단위 판매(경매장 수수료 반영)·구매 기록',
+            '강화 기록(스타포스·잠재능력·큐브) 지출 자동 불러오기 및 되돌리기 지원'
+          ],
+          shots: [
+            { title: '가계부 3D 도넛 · 요약', src: './screenshots/p04-ledger-main.png' },
+            { title: '일자별 가계부 타임라인', src: './screenshots/p04-ledger-list.png' },
+            { title: '강화 기록 빠른 등록', src: './screenshots/p04-ledger-quick-enhance.png' }
+          ]
+        },
+        {
+          id: 'p05',
+          num: '05',
+          group: '수익 관리',
+          title: '사냥 기록',
+          summary: '사냥 전/후 차이 계산, 30분·1소재 효율 통계, 솔 에르다 조각 시세 차트, 항상 위 PiP 위젯을 제공합니다.',
+          points: [
+            '소재 기준 및 사냥 전/후 보유량 차이 자동 계산 입력',
+            '캐릭터별 평균 효율 통계 및 1소재/시간당 환산 수익 분석',
+            '날짜별 솔 에르다 조각 시세 변동 차트 및 최근 시세 기록',
+            '항상 위(Always-on-Top) 미니 사냥 위젯 창 타이머·알람 지원'
+          ],
+          shots: [
+            { title: '사냥 기록 메인', src: './screenshots/p05-hunting-main.png' },
+            { title: '전/후 차이 자동 계산', src: './screenshots/p05-hunting-diff.png' },
+            { title: '캐릭터별 사냥 효율 통계', src: './screenshots/p05-hunting-stats.png' },
+            { title: '항상 위 사냥 위젯 (PiP)', src: './screenshots/p05-hunting-widget.png' }
+          ]
+        },
+        {
+          id: 'p06',
+          num: '06',
+          group: '수익 관리',
+          title: '활동 달력',
+          summary: '월간 달력 위에서 일자별 보스 결정·드롭 획득·가계부 손익을 통합 조회합니다.',
+          points: [
+            '날짜별 보스 처치 건수와 일간 합산 수익/손익 한눈에 확인',
+            '날짜 클릭 시 해당 일자의 보스·드롭·가계부 상세 결산 팝업 표시',
+            '사이드바 월드 보기 필터와 연동해 월드별 수익 추이 분리 조회'
+          ],
+          shots: [
+            { title: '활동 달력 메인', src: './screenshots/p06-calendar-main.png' },
+            { title: '일자별 상세 결산 팝업', src: './screenshots/p06-calendar-detail.png' }
+          ]
+        },
+        {
+          id: 'p07',
+          num: '07',
+          group: '캐릭터 · 노트',
+          title: '스케줄러 컨텐츠',
+          summary: 'NEXON Open API 메이플 스케줄러를 연동해 일간·주간 컨텐츠 진행률을 추적합니다.',
+          points: [
+            '캐릭터별 일간·주간 숙제(심볼, 보스, 몬스터파크 등) 완료 상태 자동 동기화',
+            '완료 필터 · 전체 컨텐츠 보기 탭 전환',
+            '점검·조회 오류 시 마지막 저장 상태 유지 및 직관적 안내 팝업'
+          ],
+          shots: [
+            { title: '스케줄러 컨텐츠 메인', src: './screenshots/p07-homework-main.png' },
+            { title: '전체 컨텐츠 보기', src: './screenshots/p07-homework-all.png' },
+            { title: '등록한 컨텐츠 안내', src: './screenshots/p07-homework-help.png' }
+          ]
+        },
+        {
+          id: 'p08',
+          num: '08',
+          group: '캐릭터 · 노트',
+          title: '노트',
+          summary: '공략 메모, 보스 클리어 타임, 장비 세팅 메모, 스펙업 목표, 보스 파티 5개 탭을 통합 관리합니다.',
+          points: [
+            '자유 노트: 마크다운 작성/미리보기, 클릭 체크박스, 상단 고정, 검색 및 자동 저장',
+            '보스 클리어 타임: 캐릭터·보스별 클리어 시간(분·초), 데미지, 최단 기록 및 변화량 추적',
+            '착용 장비 메모: 프리셋 1~3별 장비 스냅샷 저장 및 슬롯/칭호별 개별 메모',
+            '스펙업 목표 & 보스 파티: 목표 예산 합계 관리, 고정팟 구성(저장 파티원·분배 비율) 및 드롭 정산 연동'
+          ],
+          tabsPreview: [
+            { name: '자유 노트', desc: '마크다운 체크리스트 · 고정 · 검색' },
+            { name: '보스 클리어 타임', desc: '보스별 최단 기록 · 직전 대비 변화량' },
+            { name: '착용 장비 메모', desc: '3프리셋 스냅샷 · 슬롯별 메모 모아보기' },
+            { name: '스펙업 목표', desc: '품목 우선순위 · 예상 비용 · 남은 예산' },
+            { name: '보스 파티', desc: '파티원 30일 갱신 · 분배 비율(%) · 드롭 정산' }
+          ],
+          shots: []
+        },
+        {
+          id: 'p09',
+          num: '09',
+          group: '캐릭터 · 노트',
+          title: '장비 확인',
+          summary: '착용 장비·캐시/뷰티·안드로이드·펫 4개 탭과 인게임 스타일 상세 툴팁을 제공합니다.',
+          points: [
+            '일반 장비(프리셋 1~3 전환), 캐시·뷰티, 안드로이드, 펫(월드 공유 펫 포함) 4개 탭 지원',
+            '스타포스 별 뱃지 및 기간제 장비·칭호·캐시 아이템 잔여 기간(D-N) 표시',
+            '슬롯 클릭 시 잠재/에디셔널/추가옵션/주문서 작까지 인게임 스타일 툴팁 렌더링'
+          ],
+          shots: [
+            { title: '장비 확인 메인', src: './screenshots/p08-equipment-main.png' },
+            { title: '장비 상세 툴팁', src: './screenshots/p08-equipment-tooltip.png' }
+          ]
+        },
+        {
+          id: 'p10',
+          num: '10',
+          group: '캐릭터 · 노트',
+          title: '캐릭터 스펙',
+          summary: '스탯·V매트릭스·HEXA·심볼·유니온·어빌리티·세트 효과·링크 스킬 8개 탭을 통합 조회합니다.',
+          points: [
+            '전투력, 상세 스탯, 하이퍼 스탯, 성향 통합 표시',
+            '6차 HEXA 코어/스탯, 5차 V매트릭스, 아케인/어센틱/그랜드 어센틱 심볼 레벨',
+            '유니온 배치·유니온 챔피언·아티팩트, 어빌리티 3줄, 세트 효과, 강화 링크 스킬'
+          ],
+          shots: [
+            { title: '기본 스탯 & 전투력', src: './screenshots/p09-spec-stat.png' },
+            { title: '6차 HEXA 매트릭스', src: './screenshots/p09-spec-hexa.png' },
+            { title: '유니온 & 아티팩트', src: './screenshots/p09-spec-union.png' },
+            { title: '세트 효과 요약', src: './screenshots/p09-spec-set-effect.png' }
+          ]
+        },
+        {
+          id: 'p11',
+          num: '11',
+          group: '캐릭터 · 노트',
+          title: '캐릭터 히스토리',
+          summary: '날짜별 전투력, 유니온 레벨, 아티팩트 성장 추이를 기간 필터로 비교합니다.',
+          points: [
+            '7일 · 30일 · 1년 · 직접 기간 설정 필터 제공',
+            '전투력, 유니온 레벨, 아티팩트 성장 그래프 및 변동폭 요약',
+            '캐시된 지난 날짜 데이터 재사용으로 빠른 로딩 및 점검 시에도 그래프 유지'
+          ],
+          shots: [
+            { title: '캐릭터 히스토리 메인', src: './screenshots/p10-history-main.png' },
+            { title: '전투력 · 유니온 성장 추이', src: './screenshots/p10-history-combat-union.png' },
+            { title: '최근 7일 변화', src: './screenshots/p10-history-7d.png' }
+          ]
+        },
+        {
+          id: 'p12',
+          num: '12',
+          group: '캐릭터 · 노트',
+          title: '강화 기록',
+          summary: '스타포스·잠재능력·큐브 사용 이력을 불러와 확률 비교, 기댓값 계산, 가계부 등록까지 연동합니다.',
+          points: [
+            '스타포스(파괴·성공 통계, 아이템별 요약, 공식 확률 비교), 잠재능력, 큐브 이력 조회',
+            '목표 스타포스·잠재능력 등급까지의 메소 기댓값 계산',
+            '조회한 강화 지출 내역을 가계부 항목으로 원클릭 등록'
+          ],
+          shots: [
+            { title: '강화 기록 메인', src: './screenshots/p11-enhance-main.png' },
+            { title: '스타포스 확률 비교', src: './screenshots/p11-enhance-sf-prob.png' },
+            { title: '잠재능력 · 큐브 내역', src: './screenshots/p11-enhance-cube.png' }
+          ]
+        },
+        {
+          id: 'p13',
+          num: '13',
+          group: '환경 설정',
+          title: '설정',
+          summary: 'API 키 보안, 백업/복원, 7종 테마·글꼴 커스터마이징, 초기화 알림과 트레이 상주 옵션을 관리합니다.',
+          points: [
+            'OS 암호화(safeStorage) API 키 관리, 계정·프로필·메이플 ID 그룹 관리',
+            'JSON 백업 내보내기/불러오기 및 자동 백업 주기 설정',
+            '7종 테마 + 커스텀 테마, 대시보드 카드 색, 로컬 설치 글꼴(기본 메이플스토리체) 지원',
+            '출석 펫 레벨업 시뮬레이션, 보스 도감 업적, 일간/주간/월간 Windows 초기화 알림'
+          ],
+          shots: [
+            { title: '계정 · 프로필 관리', src: './screenshots/p12-settings-account.png' },
+            { title: '테마 · 화면 설정', src: './screenshots/p12-settings-display.png' },
+            { title: '보스 도감 · 업적', src: './screenshots/p12-settings-achievement.png' },
+            { title: '알림 · 트레이 설정', src: './screenshots/p12-settings-notification.png' }
+          ]
+        }
+      ]
+
+      let currentFeatureId = 'p01'
+
+      function escapeText(value) {
+        return String(value ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;')
+      }
+
+      function renderFeatureNav() {
+        const nav = document.getElementById('feature-nav')
+        if (!nav) return
+        nav.innerHTML = FEATURES.map((f) => {
+          const active = f.id === currentFeatureId
+          return `<button type="button" onclick="selectFeature('${f.id}')" class="feature-nav-btn ${active ? 'active' : 'border-transparent text-slate-300 hover:bg-slate-800/70 hover:text-white'} flex shrink-0 cursor-pointer items-center gap-2 rounded-xl border px-3 py-2 text-left text-xs font-semibold transition">
+            <span class="font-mono text-[11px] ${active ? 'text-sky-300' : 'text-slate-500'}">${f.num}</span>
+            <span class="whitespace-nowrap">${escapeText(f.title)}</span>
+          </button>`
+        }).join('')
+      }
+
+      function renderFeatureDetail() {
+        const container = document.getElementById('feature-detail')
+        if (!container) return
+        const idx = FEATURES.findIndex((f) => f.id === currentFeatureId)
+        const f = FEATURES[idx >= 0 ? idx : 0]
+        const prev = idx > 0 ? FEATURES[idx - 1] : null
+        const next = idx < FEATURES.length - 1 ? FEATURES[idx + 1] : null
+
+        const pointsHtml = f.points
+          .map((pt) => `<li class="flex items-start gap-2 text-xs leading-relaxed text-slate-300 sm:text-sm"><span class="mt-1 text-sky-400">•</span><span>${escapeText(pt)}</span></li>`)
+          .join('')
+
+        const tabsPreviewHtml = f.tabsPreview
+          ? `<div class="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">${f.tabsPreview
+              .map(
+                (t) => `<div class="rounded-xl border border-slate-700/80 bg-slate-900/80 p-3.5">
+                  <div class="text-xs font-bold text-amber-300">${escapeText(t.name)}</div>
+                  <div class="mt-1 text-xs text-slate-300">${escapeText(t.desc)}</div>
+                </div>`
+              )
+              .join('')}</div>`
+          : ''
+
+        const shotsHtml =
+          f.shots.length > 0
+            ? `<div class="grid gap-4 sm:grid-cols-2">${f.shots
+                .map(
+                  (s) => `<div class="shot-frame group cursor-pointer overflow-hidden rounded-xl" onclick="openLightbox('${s.src}', '${escapeText(f.title + ' — ' + s.title)}')">
+                    <img src="${s.src}" alt="${escapeText(s.title)}" loading="lazy" class="block h-52 w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" />
+                    <div class="flex items-center justify-between border-t border-slate-800 px-3 py-2 text-xs font-semibold text-slate-300">
+                      <span>${escapeText(s.title)}</span>
+                      <span class="text-[11px] text-sky-400">확대</span>
                     </div>
-                  </div>
-                </div>
-              `).join('')}
+                  </div>`
+                )
+                .join('')}</div>`
+            : ''
+
+        container.innerHTML = `
+          <article class="page-card space-y-6 rounded-2xl p-6">
+            <div class="space-y-2 border-b border-slate-800 pb-5">
+              <div class="flex items-center gap-2">
+                <span class="rounded-full border border-sky-500/30 bg-sky-500/15 px-2.5 py-0.5 text-[11px] font-bold text-sky-300">${f.num} · ${escapeText(f.group)}</span>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white">${escapeText(f.title)}</h3>
+              <p class="text-sm leading-relaxed text-slate-300">${escapeText(f.summary)}</p>
             </div>
-          </div>
-        </article>
-      `).join('');
-    }
 
-    function toggleDetail(pageId, forceState) {
-      const panel = document.getElementById(`detail-${pageId}`);
-      const icon = document.getElementById(`icon-${pageId}`);
-      const label = document.getElementById(`label-${pageId}`);
-      const pageObj = PAGES_DATA.find(p => p.id === pageId);
-      if (!panel || !pageObj) return;
+            <div class="space-y-2.5">
+              <h4 class="text-xs font-bold tracking-wider text-slate-400 uppercase">주요 기능</h4>
+              <ul class="space-y-2">${pointsHtml}</ul>
+            </div>
 
-      const willOpen = typeof forceState === 'boolean' ? forceState : !panel.classList.contains('open');
-      if (willOpen) {
-        panel.classList.add('open');
-        if (icon) icon.textContent = '▲';
-        if (label) label.textContent = `세부 사용 사진 및 설명 접기 (${pageObj.details.length}개 화면)`;
-      } else {
-        panel.classList.remove('open');
-        if (icon) icon.textContent = '▼';
-        if (label) label.textContent = `세부 사용 사진 및 설명 펼치기 (${pageObj.details.length}개 화면)`;
+            ${tabsPreviewHtml}
+            ${shotsHtml}
+
+            <div class="flex items-center justify-between border-t border-slate-800 pt-4 text-xs font-bold">
+              ${
+                prev
+                  ? `<button type="button" onclick="selectFeature('${prev.id}')" class="cursor-pointer rounded-xl border border-slate-700 bg-slate-800/80 px-3.5 py-2 text-slate-200 transition hover:bg-slate-700">← ${prev.num} ${escapeText(prev.title)}</button>`
+                  : '<span></span>'
+              }
+              ${
+                next
+                  ? `<button type="button" onclick="selectFeature('${next.id}')" class="cursor-pointer rounded-xl border border-slate-700 bg-slate-800/80 px-3.5 py-2 text-slate-200 transition hover:bg-slate-700">${next.num} ${escapeText(next.title)} →</button>`
+                  : '<span></span>'
+              }
+            </div>
+          </article>
+        `
       }
-    }
 
-    function toggleAllDetails(open) {
-      PAGES_DATA.forEach(p => toggleDetail(p.id, open));
-    }
-
-    function filterCategory(cat) {
-      document.querySelectorAll('[data-cat-btn]').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-cat-btn') === cat);
-      });
-      renderPages(cat);
-    }
-
-    function openLightbox(src, caption) {
-      const modal = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      const cap = document.getElementById('lightbox-caption');
-      img.src = src;
-      cap.textContent = caption || '';
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeLightbox() {
-      const modal = document.getElementById('lightbox');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
-
-    // 초기 렌더링 후 첫 번째 페이지(대시보드)는 예시로 펼쳐 둠
-    renderPages('all');
-    const initialHash = window.location.hash ? window.location.hash.slice(1) : '';
-    if (initialHash && PAGES_DATA.some(p => p.id === initialHash)) {
-      toggleDetail(initialHash, true);
-      setTimeout(() => {
-        const targetEl = document.getElementById(initialHash);
-        if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 60);
-    } else {
-      toggleDetail('page-01', true);
-    }
-
-    // GitHub Latest Release API를 조회해 항상 최신 버전의 .exe 직접 다운로드 URL로 자동 갱신
-    (async function resolveLatestExeDownloadUrl() {
-      try {
-        const res = await fetch('https://api.github.com/repos/th0079/maplestory-income-releases/releases/latest');
-        if (!res.ok) return;
-        const release = await res.json();
-        const exeAsset = Array.isArray(release.assets)
-          ? release.assets.find(a => typeof a.name === 'string' && a.name.endsWith('.exe'))
-          : null;
-        if (exeAsset && exeAsset.browser_download_url) {
-          document.querySelectorAll('[data-direct-exe-download]').forEach(el => {
-            el.setAttribute('href', exeAsset.browser_download_url);
-          });
+      function selectFeature(id) {
+        if (FEATURES.some((f) => f.id === id)) {
+          currentFeatureId = id
         }
-        if (release.tag_name) {
-          document.querySelectorAll('[data-exe-label]').forEach(el => {
-            el.textContent = `최신 버전 다운로드 (${release.tag_name})`;
-          });
-          document.querySelectorAll('[data-exe-hero-label]').forEach(el => {
-            el.textContent = `Windows 설치 파일 다운로드 (${release.tag_name} .exe)`;
-          });
-        }
-      } catch (_) {
-        // 네트워크 제한 시 기본 설정된 최신 .exe 직접 다운로드 링크 사용
+        renderFeatureNav()
+        renderFeatureDetail()
       }
-    })();
-  </script>
-</body>
+
+      function switchView(viewId, updateHash = true) {
+        const valid = ['home', 'guide', 'changelog', 'info']
+        const nextView = valid.includes(viewId) ? viewId : 'home'
+        document.querySelectorAll('[data-view]').forEach((el) => {
+          el.classList.toggle('hidden', el.getAttribute('data-view') !== nextView)
+        })
+        document.querySelectorAll('[data-view-btn]').forEach((btn) => {
+          btn.classList.toggle('active', btn.getAttribute('data-view-btn') === nextView)
+        })
+        if (nextView === 'guide') {
+          renderFeatureNav()
+          renderFeatureDetail()
+        }
+        if (updateHash) {
+          const targetHash = nextView === 'guide' ? `#guide/${currentFeatureId}` : `#${nextView}`
+          if (window.location.hash !== targetHash) {
+            history.replaceState(null, '', targetHash)
+          }
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+
+      function openFeature(id) {
+        selectFeature(id)
+        switchView('guide')
+      }
+
+      function openLightbox(src, caption) {
+        const modal = document.getElementById('lightbox')
+        document.getElementById('lightbox-img').src = src
+        document.getElementById('lightbox-caption').textContent = caption || ''
+        modal.classList.remove('hidden')
+        modal.classList.add('flex')
+      }
+
+      function closeLightbox() {
+        const modal = document.getElementById('lightbox')
+        modal.classList.add('hidden')
+        modal.classList.remove('flex')
+      }
+
+      function applyRouteFromHash() {
+        const raw = window.location.hash.replace(/^#/, '')
+        if (!raw || raw === 'home') {
+          switchView('home', false)
+          return
+        }
+        if (raw === 'changelog' || raw === 'info') {
+          switchView(raw, false)
+          return
+        }
+        if (raw.startsWith('guide')) {
+          const parts = raw.split('/')
+          if (parts[1] && FEATURES.some((f) => f.id === parts[1])) {
+            currentFeatureId = parts[1]
+          }
+          switchView('guide', false)
+          return
+        }
+        if (FEATURES.some((f) => f.id === raw)) {
+          currentFeatureId = raw
+          switchView('guide', false)
+        }
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox()
+      })
+      window.addEventListener('hashchange', applyRouteFromHash)
+      applyRouteFromHash()
+
+      ;(async function resolveLatestExeDownloadUrl() {
+        try {
+          const res = await fetch('https://api.github.com/repos/th0079/maplestory-income-releases/releases/latest')
+          if (!res.ok) return
+          const release = await res.json()
+          const exe = Array.isArray(release.assets)
+            ? release.assets.find((a) => typeof a.name === 'string' && a.name.endsWith('.exe'))
+            : null
+          if (exe?.browser_download_url) {
+            document.querySelectorAll('[data-direct-exe-download]').forEach((el) => {
+              el.setAttribute('href', exe.browser_download_url)
+            })
+          }
+          if (release.tag_name) {
+            document.querySelectorAll('[data-exe-label]').forEach((el) => {
+              el.textContent = `최신 버전 다운로드 (${release.tag_name})`
+            })
+            document.querySelectorAll('[data-exe-hero-label]').forEach((el) => {
+              el.textContent = `Windows 설치 파일 다운로드 (${release.tag_name} .exe)`
+            })
+          }
+        } catch (_) {}
+      })()
+    </script>
+  </body>
 </html>
