@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="./screenshots/app-logo.png" />
     <meta
       name="description"
-      content="메이플스토리 보스 결정 정산, 파티 드롭 분배, 가계부·사냥 기록, 노트 5종, 장비·스펙·히스토리·강화 기록 데스크톱 앱 Maple Income"
+      content="메이플스토리 보스 결정 정산, 파티 일정·분배, 가계부·사냥 기록, 새소식, 노트, 장비·스펙·히스토리·강화 기록 데스크톱 앱 Maple Income"
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -127,7 +127,7 @@ v2.72.0
                 캐릭터 관리를 한 곳에서
               </h1>
               <p class="text-sm leading-relaxed text-slate-300 sm:text-base">
-                보스 결정·드롭 분배·가계부·사냥 효율부터 보스 파티·노트·장비·스펙·강화 기록까지 14개 화면으로 관리합니다.
+                보스 결정·파티·드롭 분배·가계부·사냥 효율부터 새소식·노트·장비·스펙·강화 기록까지 15개 화면으로 관리합니다.
               </p>
 
               <div class="flex flex-wrap gap-3 pt-1">
@@ -180,7 +180,7 @@ v2.72.0
                 onclick="switchView('guide')"
                 class="self-start cursor-pointer text-xs font-bold text-sky-400 hover:underline sm:self-auto"
               >
-                전체 14개 메뉴 보기 →
+                전체 15개 메뉴 보기 →
               </button>
             </div>
 
@@ -273,7 +273,7 @@ v2.72.0
         </section>
       </div>
 
-      <!-- 2. 세부 설명 화면 (상단 탭 클릭 시 표시: 좌측 14개 메뉴 + 우측 기능별 상세) -->
+      <!-- 2. 세부 설명 화면 (상단 탭 클릭 시 표시: 좌측 15개 메뉴 + 우측 기능별 상세) -->
       <div id="view-guide" data-view="guide" class="hidden py-8 sm:py-10">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
           <div class="mb-6 flex flex-col justify-between gap-3 border-b border-slate-800 pb-5 sm:flex-row sm:items-end">
@@ -507,7 +507,7 @@ v2.72.0
               <ul class="space-y-1.5 text-xs leading-relaxed text-slate-300 sm:text-sm">
                 <li>• <strong>캐릭터 · 스케줄러</strong>: 보유 캐릭터 검색 및 일간·주간 보스/숙제 동기화</li>
                 <li>• <strong>장비 · 스펙 · 히스토리</strong>: 장비 툴팁, 캐시/펫, 8개 스펙 탭, 일자별 성장 그래프</li>
-                <li>• <strong>강화 이력</strong>: 스타포스·잠재능력·큐브 내역 조회 및 가계부 연동</li>
+                <li>• <strong>강화 이력 · 새소식</strong>: 스타포스·잠재·큐브 내역 조회 및 이벤트·공지·업데이트·캐시샵 연동</li>
               </ul>
             </div>
             <div class="page-card space-y-2.5 rounded-2xl p-6">
@@ -574,7 +574,7 @@ v2.72.0
           points: [
             '상단 4개 요약 카드(주간 예상 수익 · 목표 자산 · 실현 수익 · 메포 환산)',
             '메이플 ID 기준 주간 90개 결정 판매 한도 및 최적화 자동 계산',
-            '캐릭터별 자동(스케줄러) / 수동 보스 설정 및 18단계 보스 프리셋 지원',
+            '다음 보스 파티 일정 칩 표시 및 자동→수동 전환 안내 · 18단계 보스 프리셋 지원',
             '주간 보스·수익 요약 카드 이미지 저장 및 클립보드 복사'
           ],
           shots: [
@@ -700,7 +700,11 @@ v2.72.0
           ],
           shots: [
             { title: '보스 파티', src: './screenshots/p14-boss-party.png' },
-            { title: '보스 클리어 타임', src: './screenshots/p14-boss-time.png' }
+            { title: '파티 일정표', src: './screenshots/p14-boss-schedule.png' },
+            { title: '보스 클리어 타임', src: './screenshots/p14-boss-time.png' },
+            { title: '클리어 추이', src: './screenshots/p14-boss-trend.png' },
+            { title: '보스별 수익', src: './screenshots/p14-boss-income.png' },
+            { title: '결정 가격표', src: './screenshots/p14-boss-price.png' }
           ]
         },
         {
@@ -821,16 +825,41 @@ v2.72.0
           ]
         },
         {
-          id: 'p13',
+          id: 'p15',
           num: '14',
-          group: '환경 설정',
+          group: '소식 · 설정',
+          title: '새소식',
+          summary: '진행 중·예정 이벤트, 공지, 업데이트, 캐시샵 판매 소식을 탭별로 모아 보고 클릭해 바로 엽니다.',
+          points: [
+            '이벤트: 공식 썸네일과 남은 날(D-N · 오늘 종료), 새 글(NEW) 표시 제공',
+            '공지 · 업데이트: 점검·패치 말머리 구분 및 최신 업데이트 강조 표시',
+            '캐시샵: 판매 기간·상시 판매 뱃지와 상품별 판매 상태 정리',
+            '썬데이 메이플 공지 등록 시 종료일까지 앱 상단 햇살 배너 자동 알림'
+          ],
+          tabsPreview: [
+            { name: '이벤트', desc: '공식 썸네일 · 남은 날(D-N) · NEW 표시' },
+            { name: '공지', desc: '점검 · 패치 말머리 구분 · 바로 열기' },
+            { name: '업데이트', desc: '패치노트 목록 · 최신 글 강조' },
+            { name: '캐시샵', desc: '판매 기간 · 상시 판매 · 새 상품 알림' }
+          ],
+          shots: [
+            { title: '이벤트', src: './screenshots/p15-events-event.png' },
+            { title: '공지', src: './screenshots/p15-events-notice.png' },
+            { title: '업데이트', src: './screenshots/p15-events-update.png' },
+            { title: '캐시샵', src: './screenshots/p15-events-cashshop.png' }
+          ]
+        },
+        {
+          id: 'p13',
+          num: '15',
+          group: '소식 · 설정',
           title: '설정',
-          summary: 'API 키 보안, 백업/복원, 7종 테마·글꼴 커스터마이징, 초기화 알림과 트레이 상주 옵션을 관리합니다.',
+          summary: 'API 키 보안, 백업/복원, 7종 테마·글꼴 커스터마이징, 초기화·파티 알림과 트레이 상주 옵션을 관리합니다.',
           points: [
             'OS 암호화(safeStorage) API 키 관리, 계정·프로필·메이플 ID 그룹 관리',
             'JSON 백업 내보내기/불러오기 및 자동 백업 주기 설정',
             '7종 테마 + 커스텀 테마, 대시보드 카드 색, 로컬 설치 글꼴(기본 메이플스토리체) 지원',
-            '출석 펫 레벨업 시뮬레이션, 보스 도감 업적, 일간/주간/월간 Windows 초기화 알림'
+            '보스 파티 시작 알림(5·10·30분 전), 썬데이 메이플 배너, 일간/주간/월간 Windows 초기화 알림'
           ],
           shots: [
             { title: '계정 · 프로필 관리', src: './screenshots/p12-settings-account.png' },
