@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="maple-release-version" content="v2.72.0" />
-    <meta name="maple-release-notes-hash" content="628eabbd619ad47a" />
+    <meta name="maple-release-notes-hash" content="cf7602c451ea9f44" />
     <title>Maple Income — 메이플스토리 수익 정산 &amp; 캐릭터 관리</title>
     <link rel="icon" type="image/png" href="./screenshots/app-logo.png" />
     <meta
@@ -127,7 +127,7 @@ v2.72.0
                 캐릭터 관리를 한 곳에서
               </h1>
               <p class="text-sm leading-relaxed text-slate-300 sm:text-base">
-                보스 결정·드롭 분배·가계부·사냥 효율부터 노트·장비·스펙·강화 기록까지 13개 화면으로 관리합니다.
+                보스 결정·드롭 분배·가계부·사냥 효율부터 보스 파티·노트·장비·스펙·강화 기록까지 14개 화면으로 관리합니다.
               </p>
 
               <div class="flex flex-wrap gap-3 pt-1">
@@ -180,7 +180,7 @@ v2.72.0
                 onclick="switchView('guide')"
                 class="self-start cursor-pointer text-xs font-bold text-sky-400 hover:underline sm:self-auto"
               >
-                전체 13개 메뉴 보기 →
+                전체 14개 메뉴 보기 →
               </button>
             </div>
 
@@ -273,7 +273,7 @@ v2.72.0
         </section>
       </div>
 
-      <!-- 2. 세부 설명 화면 (상단 탭 클릭 시 표시: 좌측 13개 메뉴 + 우측 기능별 상세) -->
+      <!-- 2. 세부 설명 화면 (상단 탭 클릭 시 표시: 좌측 14개 메뉴 + 우측 기능별 상세) -->
       <div id="view-guide" data-view="guide" class="hidden py-8 sm:py-10">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
           <div class="mb-6 flex flex-col justify-between gap-3 border-b border-slate-800 pb-5 sm:flex-row sm:items-end">
@@ -315,9 +315,60 @@ v2.72.0
         <article class="page-card rounded-2xl p-6 space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div class="flex items-center gap-2.5">
-              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.71.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.71.0</a>
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.72.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.72.0</a>
               <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/35">LATEST</span>
-              <span class="text-xs text-slate-400">2026-11-23</span>
+              <span class="text-xs text-slate-400">2026-11-25</span>
+            </div>
+            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.72.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-emerald-500/15 text-emerald-300 border-emerald-500/30">신규 기능</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 페이지 추가</strong>: 사이드바 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">활동 달력</code> 아래에 보스 관련 기능을 한곳에 모은 보스 메뉴가 추가되었습니다 (노트에 있던 보스 파티·보스 클리어 타임이 이곳으로 옮겨졌습니다)
+                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
+                    <li><strong class="text-white font-semibold">파티 일정표</strong>: 목요일~수요일 칸에 파티를 시각 순으로 보여 주고, 오늘·주간 초기화(목요일)와 토·일요일을 색으로 구분합니다. 어느 캐릭터 파티인지와 함께 도는 보스 수(<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">+n</code>)도 표시합니다</li>
+                    <li><strong class="text-white font-semibold">클리어 추이</strong>: 보스·난이도를 고르면 캐릭터별 클리어 시간 변화를 그래프로 보여 줍니다 (기록이 없는 보스·난이도는 고를 수 없습니다)</li>
+                    <li><strong class="text-white font-semibold">보스별 수익</strong>: 전체·최근 12주·최근 4주 동안 보스마다 번 결정 금액과 비율, 처치 수를 순위로 보여 줍니다</li>
+                    <li><strong class="text-white font-semibold">결정 가격표</strong>: 주간·월간·일간·시즌 보스의 결정 가격과 1~6인 파티의 1인 몫을 보스별로 확인할 수 있습니다</li>
+                  </ul>
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 파티 시작 알림</strong>: 파티 시작 5·10·30분 전에 앱 상단 알림을 띄우고, 앱을 보고 있지 않을 때는 Windows 알림도 보냅니다 (설정 &gt; 알림 &gt; 보스 파티에서 시점과 알림 방식 선택)
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 파티 여러 요일 지정</strong>: 한 파티에 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">목·일 21:00</code>처럼 여러 요일을 정할 수 있습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">대시보드 다음 파티 표시</strong>: 대시보드 프로필 줄에 가장 가까운 파티 일정(<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">오늘 21:00 · 익스 검마 고정팟</code>)을 보여 주고, 누르면 보스 파티로 이동합니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">새소식 페이지 추가</strong>: 사이드바 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">설정</code> 위에 메이플스토리 소식을 모아 보는 새소식 메뉴가 추가되었습니다
+                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
+                    <li><strong class="text-white font-semibold">이벤트</strong>: 진행 중·예정 이벤트를 공식 썸네일과 함께 남은 날(<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">D-14</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">오늘 종료</code>)·새 글(NEW) 표시로 보여 줍니다</li>
+                    <li><strong class="text-white font-semibold">공지·업데이트·캐시샵</strong>: 점검·패치 공지, 업데이트 패치노트, 판매 중인 캐시 아이템(판매 기간·상시 판매)을 탭별로 확인하고 눌러서 바로 열 수 있습니다</li>
+                  </ul>
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">썬데이 메이플 알림 배너</strong>: 썬데이 메이플 공지가 올라오면 이벤트가 끝날 때까지 앱 상단에 햇살 배너로 알려 줍니다 (설정 &gt; 알림 &gt; 썬데이 메이플에서 끌 수 있습니다)
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">노트 링크 모음</strong>: 자주 여는 사이트를 묶음별로 저장해 두고 눌러서 바로 열 수 있습니다. 사이트 아이콘을 자동으로 가져옵니다
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-sky-500/15 text-sky-300 border-sky-500/30">개선</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 모드 전환 안내</strong>: 캐릭터 보스 모드를 자동에서 수동으로 바꿀 때 바뀌는 내용을 먼저 보여 주고 확인을 받습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 파티 수정 편의</strong>: 파티의 수정 단추를 누르면 위쪽 입력 폼으로 바로 이동합니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">노트 페이지 정리</strong>: 노트는 메모·착용 장비 메모·스펙업 목표·링크 모음 4개 탭으로 정리되었습니다
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="page-card rounded-2xl p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2.5">
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.71.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.71.0</a>
+              <span class="text-xs text-slate-400">2026-11-24</span>
             </div>
             <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.71.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
           </div>
@@ -363,7 +414,7 @@ v2.72.0
           <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div class="flex items-center gap-2.5">
               <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.70.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.70.0</a>
-              <span class="text-xs text-slate-400">2026-11-22</span>
+              <span class="text-xs text-slate-400">2026-11-23</span>
             </div>
             <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.70.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
           </div>
@@ -406,52 +457,6 @@ v2.72.0
                 <li class="leading-relaxed"><strong class="text-white font-semibold">캐릭터 스펙 조회 시 화면 밀림 수정</strong>: 캐릭터 스펙을 조회하는 동안 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">저장된 정보</code> 문구가 잠시 나타났다 사라지며 캐릭터 카드가 아래로 밀렸다가 올라오던 현상을 고쳤습니다
                 </li>
                 <li class="leading-relaxed"><strong class="text-white font-semibold">사냥 기록 이중 스크롤바 수정</strong>: 사냥 기록 화면에서 페이지 바깥에 스크롤바가 하나 더 생기던 문제를 고쳤습니다
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-        <article class="page-card rounded-2xl p-6 space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
-            <div class="flex items-center gap-2.5">
-              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.69.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.69.0</a>
-              <span class="text-xs text-slate-400">2026-11-19</span>
-            </div>
-            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.69.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-emerald-500/15 text-emerald-300 border-emerald-500/30">신규 기능</span>
-              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
-                <li class="leading-relaxed"><strong class="text-white font-semibold">착용 장비 확인 새 탭</strong>: <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">장비 · 캐시·뷰티 · 안드로이드 · 펫</code> 탭으로 나눠 볼 수 있습니다
-                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
-                    <li>캐시·뷰티: 게임 코디 창처럼 캐시 장비를 칸에 끼워 보여 주고, 아래에 헤어·성형·피부를 보여 줍니다. 코디 프리셋 1~3·월드 공유 마스터라벨, 제로·엔젤릭버스터의 두 번째 외형도 볼 수 있습니다</li>
-                    <li>안드로이드: 안드로이드 창처럼 캐시 장비와 헤어·성형을 보여 주고, 잡화상점·이어센서 클립 여부를 표시합니다</li>
-                    <li>펫: 펫마다 한 줄로 펫 종류(루나 쁘띠·드림·스윗, 원더 블랙 색 뱃지)·남은 기간·펫 장비·자동 스킬을 보여 주고, 월드 공유 펫도 볼 수 있습니다</li>
-                  </ul>
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">착용 장비 칸 표시</strong>: 장비 칸에 스타포스 별 수 뱃지를 달고, 포켓 옆에 칭호 칸이 생겼습니다. 기간제 장비·칭호·캐시 아이템은 남은 기간(<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">D-30</code>·<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">만료</code>)과 옵션 남은 기간을 칸에 표시합니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">넥슨 API 오류 팝업</strong>: 넥슨 API 점검, API 키 오류, 호출 한도 초과, 서버 오류, 인터넷 연결 오류 등 원인별로 팝업이 뜨고 오류 코드를 함께 보여 줍니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">API 점검 중에도 마지막 정보 보기</strong>: 캐릭터 스펙·스케줄러 컨텐츠·착용 장비 확인에서 넥슨 API를 받지 못하면 마지막으로 받은 정보를 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">저장된 정보 · 시각</code>과 함께 보여 줍니다
-                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
-                    <li>스케줄러 컨텐츠는 그사이 일간·주간 초기화가 지났으면 그 숙제를 처음 상태로 보여 줍니다</li>
-                    <li>캐릭터 히스토리는 한 번 받은 지난 날짜를 다시 받지 않아 점검 중에도 그래프가 나오고 더 빨리 열립니다</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <div class="space-y-2">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-sky-500/15 text-sky-300 border-sky-500/30">개선</span>
-              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
-                <li class="leading-relaxed"><strong class="text-white font-semibold">강화한 링크 스킬 표시</strong>: 캐릭터 스펙의 링크 스킬에서 기본 최대 레벨을 넘어 강화한 링크(예: 3레벨)의 레벨을 금색으로 표시합니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">착용 장비 바로 보기</strong>: 착용 장비 확인 페이지를 열면 [장비 조회]를 누르지 않아도 장비가 바로 보입니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">스타포스 기댓값 장비 선택</strong>: 22성으로 고정된 제네시스 무기는 스타포스 기댓값 계산 장비창에서 고를 수 없게 했습니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">오류 문구 정리</strong>: 스케줄러 컨텐츠의 실패 사유에 내부 오류 문구가 함께 나오던 것을 정리했습니다
                 </li>
               </ul>
             </div>
@@ -675,8 +680,32 @@ v2.72.0
           ]
         },
         {
-          id: 'p07',
+          id: 'p14',
           num: '07',
+          group: '수익 관리',
+          title: '보스',
+          summary: '고정팟 일정·파티원·분배, 클리어 타임과 추이, 보스별 수익, 결정 가격표를 한곳에서 봅니다.',
+          points: [
+            '보스 파티 · 파티 일정표: 여러 요일·시각 정기 일정, 파티원·분배 비율(%), 목~수 주간 일정표(주간 초기화·주말 표시), 시작 전 알림',
+            '클리어 타임 · 클리어 추이: 캐릭터·보스별 클리어 시간 기록과 날짜별 그래프',
+            '보스별 수익 · 결정 가격표: 보스마다 번 결정 합계 순위(기간 선택), 인원별 1인 몫 가격표'
+          ],
+          tabsPreview: [
+            { name: '보스 파티', desc: '정기 일정 · 파티원 · 분배 비율(%) · 시작 알림' },
+            { name: '파티 일정표', desc: '목~수 주간 일정 · 주간 초기화 · 오늘 강조' },
+            { name: '보스 클리어 타임', desc: '보스별 최단 기록 · 직전 대비 변화량' },
+            { name: '클리어 추이', desc: '날짜별 클리어 시간 그래프' },
+            { name: '보스별 수익', desc: '보스별 결정 합계 순위 · 기간 선택' },
+            { name: '결정 가격표', desc: '주기별 결정 가격 · 보스 선택 · 인원별 1인 몫' }
+          ],
+          shots: [
+            { title: '보스 파티', src: './screenshots/p14-boss-party.png' },
+            { title: '보스 클리어 타임', src: './screenshots/p14-boss-time.png' }
+          ]
+        },
+        {
+          id: 'p07',
+          num: '08',
           group: '캐릭터 · 노트',
           title: '스케줄러 컨텐츠',
           summary: 'NEXON Open API 메이플 스케줄러를 연동해 일간·주간 컨텐츠 진행률을 추적합니다.',
@@ -693,35 +722,33 @@ v2.72.0
         },
         {
           id: 'p08',
-          num: '08',
+          num: '09',
           group: '캐릭터 · 노트',
           title: '노트',
-          summary: '공략 메모, 보스 클리어 타임, 장비 세팅 메모, 스펙업 목표, 보스 파티 5개 탭을 통합 관리합니다.',
+          summary: '공략 메모, 장비 세팅 메모, 스펙업 목표, 링크 모음 4개 탭을 통합 관리합니다.',
           points: [
             '자유 노트: 마크다운 작성/미리보기, 클릭 체크박스, 상단 고정, 검색 및 자동 저장',
-            '보스 클리어 타임: 캐릭터·보스별 클리어 시간(분·초), 데미지, 최단 기록 및 변화량 추적',
             '착용 장비 메모: 프리셋 1~3별 장비 스냅샷 저장 및 슬롯/칭호별 개별 메모',
-            '스펙업 목표 & 보스 파티: 목표 예산 합계 관리, 고정팟 구성(저장 파티원·분배 비율) 및 드롭 정산 연동'
+            '스펙업 목표: 품목 우선순위, 예상 비용, 목표 예산 합계 관리',
+            '링크 모음: 자주 여는 사이트를 묶음별로 저장하고 눌러서 바로 열기'
           ],
           tabsPreview: [
             { name: '자유 노트', desc: '마크다운 체크리스트 · 고정 · 검색' },
-            { name: '보스 클리어 타임', desc: '보스별 최단 기록 · 직전 대비 변화량' },
             { name: '착용 장비 메모', desc: '3프리셋 스냅샷 · 슬롯별 메모 모아보기' },
             { name: '스펙업 목표', desc: '품목 우선순위 · 예상 비용 · 남은 예산' },
-            { name: '보스 파티', desc: '파티원 30일 갱신 · 분배 비율(%) · 드롭 정산' }
+            { name: '링크 모음', desc: '묶음별 사이트 · 검색 · 바로 열기' }
           ],
           shots: [
             { title: '노트 목록', src: './screenshots/p13-notes-free.png' },
             { title: '마크다운 미리보기 · 체크박스', src: './screenshots/p13-notes-free-open.png' },
-            { title: '보스 클리어 타임', src: './screenshots/p13-notes-boss-time.png' },
             { title: '착용 장비 메모', src: './screenshots/p13-notes-equipment.png' },
             { title: '스펙업 목표', src: './screenshots/p13-notes-spec-goal.png' },
-            { title: '보스 파티', src: './screenshots/p13-notes-boss-party.png' }
+            { title: '링크 모음', src: './screenshots/p13-notes-links.png' }
           ]
         },
         {
           id: 'p09',
-          num: '09',
+          num: '10',
           group: '캐릭터 · 노트',
           title: '장비 확인',
           summary: '착용 장비·캐시/뷰티·안드로이드·펫 4개 탭과 인게임 스타일 상세 툴팁을 제공합니다.',
@@ -737,7 +764,7 @@ v2.72.0
         },
         {
           id: 'p10',
-          num: '10',
+          num: '11',
           group: '캐릭터 · 노트',
           title: '캐릭터 스펙',
           summary: '스탯·V매트릭스·HEXA·심볼·유니온·어빌리티·세트 효과·링크 스킬 8개 탭을 통합 조회합니다.',
@@ -759,7 +786,7 @@ v2.72.0
         },
         {
           id: 'p11',
-          num: '11',
+          num: '12',
           group: '캐릭터 · 노트',
           title: '캐릭터 히스토리',
           summary: '날짜별 전투력, 유니온 레벨, 아티팩트 성장 추이를 기간 필터로 비교합니다.',
@@ -776,7 +803,7 @@ v2.72.0
         },
         {
           id: 'p12',
-          num: '12',
+          num: '13',
           group: '캐릭터 · 노트',
           title: '강화 기록',
           summary: '스타포스·잠재능력·큐브 사용 이력을 불러와 확률 비교, 기댓값 계산, 가계부 등록까지 연동합니다.',
@@ -795,7 +822,7 @@ v2.72.0
         },
         {
           id: 'p13',
-          num: '13',
+          num: '14',
           group: '환경 설정',
           title: '설정',
           summary: 'API 키 보안, 백업/복원, 7종 테마·글꼴 커스터마이징, 초기화 알림과 트레이 상주 옵션을 관리합니다.',
