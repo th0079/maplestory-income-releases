@@ -9,13 +9,13 @@
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 <!-- LATEST_RELEASE_START -->
-## ✨ 최신 버전 안내 (v2.71.0) (2026-11-23)
+## ✨ 최신 버전 안내 (v2.72.0) (2026-11-24)
 
-- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.71.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.71.0/Maple-Income-Setup-2.71.0.exe)
-- **릴리스 노트 전문**: [v2.71.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.71.0)
+- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.72.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.72.0/Maple-Income-Setup-2.72.0.exe)
+- **릴리스 노트 전문**: [v2.72.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.72.0)
 - **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)
 
-### v2.71.0 주요 변경 사항
+### v2.72.0 주요 변경 사항
 
 - **[신규 기능] 노트 페이지 추가**: 사이드바에 공략·기록·파티 관리를 한곳에 모은 5개 탭의 노트 메뉴가 추가되었습니다
 - **[신규 기능] 드롭 아이템 · 보스 파티 연동 및 정산**: 드롭 등록·보관함 판매·사용 시 보스 파티를 연결해 정산까지 이어서 처리할 수 있습니다
