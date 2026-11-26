@@ -9,13 +9,13 @@
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 <!-- LATEST_RELEASE_START -->
-## ✨ 최신 버전 안내 (v2.72.1) (2026-11-26)
+## ✨ 최신 버전 안내 (v2.73.0) (2026-11-26)
 
-- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.72.1.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.72.1/Maple-Income-Setup-2.72.1.exe)
-- **릴리스 노트 전문**: [v2.72.1 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.72.1)
+- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.73.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.73.0/Maple-Income-Setup-2.73.0.exe)
+- **릴리스 노트 전문**: [v2.73.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.73.0)
 - **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)
 
-### v2.72.1 주요 변경 사항
+### v2.73.0 주요 변경 사항
 
 - **[개선] 일간·월간 초기화 알림**: 매일 자정(일간)과 매월 1일(월간) 초기화가 지나면 앱 상단에 알림을 띄웁니다. 일간 알림에서는 `[숙제 보기]`로 스케줄러 컨텐츠를 바로 열 수 있습니다
 - **[개선] 파티 일정표 등록 바로가기**: 보스 > 파티 일정표에 등록한 파티가 없으면 `[파티 등록하기]` 단추를 보여 줍니다
