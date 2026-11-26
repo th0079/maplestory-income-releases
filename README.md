@@ -9,13 +9,13 @@
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 <!-- LATEST_RELEASE_START -->
-## ✨ 최신 버전 안내 (v2.72.0) (2026-11-24)
+## ✨ 최신 버전 안내 (v2.72.1) (2026-11-26)
 
-- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.72.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.72.0/Maple-Income-Setup-2.72.0.exe)
-- **릴리스 노트 전문**: [v2.72.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.72.0)
+- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.72.1.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.72.1/Maple-Income-Setup-2.72.1.exe)
+- **릴리스 노트 전문**: [v2.72.1 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.72.1)
 - **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)
 
-### v2.72.0 주요 변경 사항
+### v2.72.1 주요 변경 사항
 
 - **[신규 기능] 보스 페이지 추가**: 사이드바 `활동 달력` 아래에 보스 관련 기능을 한곳에 모은 보스 메뉴가 추가되었습니다 (노트에 있던 보스 파티·보스 클리어 타임이 이곳으로 옮겨졌습니다)
 - **[신규 기능] 보스 파티 시작 알림**: 파티 시작 5·10·30분 전에 앱 상단 알림을 띄우고, 앱을 보고 있지 않을 때는 Windows 알림도 보냅니다 (설정 > 알림 > 보스 파티에서 시점과 알림 방식 선택)
