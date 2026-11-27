@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="maple-release-version" content="v2.74.0" />
-    <meta name="maple-release-notes-hash" content="ae3e3a9c0e4f95d1" />
+    <meta name="maple-release-notes-hash" content="a064cfd7bd6b0b34" />
     <title>Maple Income — 메이플스토리 수익 정산 &amp; 캐릭터 관리</title>
     <link rel="icon" type="image/png" href="./screenshots/app-logo.png" />
     <meta
@@ -315,9 +315,49 @@ v2.74.0
         <article class="page-card rounded-2xl p-6 space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
             <div class="flex items-center gap-2.5">
-              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.73.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.73.0</a>
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.74.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.74.0</a>
               <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/35">LATEST</span>
-              <span class="text-xs text-slate-400">2026-11-26</span>
+              <span class="text-xs text-slate-400">2026-11-28</span>
+            </div>
+            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.74.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-emerald-500/15 text-emerald-300 border-emerald-500/30">신규 기능</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">스크린샷으로 자동 입력</strong>: 게임 화면 스크린샷을 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">Ctrl+V</code>로 붙여 넣거나 파일로 골라 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">[적용]</code>을 누르면 입력란이 자동으로 채워집니다. 추가 설치 없이 Windows 10/11 기본 문자 인식을 사용합니다
+                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
+                    <li>드롭 아이템: 경매장 정산 스샷으로 아이템명·판매 금액·날짜를 채웁니다</li>
+                    <li>가계부: 경매장 정산·거래 기록 스샷으로 수입·지출 카테고리와 금액·날짜를 채웁니다</li>
+                    <li>사냥 기록: 보유 메소·6차 보유 재료 스샷으로 사냥 전·후 값을 채웁니다</li>
+                    <li>보스 클리어 타임: 전투 분석 스샷으로 클리어타임과 총합 데미지를 채웁니다</li>
+                    <li>솔 에르다 조각 시세: 시세 카드의 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">[시세 스샷]</code>으로 경매장 스샷에서 솔 에르다 조각 시세만 골라 갱신합니다</li>
+                  </ul>
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">마스터라벨 플러스 효과 표시</strong>: 캐릭터 스펙 &gt; 스탯 개요에 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">기타 능력치</code> 카드가 추가되어 마스터라벨 성장 플러스·전투 플러스로 오른 능력치를 확인할 수 있습니다
+                </li>
+                <li class="leading-relaxed"><strong class="text-white font-semibold">예비 특수 반지 표시</strong>: 리스트레인트 링·컨티뉴어스 링 4레벨 이상을 착용한 칸에 예비 특수 반지가 함께 보입니다
+                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
+                    <li>착용 장비 확인과 노트 &gt; 착용 장비 메모의 반지 칸 왼쪽 위에 예비 반지 아이콘이 붙고, 칸을 누르면 아이템 정보 아래에 예비 반지 이름·레벨이 나옵니다</li>
+                    <li>노트 &gt; 착용 장비 메모의 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">현재 장비 저장</code> 프리셋 요약에도 예비 반지가 함께 표시됩니다</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-2">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-amber-500/15 text-amber-300 border-amber-500/30">버그 수정</span>
+              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
+                <li class="leading-relaxed"><strong class="text-white font-semibold">장비 프리셋 요약의 시드링 표시</strong>: 착용 장비 메모의 프리셋 요약에서 예비 특수 반지가 착용 중인 시드링으로 잘못 표시될 수 있던 문제를 고쳤습니다
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="page-card rounded-2xl p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2.5">
+              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.73.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.73.0</a>
+              <span class="text-xs text-slate-400">2026-11-27</span>
             </div>
             <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.73.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
           </div>
@@ -379,57 +419,6 @@ v2.74.0
               <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-amber-500/15 text-amber-300 border-amber-500/30">버그 수정</span>
               <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
                 <li class="leading-relaxed"><strong class="text-white font-semibold">사냥 위젯 탭 글자 꺾임</strong>: 사냥 위젯을 접었을 때 창이 좁으면 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">타이머</code>·<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">알림</code> 탭 글자가 한 글자씩 세로로 꺾이던 문제를 고쳤습니다. 좁은 창에서는 아이콘과 상태(경과 시간·켜진 알람 수)만 보여 줍니다
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-        <article class="page-card rounded-2xl p-6 space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
-            <div class="flex items-center gap-2.5">
-              <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.72.0" target="_blank" rel="noopener noreferrer" class="text-lg font-extrabold text-white hover:text-sky-300 transition">v2.72.0</a>
-              <span class="text-xs text-slate-400">2026-11-24</span>
-            </div>
-            <a href="https://github.com/th0079/maplestory-income-releases/releases/tag/v2.72.0" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:underline">릴리스 보기 →</a>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-emerald-500/15 text-emerald-300 border-emerald-500/30">신규 기능</span>
-              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
-                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 페이지 추가</strong>: 사이드바 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">활동 달력</code> 아래에 보스 관련 기능을 한곳에 모은 보스 메뉴가 추가되었습니다 (노트에 있던 보스 파티·보스 클리어 타임이 이곳으로 옮겨졌습니다)
-                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
-                    <li><strong class="text-white font-semibold">파티 일정표</strong>: 목요일~수요일 칸에 파티를 시각 순으로 보여 주고, 오늘·주간 초기화(목요일)와 토·일요일을 색으로 구분합니다. 어느 캐릭터 파티인지와 함께 도는 보스 수(<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">+n</code>)도 표시합니다</li>
-                    <li><strong class="text-white font-semibold">클리어 추이</strong>: 보스·난이도를 고르면 캐릭터별 클리어 시간 변화를 그래프로 보여 줍니다 (기록이 없는 보스·난이도는 고를 수 없습니다)</li>
-                    <li><strong class="text-white font-semibold">보스별 수익</strong>: 전체·최근 12주·최근 4주 동안 보스마다 번 결정 금액과 비율, 처치 수를 순위로 보여 줍니다</li>
-                    <li><strong class="text-white font-semibold">결정 가격표</strong>: 주간·월간·일간·시즌 보스의 결정 가격과 1~6인 파티의 1인 몫을 보스별로 확인할 수 있습니다</li>
-                  </ul>
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 파티 시작 알림</strong>: 파티 시작 5·10·30분 전에 앱 상단 알림을 띄우고, 앱을 보고 있지 않을 때는 Windows 알림도 보냅니다 (설정 &gt; 알림 &gt; 보스 파티에서 시점과 알림 방식 선택)
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 파티 여러 요일 지정</strong>: 한 파티에 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">목·일 21:00</code>처럼 여러 요일을 정할 수 있습니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">대시보드 다음 파티 표시</strong>: 대시보드 프로필 줄에 가장 가까운 파티 일정(<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">오늘 21:00 · 익스 검마 고정팟</code>)을 보여 주고, 누르면 보스 파티로 이동합니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">새소식 페이지 추가</strong>: 사이드바 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">설정</code> 위에 메이플스토리 소식을 모아 보는 새소식 메뉴가 추가되었습니다
-                  <ul class="mt-1.5 ml-4 space-y-1 text-xs text-slate-400 list-disc">
-                    <li><strong class="text-white font-semibold">이벤트</strong>: 진행 중·예정 이벤트를 공식 썸네일과 함께 남은 날(<code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">D-14</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 text-xs font-mono">오늘 종료</code>)·새 글(NEW) 표시로 보여 줍니다</li>
-                    <li><strong class="text-white font-semibold">공지·업데이트·캐시샵</strong>: 점검·패치 공지, 업데이트 패치노트, 판매 중인 캐시 아이템(판매 기간·상시 판매)을 탭별로 확인하고 눌러서 바로 열 수 있습니다</li>
-                  </ul>
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">썬데이 메이플 알림 배너</strong>: 썬데이 메이플 공지가 올라오면 이벤트가 끝날 때까지 앱 상단에 햇살 배너로 알려 줍니다 (설정 &gt; 알림 &gt; 썬데이 메이플에서 끌 수 있습니다)
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">노트 링크 모음</strong>: 자주 여는 사이트를 묶음별로 저장해 두고 눌러서 바로 열 수 있습니다. 사이트 아이콘을 자동으로 가져옵니다
-                </li>
-              </ul>
-            </div>
-            <div class="space-y-2">
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold border bg-sky-500/15 text-sky-300 border-sky-500/30">개선</span>
-              <ul class="space-y-1.5 text-sm text-slate-300 pl-1">
-                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 모드 전환 안내</strong>: 캐릭터 보스 모드를 자동에서 수동으로 바꿀 때 바뀌는 내용을 먼저 보여 주고 확인을 받습니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">보스 파티 수정 편의</strong>: 파티의 수정 단추를 누르면 위쪽 입력 폼으로 바로 이동합니다
-                </li>
-                <li class="leading-relaxed"><strong class="text-white font-semibold">노트 페이지 정리</strong>: 노트는 메모·착용 장비 메모·스펙업 목표·링크 모음 4개 탭으로 정리되었습니다
                 </li>
               </ul>
             </div>
