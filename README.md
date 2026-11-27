@@ -4,23 +4,16 @@
     <source media="(prefers-color-scheme: light)" srcset="./docs/assets/readme-banner-light.png" />
     <img src="./docs/assets/readme-banner-dark.png" alt="Maple Income — 메이플스토리 수익 정산 · 보스 · 캐릭터 통합 관리" width="100%" />
   </picture>
-
-  <br />
-
-[![Latest Release](https://img.shields.io/github/v/release/th0079/maplestory-income-releases?label=latest&style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases/latest)
-[![GitHub Pages](https://img.shields.io/badge/guide-GitHub%20Pages-2563eb?style=for-the-badge&logo=github)](https://th0079.github.io/maplestory-income-releases/)
-
 </div>
-
-![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 <!-- LATEST_RELEASE_START -->
 ## 최신 버전 · `v2.73.0`
 
 [![Windows 설치 파일 다운로드](https://img.shields.io/badge/Windows%20%EC%84%A4%EC%B9%98%20%ED%8C%8C%EC%9D%BC%20%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-v2.73.0-0284c7?style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases/download/v2.73.0/Maple-Income-Setup-2.73.0.exe)
+[![웹 가이드](https://img.shields.io/badge/%EC%9B%B9%20%EA%B0%80%EC%9D%B4%EB%93%9C-GitHub%20Pages-2563eb?style=for-the-badge&logo=github)](https://th0079.github.io/maplestory-income-releases/)
 [![릴리스 노트](https://img.shields.io/badge/%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8-GitHub-334155?style=for-the-badge&logo=github)](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.73.0)
 
-`Maple-Income-Setup-2.73.0.exe` · `2026-11-26` 배포
+`Maple-Income-Setup-2.73.0.exe`
 
 <details>
 <summary><strong>v2.73.0 주요 변경 사항 (7건)</strong></summary>
@@ -40,6 +33,14 @@
 
 </details>
 <!-- LATEST_RELEASE_END -->
+
+---
+
+## 화면 미리보기
+
+<div align="center">
+  <img src="./docs/screenshots/p01-dashboard-main.png" alt="Maple Income 대시보드" width="86%" />
+</div>
 
 ---
 

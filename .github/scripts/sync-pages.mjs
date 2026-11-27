@@ -402,16 +402,18 @@ async function main() {
       const sections = latestItem?.sections ?? []
       const totalCount = sections.reduce((sum, section) => sum + section.items.length, 0)
       const downloadBadge = `https://img.shields.io/badge/${encodeURIComponent('Windows 설치 파일 다운로드')}-${encodeURIComponent(tag.replace(/-/g, '--'))}-0284c7?style=for-the-badge`
+      const guideBadge = `https://img.shields.io/badge/${encodeURIComponent('웹 가이드')}-GitHub%20Pages-2563eb?style=for-the-badge&logo=github`
       const releaseBadge = `https://img.shields.io/badge/${encodeURIComponent('릴리스 노트')}-GitHub-334155?style=for-the-badge&logo=github`
+      const guideUrl = 'https://th0079.github.io/maplestory-income-releases/'
       const releaseUrl = `https://github.com/${repoSlug}/releases/tag/${encodeURIComponent(tag)}`
-      const dateText = releaseDate ? ` · \`${releaseDate}\` 배포` : ''
       const readmeLines = [
         `## 최신 버전 · \`${tag}\``,
         '',
         `[![Windows 설치 파일 다운로드](${downloadBadge})](${exeUrl})`,
+        `[![웹 가이드](${guideBadge})](${guideUrl})`,
         `[![릴리스 노트](${releaseBadge})](${releaseUrl})`,
         '',
-        `\`Maple-Income-Setup-${version}.exe\`${dateText}`
+        `\`Maple-Income-Setup-${version}.exe\``
       ]
       if (totalCount > 0) {
         readmeLines.push('', '<details>', `<summary><strong>${tag} 주요 변경 사항 (${totalCount}건)</strong></summary>`)
