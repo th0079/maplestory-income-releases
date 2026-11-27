@@ -399,26 +399,36 @@ async function main() {
     const prevReadme = readFileSync(readmePath, 'utf8').replace(/\r\n/g, '\n')
     if (prevReadme.includes('<!-- LATEST_RELEASE_START -->')) {
       const latestItem = notesReleases[0]
-      const bullets = []
-      if (latestItem) {
-        for (const section of latestItem.sections) {
+      const sections = latestItem?.sections ?? []
+      const totalCount = sections.reduce((sum, section) => sum + section.items.length, 0)
+      const downloadBadge = `https://img.shields.io/badge/${encodeURIComponent('Windows 설치 파일 다운로드')}-${encodeURIComponent(tag.replace(/-/g, '--'))}-0284c7?style=for-the-badge`
+      const releaseBadge = `https://img.shields.io/badge/${encodeURIComponent('릴리스 노트')}-GitHub-334155?style=for-the-badge&logo=github`
+      const releaseUrl = `https://github.com/${repoSlug}/releases/tag/${encodeURIComponent(tag)}`
+      const dateText = releaseDate ? ` · \`${releaseDate}\` 배포` : ''
+      const readmeLines = [
+        `## 최신 버전 · \`${tag}\``,
+        '',
+        `[![Windows 설치 파일 다운로드](${downloadBadge})](${exeUrl})`,
+        `[![릴리스 노트](${releaseBadge})](${releaseUrl})`,
+        '',
+        `\`Maple-Income-Setup-${version}.exe\`${dateText}`
+      ]
+      if (totalCount > 0) {
+        readmeLines.push('', '<details>', `<summary><strong>${tag} 주요 변경 사항 (${totalCount}건)</strong></summary>`)
+        for (const section of sections) {
+          if (section.items.length === 0) continue
+          readmeLines.push('', `#### ${section.heading}`, '')
           for (const item of section.items) {
-            const label = item.title
-              ? `**[${section.heading}] ${item.title}**${item.description ? `: ${item.description}` : ''}`
-              : `**[${section.heading}]** ${item.description || item.raw}`
-            bullets.push(`- ${label}`)
+            readmeLines.push(
+              item.title
+                ? `- **${item.title}**${item.description ? ` — ${item.description}` : ''}`
+                : `- ${item.description || item.raw}`
+            )
           }
         }
+        readmeLines.push('', '</details>')
       }
-      const dateSuffix = releaseDate ? ` (${releaseDate})` : ''
-      const readmeBlock = [
-        `## ✨ 최신 버전 안내 (${tag})${dateSuffix}`,
-        '',
-        `- **설치 파일 직접 다운로드**: [Maple-Income-Setup-${version}.exe](${exeUrl})`,
-        `- **릴리스 노트 전문**: [${tag} Release](https://github.com/${repoSlug}/releases/tag/${encodeURIComponent(tag)})`,
-        `- **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)`,
-        ...(bullets.length > 0 ? ['', `### ${tag} 주요 변경 사항`, '', ...bullets] : [])
-      ].join('\n')
+      const readmeBlock = readmeLines.join('\n')
       nextReadme = replaceMarkerBlock(
         prevReadme,
         '<!-- LATEST_RELEASE_START -->',

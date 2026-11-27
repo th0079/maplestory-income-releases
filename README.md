@@ -16,21 +16,30 @@
 ![Maple Income 대시보드](./docs/screenshots/p01-dashboard-main.png)
 
 <!-- LATEST_RELEASE_START -->
-## ✨ 최신 버전 안내 (v2.73.0) (2026-11-26)
+## 최신 버전 · `v2.73.0`
 
-- **설치 파일 직접 다운로드**: [Maple-Income-Setup-2.73.0.exe](https://github.com/th0079/maplestory-income-releases/releases/download/v2.73.0/Maple-Income-Setup-2.73.0.exe)
-- **릴리스 노트 전문**: [v2.73.0 Release](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.73.0)
-- **기능 안내 페이지**: [GitHub Pages 가이드](https://th0079.github.io/maplestory-income-releases/#changelog)
+[![Windows 설치 파일 다운로드](https://img.shields.io/badge/Windows%20%EC%84%A4%EC%B9%98%20%ED%8C%8C%EC%9D%BC%20%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-v2.73.0-0284c7?style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases/download/v2.73.0/Maple-Income-Setup-2.73.0.exe)
+[![릴리스 노트](https://img.shields.io/badge/%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8-GitHub-334155?style=for-the-badge&logo=github)](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.73.0)
 
-### v2.73.0 주요 변경 사항
+`Maple-Income-Setup-2.73.0.exe` · `2026-11-26` 배포
 
-- **[신규 기능] 대시보드 스펙업 목표 등록 및 순서대로 채우기**: 노트 > 스펙업 목표의 항목을 대시보드 목표로 등록해 목표 자산 카드 옆에서 화살표로 넘겨 보며 진행도를 확인할 수 있습니다
-- **[신규 기능] 보스 요구 포스 탭 추가**: 보스 페이지에 `요구 포스` 탭이 추가되었습니다
-- **[신규 기능] 설정 > 사용설명서 탭 추가**: 처음 시작하기 단계, 화면별 기능 안내, 검색 및 `[이 화면 열기]` 바로가기를 제공하는 앱 내 사용설명서가 추가되었습니다
-- **[신규 기능] 착용 장비 캐시 아이템 프리즘 표시**: 착용 장비 확인 > 캐시·뷰티 탭과 코디 프리셋에서 컬러링 프리즘·이펙트 프리즘 적용 정보를 함께 표시합니다
-- **[개선] 보스 썸네일 고화질 교체 및 구도 보정**: 보스 아이콘을 인게임 보스 이동 창 기준 고화질 그림으로 교체하고 윌·더스크·칼로스·벨룸·검은 마법사 등의 얼굴 위치와 구도를 다듬었습니다
-- **[개선] 보스 카드 펼침 반응 개선**: 보스 처치 도장 효과를 가볍게 조정해 보스 카드를 처음 펼칠 때의 버벅임을 줄였습니다
-- **[개선] 보스 페이지 탭 줄 유지**: 보스 페이지 탭이 많아져도 한 줄로 깔끔하게 유지되도록 조정했습니다
+<details>
+<summary><strong>v2.73.0 주요 변경 사항 (7건)</strong></summary>
+
+#### 신규 기능
+
+- **대시보드 스펙업 목표 등록 및 순서대로 채우기** — 노트 > 스펙업 목표의 항목을 대시보드 목표로 등록해 목표 자산 카드 옆에서 화살표로 넘겨 보며 진행도를 확인할 수 있습니다
+- **보스 요구 포스 탭 추가** — 보스 페이지에 `요구 포스` 탭이 추가되었습니다
+- **설정 > 사용설명서 탭 추가** — 처음 시작하기 단계, 화면별 기능 안내, 검색 및 `[이 화면 열기]` 바로가기를 제공하는 앱 내 사용설명서가 추가되었습니다
+- **착용 장비 캐시 아이템 프리즘 표시** — 착용 장비 확인 > 캐시·뷰티 탭과 코디 프리셋에서 컬러링 프리즘·이펙트 프리즘 적용 정보를 함께 표시합니다
+
+#### 개선
+
+- **보스 썸네일 고화질 교체 및 구도 보정** — 보스 아이콘을 인게임 보스 이동 창 기준 고화질 그림으로 교체하고 윌·더스크·칼로스·벨룸·검은 마법사 등의 얼굴 위치와 구도를 다듬었습니다
+- **보스 카드 펼침 반응 개선** — 보스 처치 도장 효과를 가볍게 조정해 보스 카드를 처음 펼칠 때의 버벅임을 줄였습니다
+- **보스 페이지 탭 줄 유지** — 보스 페이지 탭이 많아져도 한 줄로 깔끔하게 유지되도록 조정했습니다
+
+</details>
 <!-- LATEST_RELEASE_END -->
 
 ---
