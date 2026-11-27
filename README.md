@@ -1,10 +1,11 @@
 <div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/readme-banner-dark.png" />
+    <source media="(prefers-color-scheme: light)" srcset="./docs/assets/readme-banner-light.png" />
+    <img src="./docs/assets/readme-banner-dark.png" alt="Maple Income — 메이플스토리 수익 정산 · 보스 · 캐릭터 통합 관리" width="100%" />
+  </picture>
 
-<img src="./docs/screenshots/app-logo.png" width="56" height="56" alt="Maple Income" />
-
-# Maple Income
-
-메이플스토리 수익 정산 · 보스 · 캐릭터 통합 관리 데스크톱 앱 배포 저장소
+  <br />
 
 [![Latest Release](https://img.shields.io/github/v/release/th0079/maplestory-income-releases?label=latest&style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/th0079/maplestory-income-releases/total?style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases)
