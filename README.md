@@ -8,7 +8,6 @@
   <br />
 
 [![Latest Release](https://img.shields.io/github/v/release/th0079/maplestory-income-releases?label=latest&style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/th0079/maplestory-income-releases/total?style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases)
 [![GitHub Pages](https://img.shields.io/badge/guide-GitHub%20Pages-2563eb?style=for-the-badge&logo=github)](https://th0079.github.io/maplestory-income-releases/)
 
 </div>
