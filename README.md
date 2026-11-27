@@ -7,14 +7,14 @@
 </div>
 
 <!-- LATEST_RELEASE_START -->
-## 최신 버전 · `v2.73.0`
+## 최신 버전 · `v2.74.0`
 
-[![Windows 설치 파일 다운로드](https://img.shields.io/badge/Windows%20%EC%84%A4%EC%B9%98%20%ED%8C%8C%EC%9D%BC%20%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-v2.73.0-0284c7?style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases/download/v2.73.0/Maple-Income-Setup-2.73.0.exe)
+[![Windows 설치 파일 다운로드](https://img.shields.io/badge/Windows%20%EC%84%A4%EC%B9%98%20%ED%8C%8C%EC%9D%BC%20%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-v2.74.0-0284c7?style=for-the-badge)](https://github.com/th0079/maplestory-income-releases/releases/download/v2.74.0/Maple-Income-Setup-2.74.0.exe)
 [![웹 가이드](https://img.shields.io/badge/%EC%9B%B9%20%EA%B0%80%EC%9D%B4%EB%93%9C-GitHub%20Pages-2563eb?style=for-the-badge&logo=github)](https://th0079.github.io/maplestory-income-releases/)
-[![릴리스 노트](https://img.shields.io/badge/%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8-GitHub-334155?style=for-the-badge&logo=github)](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.73.0)
+[![릴리스 노트](https://img.shields.io/badge/%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8-GitHub-334155?style=for-the-badge&logo=github)](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.74.0)
 
 <details>
-<summary><strong>v2.73.0 주요 변경 사항 (7건)</strong></summary>
+<summary><strong>v2.74.0 주요 변경 사항 (7건)</strong></summary>
 
 #### 신규 기능
 
