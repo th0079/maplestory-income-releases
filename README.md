@@ -13,8 +13,6 @@
 [![웹 가이드](https://img.shields.io/badge/%EC%9B%B9%20%EA%B0%80%EC%9D%B4%EB%93%9C-GitHub%20Pages-2563eb?style=for-the-badge&logo=github)](https://th0079.github.io/maplestory-income-releases/)
 [![릴리스 노트](https://img.shields.io/badge/%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8-GitHub-334155?style=for-the-badge&logo=github)](https://github.com/th0079/maplestory-income-releases/releases/tag/v2.73.0)
 
-`Maple-Income-Setup-2.73.0.exe`
-
 <details>
 <summary><strong>v2.73.0 주요 변경 사항 (7건)</strong></summary>
 

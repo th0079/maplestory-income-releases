@@ -411,9 +411,7 @@ async function main() {
         '',
         `[![Windows 설치 파일 다운로드](${downloadBadge})](${exeUrl})`,
         `[![웹 가이드](${guideBadge})](${guideUrl})`,
-        `[![릴리스 노트](${releaseBadge})](${releaseUrl})`,
-        '',
-        `\`Maple-Income-Setup-${version}.exe\``
+        `[![릴리스 노트](${releaseBadge})](${releaseUrl})`
       ]
       if (totalCount > 0) {
         readmeLines.push('', '<details>', `<summary><strong>${tag} 주요 변경 사항 (${totalCount}건)</strong></summary>`)
